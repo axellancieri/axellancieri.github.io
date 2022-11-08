@@ -1,9 +1,12 @@
+svg {
+    height: auto;
+}
 .leafs{
     position: relative;
     animation: falling 5s linear infinite;
     path {
-        transform-origin: 11.5px 11.5px;
-        transform-box: fill-box;
+    transform-origin: 11.5px 11.5px;
+    transform-box: fill-box;
         animation: motion 5s linear infinite;
     }
     rect {
@@ -13,31 +16,32 @@
 
 @keyframes motion {
     0% {
-        opacity: 0;
-        // top: -10%;
-        transform: rotate(0deg) scale(1) translate(-20px); 
+        transform: rotate(0deg) scale(1) translate(-10px); 
     }
-    10% {
-        opacity: 1;
+    30% {
     }
-    20% {
-        transform: rotate(60deg) scale(1.5) translate(20px); 
+    40% {
+        transform: rotate(30deg) scale(1.5) translate(10px); 
+    }
+    90% {
     }
     100% {
-        // top: 110%;
+        transform: rotate(80deg) scale(1) translate(-10px);
     }
 }
 @keyframes falling {
     0% {
-        top: -10%;
+        top: -10vh;
+        opacity: 0;
     }
-    // 10% {
-    
-    // }
-    // 20% {
-    
-    // }
+    30% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
     100% {
-        top: 110%;
+        opacity:0;
+        top: 10vh;
     }
 }
