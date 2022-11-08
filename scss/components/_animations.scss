@@ -1,0 +1,43 @@
+.leafs{
+    position: relative;
+    animation: falling 5s linear infinite;
+    path {
+        transform-origin: 11.5px 11.5px;
+        transform-box: fill-box;
+        animation: motion 5s linear infinite;
+    }
+    rect {
+        opacity: 0;
+    }
+}
+
+@keyframes motion {
+    0% {
+        opacity: 0;
+        // top: -10%;
+        transform: rotate(0deg) scale(1) translate(-20px); 
+    }
+    10% {
+        opacity: 1;
+    }
+    20% {
+        transform: rotate(60deg) scale(1.5) translate(20px); 
+    }
+    100% {
+        // top: 110%;
+    }
+}
+@keyframes falling {
+    0% {
+        top: -10%;
+    }
+    // 10% {
+    
+    // }
+    // 20% {
+    
+    // }
+    100% {
+        top: 110%;
+    }
+}

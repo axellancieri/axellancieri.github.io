@@ -1,6 +1,7 @@
 
-@use 'custom';
+@import 'custom';
 
 //Import components
 
-@use 'components/carrusel';
+@import 'components/carrusel';
+@import 'components/animations';
