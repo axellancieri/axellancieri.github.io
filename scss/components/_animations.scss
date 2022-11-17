@@ -1,37 +1,53 @@
-svg {
-    height: auto;
-}
-.leafs{
+.tree {
+    width: 100%;
+    margin: 0 auto 0 0;
+    display: block;
     position: relative;
-    animation: falling 5s linear infinite;
-    path {
-    transform-origin: 11.5px 11.5px;
-    transform-box: fill-box;
-        animation: motion 5s linear infinite;
-    }
-    rect {
+    z-index: 3000;
+
+}
+
+.leafs {
+    position: relative;
+    bottom: 65vw;
+    g {
+        z-index: 0;
+        position: relative;
+        animation: falling 10s ease-out infinite;
         opacity: 0;
+        path {
+        transform-origin: 11.5px 11.5px;
+        transform-box: fill-box;
+            animation: motion 8s linear infinite;
+        }
+        rect {
+            opacity: 0;
+        }
     }
+}
+
+#group-2 {
+    animation: falling 8s ease-out 2s infinite;
 }
 
 @keyframes motion {
     0% {
-        transform: rotate(0deg) scale(1) translate(-10px); 
+        transform: rotate(0deg) scale(1);
     }
     30% {
     }
     40% {
-        transform: rotate(30deg) scale(1.5) translate(10px); 
+        transform: rotate(10deg) scale(1.5); 
     }
     90% {
     }
     100% {
-        transform: rotate(80deg) scale(1) translate(-10px);
+        transform: rotate(0deg) scale(1);
     }
 }
 @keyframes falling {
     0% {
-        top: -10vh;
+        transform: translate(10vw, -20vw);
         opacity: 0;
     }
     30% {
@@ -41,7 +57,7 @@ svg {
         opacity: 1;
     }
     100% {
+        transform: translate(10vw, 50vw);
         opacity:0;
-        top: 10vh;
     }
 }
