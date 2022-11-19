@@ -1,24 +1,71 @@
+$animation-delays: (
+    "4" : 3s,
+    "5" : 4s,
+    "6" : 5s,
+    "7" : 6s,
+    "8" : 7s,
+    "9" : 8s,
+    "10" : 9s,
+    "11" : 10s,
+    "12" : 11s,
+    "13" : 12s,
+    "14" : 13s,
+    "15" : 14s,
+    "16" : 15s,
+    "17" : 16s,
+    "18" : 17s);
+
 .tree {
     width: 100%;
     margin: 0 auto 0 0;
     display: block;
     position: relative;
-    z-index: 3000;
-
+    z-index: 3000;    
+    .bushes {
+        @each $path, $delay in $animation-delays {
+            path:nth-child(#{$path}) {
+                animation-delay: $delay;
+            } 
+        }
+        path{
+            transform-origin: 30px 25px;
+            transform-box: fill-box;
+            animation: tree-motion 4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+        }
+    }
+    // .squirrel {
+        // margin: 0 auto 0 0;
+        // display: block;
+        // position: relative;
+        // z-index: 2500;
+        // left: 0;
+        // right: 0;
+        // top: 0;
+        // bottom: 0;
+        // .right {
+        //     height: 50px;
+        //     width: 50px;
+        //     x: 50px;
+        //     y: 120px;
+        // }
+        // .left {
+    
+        // }
+    // }
 }
 
 .leafs {
     position: relative;
-    bottom: 65vw;
+    bottom: 96vw;
     g {
         z-index: 0;
         position: relative;
-        animation: falling 10s ease-out infinite;
+        animation: falling 4s linear 5s infinite;
         opacity: 0;
         path {
         transform-origin: 11.5px 11.5px;
         transform-box: fill-box;
-            animation: motion 8s linear infinite;
+            animation: leaf-motion 4s linear 5s infinite;
         }
         rect {
             opacity: 0;
@@ -27,37 +74,73 @@
 }
 
 #group-2 {
-    animation: falling 8s ease-out 2s infinite;
+    animation: falling 4s linear 7s infinite;
 }
 
-@keyframes motion {
-    0% {
-        transform: rotate(0deg) scale(1);
+@keyframes tree-motion {
+    0%,
+    25% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
     }
-    30% {
+    2.5% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    5%,
+    10%,
+    15% {
+        -webkit-transform: rotate(-4deg);
+                transform: rotate(-4deg);
+    }
+    7.5%,
+    12.5%,
+    17.5% {
+        -webkit-transform: rotate(4deg);
+                transform: rotate(4deg);
+    }
+    20% {
+        -webkit-transform: rotate(-2deg);
+                transform: rotate(-2deg);
+    }
+    22.5% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    100% {
+    -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+    }
+}
+
+@keyframes leaf-motion {
+    20% {
+        transform: rotate(0deg) scale(1);
     }
     40% {
         transform: rotate(10deg) scale(1.5); 
     }
-    90% {
-    }
-    100% {
+    80% {
         transform: rotate(0deg) scale(1);
     }
 }
 @keyframes falling {
-    0% {
+    10% {
         transform: translate(10vw, -20vw);
         opacity: 0;
     }
-    30% {
+    40% {
+        opacity: 0.5;
+    }
+    60% {
         opacity: 1;
     }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translate(10vw, 50vw);
+    80% {
+        transform: translate(10vw, 30vw);
         opacity:0;
     }
 }
