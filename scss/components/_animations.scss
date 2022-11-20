@@ -21,7 +21,7 @@ $animation-delays: (
     display: block;
     position: relative;
     z-index: 3000;    
-    .bushes {
+    .bushes {     
         @each $path, $delay in $animation-delays {
             path:nth-child(#{$path}) {
                 animation-delay: $delay;
@@ -30,37 +30,36 @@ $animation-delays: (
         path{
             transform-origin: 30px 25px;
             transform-box: fill-box;
-            animation: tree-motion 4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+            animation: tree-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
         }
     }
-    // .squirrel {
-        // margin: 0 auto 0 0;
-        // display: block;
-        // position: relative;
-        // z-index: 2500;
-        // left: 0;
-        // right: 0;
-        // top: 0;
-        // bottom: 0;
-        // .right {
-        //     height: 50px;
-        //     width: 50px;
-        //     x: 50px;
-        //     y: 120px;
-        // }
-        // .left {
-    
-        // }
-    // }
 }
 
+.squirrel-right {   
+    transform-origin: 2em 2em;
+    transform-box: fill-box;
+    // animation: squirrel-show 1.5s linear 1;
+    // animation: squirrel-goes-up 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-name: squirrel-show, squirrel-goes-up;
+    animation-duration: 1.5s, 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation-delay: 0s, 1.5s;
+    animation-fill-mode: forwards;   
+    // &-eyes {
+    //     fill: inline !important;
+    //     transform-origin: 0.7px 0.7px;
+    //     transform-box: fill-box;
+    //     animation: squirrel-eye-blink .5s both infinite;
+    // }
+}
 .leafs {
     position: relative;
     bottom: 96vw;
     g {
         z-index: 0;
         position: relative;
-        animation: falling 4s linear 5s infinite;
+        animation: leaf-falling 4s linear 10s infinite;
         opacity: 0;
         path {
         transform-origin: 11.5px 11.5px;
@@ -77,35 +76,98 @@ $animation-delays: (
     animation: falling 4s linear 7s infinite;
 }
 
+@keyframes squirrel-goes-up {
+    0% {
+      transform: translate(3em, 8em) scale(.8);
+      opacity: 1;
+    }
+    70% {
+      opacity: .4;
+    }
+    100% {
+      transform: translate(3.5em, 6.3em) scale(.8) rotate(10deg);
+      opacity: 0;
+    }
+  }
+
+@keyframes squirrel-show {
+    0% {
+                transform: translate(3em, 6.3em) scale(.8);
+                animation-timing-function: ease-in;
+                opacity: 0;
+    }
+    38% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    55% {
+                transform: translate(3em, 7.6em) scale(.8);
+                animation-timing-function: ease-in;
+    }
+    72% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+    }
+    81% {
+                transform: translate(3em, 7.7em) scale(.8);
+                animation-timing-function: ease-in;
+    }
+    90% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+    }
+    95% {
+                transform: translate(3em, 7.9em) scale(.8);
+                animation-timing-function: ease-in;
+    }
+    100% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+    }      
+}
+
+@keyframes squirrel-eye-blink {
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+      opacity: 0;
+    }
+}
+
 @keyframes tree-motion {
     0%,
-    25% {
+    10% {
         -webkit-transform: rotate(0deg);
                 transform: rotate(0deg);
         -webkit-transform-origin: 50% 100%;
                 transform-origin: 50% 100%;
     }
-    2.5% {
+    1% {
         -webkit-transform: rotate(2deg);
                 transform: rotate(2deg);
     }
-    5%,
-    10%,
-    15% {
+    2%,
+    4%,
+    6% {
         -webkit-transform: rotate(-4deg);
                 transform: rotate(-4deg);
     }
-    7.5%,
-    12.5%,
-    17.5% {
+    3%,
+    5%,
+    7% {
         -webkit-transform: rotate(4deg);
                 transform: rotate(4deg);
     }
-    20% {
+    8% {
         -webkit-transform: rotate(-2deg);
                 transform: rotate(-2deg);
     }
-    22.5% {
+    9% {
         -webkit-transform: rotate(2deg);
                 transform: rotate(2deg);
     }
@@ -128,7 +190,7 @@ $animation-delays: (
         transform: rotate(0deg) scale(1);
     }
 }
-@keyframes falling {
+@keyframes leaf-falling {
     10% {
         transform: translate(10vw, -20vw);
         opacity: 0;
