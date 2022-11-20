@@ -14,7 +14,7 @@ $animation-delays: (
     "16" : 15s,
     "17" : 16s,
     "18" : 17s);
-
+    
 .tree {
     width: 100%;
     margin: 0 auto 0 0;
@@ -38,20 +38,27 @@ $animation-delays: (
 .squirrel-right {   
     transform-origin: 2em 2em;
     transform-box: fill-box;
-    // animation: squirrel-show 1.5s linear 1;
-    // animation: squirrel-goes-up 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation-name: squirrel-show-right, squirrel-right-goes-up;
+    animation-duration: 1.5s, 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation-delay: 1s, 2.5s;
+    animation-fill-mode: forwards;   
+    // &-eyes {
+    //     transform-origin: 0.7px 0.7px;
+    //     transform-box: fill-box;
+    //     animation: squirrel-eye-blink .5s both 1;
+    // }
+}
+.squirrel-left {
+    transform-origin: 2em 2em;
+    transform-box: fill-box;
     animation-name: squirrel-show, squirrel-goes-up;
     animation-duration: 1.5s, 0.5s;
     animation-iteration-count: 1;
     animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 0s, 1.5s;
-    animation-fill-mode: forwards;   
-    // &-eyes {
-    //     fill: inline !important;
-    //     transform-origin: 0.7px 0.7px;
-    //     transform-box: fill-box;
-    //     animation: squirrel-eye-blink .5s both infinite;
-    // }
+    animation-delay: 1s, 2.5s;
+    animation-fill-mode: forwards; 
 }
 .leafs {
     position: relative;
@@ -76,7 +83,70 @@ $animation-delays: (
     animation: falling 4s linear 7s infinite;
 }
 
-@keyframes squirrel-goes-up {
+// @keyframes squirrel-eye-blink {
+//     0%,
+//     50%,
+//     100% {
+//         transform: translate(3em, 6.3em) scale(.8);
+//     }
+//     25%,
+//     75% {
+//         transform: translate(3.1em, 6.3em) scale(.8);
+//     }
+// }
+
+@keyframes squirrel-left-goes-up {
+    0% {
+      transform: translate(6em, 8.2em) scale(0.8);
+      opacity: 1;
+    }
+    70% {
+      opacity: .4;
+    }
+    100% {
+      transform: translate(3.5em, 6.3em) scale(.8) rotate(10deg);
+      opacity: 0;
+    }
+  }
+
+@keyframes squirrel-show-left {
+    0% {
+        transform: translate(6em, 8.2em) scale(0.8);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    38% {
+        transform: translate(3em, 8em) scale(.8);
+        animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    55% {
+        transform: translate(3em, 7.6em) scale(.8);
+        animation-timing-function: ease-in;
+    }
+    72% {
+        transform: translate(3em, 8em) scale(.8);
+        animation-timing-function: ease-out;
+    }
+    81% {
+        transform: translate(3em, 7.7em) scale(.8);
+        animation-timing-function: ease-in;
+    }
+    90% {
+        transform: translate(3em, 8em) scale(.8);
+        animation-timing-function: ease-out;
+    }
+    95% {
+        transform: translate(3em, 7.9em) scale(.8);
+        animation-timing-function: ease-in;
+    }
+    100% {
+        transform: translate(3em, 8em) scale(.8);
+        animation-timing-function: ease-out;
+    }      
+}
+
+@keyframes squirrel-right-goes-up {
     0% {
       transform: translate(3em, 8em) scale(.8);
       opacity: 1;
@@ -90,7 +160,7 @@ $animation-delays: (
     }
   }
 
-@keyframes squirrel-show {
+@keyframes squirrel-show-right {
     0% {
                 transform: translate(3em, 6.3em) scale(.8);
                 animation-timing-function: ease-in;
@@ -125,18 +195,6 @@ $animation-delays: (
                 transform: translate(3em, 8em) scale(.8);
                 animation-timing-function: ease-out;
     }      
-}
-
-@keyframes squirrel-eye-blink {
-    0%,
-    50%,
-    100% {
-        opacity: 1;
-    }
-    25%,
-    75% {
-      opacity: 0;
-    }
 }
 
 @keyframes tree-motion {
