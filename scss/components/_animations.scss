@@ -42,18 +42,18 @@ $animation-delays: (
     animation-duration: 20s;  // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
     animation-iteration-count: infinite;
     animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    // animation-delay: 5s, 7.5s;
+    animation-delay: 5s;
     animation-fill-mode: forwards; 
 }
 
 .squirrel-left {   
     transform-origin: 2em 2em;
     transform-box: fill-box;
-    // animation-name: left-squirrel-show, left-squirrel-goes-up;
-    animation-duration: 1.5s, 0.5s; // there's 1 second delay between right squirrel hiding and left squirrel making its first apparition. Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
-    animation-iteration-count: 1;
+    animation-name: left-squirrel-show, left-squirrel-goes-up;
+    animation-duration: 20s; //Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
+    animation-iteration-count: infinite;
     animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 0s, 2.5s;//8.5s, 11s;
+    animation-delay: 8s;
     animation-fill-mode: forwards; 
 }
 
@@ -167,13 +167,14 @@ $animation-delays: (
 }
 
 @keyframes left-squirrel-goes-up {
-    0% {
+    17.5% {
       transform: translate(3em, 8em) scale(.8);
       opacity: 1;
     }
-    70% {
+    19.25% {
       opacity: .4;
     }
+    20%,
     100% {
       transform: translate(3.5em, 6.3em) scale(.7) rotate(10deg);
       opacity: 0;
@@ -181,39 +182,38 @@ $animation-delays: (
   }
 
 @keyframes left-squirrel-show {
-    /* starting 5% past where right squirrel left (no pun intended) that equals 1s. (bc both animations are 
-    within 20s period I can follow the % keyframe of the animation 'right-squirrel-goes-up'*/
     0% {
                 transform: translate(3em, 6.3em) scale(.8);
                 animation-timing-function: ease-in;
                 opacity: 0;
     }
-    38% {
+    2.85% {
                 transform: translate(3em, 8em) scale(.8);
                 animation-timing-function: ease-out;
         opacity: 1;
     }
-    55% {
+    4.12% {
                 transform: translate(3em, 7.6em) scale(.8);
                 animation-timing-function: ease-in;
     }
-    72% {
+    5.4% {
                 transform: translate(3em, 8em) scale(.8);
                 animation-timing-function: ease-out;
     }
-    81% {
+    6.08% {
                 transform: translate(3em, 7.7em) scale(.8);
                 animation-timing-function: ease-in;
     }
-    90% {
+    6.75% {
                 transform: translate(3em, 8em) scale(.8);
                 animation-timing-function: ease-out;
     }
-    95% {
+    7.13% {
                 transform: translate(3em, 7.9em) scale(.8);
                 animation-timing-function: ease-in;
     }
-    100% {
+    7.5%,
+    17.5% {
                 transform: translate(3em, 8em) scale(.8);
                 animation-timing-function: ease-out;
     }      
