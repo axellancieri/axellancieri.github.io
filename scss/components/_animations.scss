@@ -30,31 +30,33 @@ $animation-delays: (
         path{
             transform-origin: 30px 25px;
             transform-box: fill-box;
-            animation: tree-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+            animation: tree-bushes-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
         }
     }
+}
+
+.squirrel-right {
+    transform-origin: 2em 2em;
+    transform-box: fill-box;
+    animation-name: right-squirrel-show, right-squirrel-goes-up; 
+    animation-duration: 20s;  // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
+    animation-iteration-count: infinite;
+    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    // animation-delay: 5s, 7.5s;
+    animation-fill-mode: forwards; 
 }
 
 .squirrel-left {   
     transform-origin: 2em 2em;
     transform-box: fill-box;
-    animation-name: left-squirrel-show, left-squirrel-goes-up;
-    animation-duration: 1.5s, 0.5s;
+    // animation-name: left-squirrel-show, left-squirrel-goes-up;
+    animation-duration: 1.5s, 0.5s; // there's 1 second delay between right squirrel hiding and left squirrel making its first apparition. Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
     animation-iteration-count: 1;
     animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 8.5s, 11s;
+    animation-delay: 0s, 2.5s;//8.5s, 11s;
     animation-fill-mode: forwards; 
 }
-.squirrel-right {
-    transform-origin: 2em 2em;
-    transform-box: fill-box;
-    animation-name: right-squirrel-show, right-squirrel-goes-up; 
-    animation-duration: 1s, .6s; 
-    animation-iteration-count: 1;
-    animation-timing-function: default, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 5s, 7.5s;
-    animation-fill-mode: forwards; 
-}
+
 .leafs {
     position: relative;
     bottom: 96vw;
@@ -79,28 +81,32 @@ $animation-delays: (
 }
 
 @keyframes right-squirrel-goes-up {
-    0% {
+    10.5% {
       transform: translate(5.5em, 7.7em) scale(0.8);
       opacity: 1;
     }
-    15% {
+    10.95% {
         transform: translate(5.5em, 7.3em) scale(0.8);
         animation-timing-function: ease-in;
     }
-    30% {
+    11.4% {
         transform: translate(5.5em, 7.7em) scale(0.8);
         animation-timing-function: ease-out;
     }
-    60% {
+    12.3% {
         transform: translate(4em, 7em) scale(0.8) rotate(-13deg);
         opacity: 1;
     }
-    80% {
+    12.9% {
       opacity: .4;
     }
-    100% {
+    13.5% {
       transform: translate(2.5em, 6em) scale(0.6) rotate(-13deg);
       opacity: 0;
+    }
+    13.5%,
+    100% {
+        opacity: 0;
     }
   }
 
@@ -110,53 +116,54 @@ $animation-delays: (
         animation-timing-function: ease-in;
         opacity: 0;
     }
-    5% {
+    0.25% {
         translate: (5.5em, 6.8em) scale(0.8);
         animation-timing-function: ease-out;
         opacity: 0;
     }
-    47% {
+    2.35% {
         translate: (5.5em, 6.6em) scale(0.8);
         animation-timing-function: ease-in;
         opacity: .5;
     }
-    49% {
+    2.45% {
         translate: (5.5em, 6.8em) scale(0.8);
         animation-timing-function: ease-in;
         opacity: 1;
     }
-    53% {
+    2.65% {
         translate: (5.5em, 6.7em) scale(0.8);
         animation-timing-function: ease-out;
     }
-    57% {
+    2.85% {
         transform: translate(5.5em, 7.7em) scale(.8);
         animation-timing-function: ease-out;
     }
-    55% {
+    2.75% {
         transform: translate(5.5em, 7.3em) scale(.8);
         animation-timing-function: ease-in;
     }
-    72% {
+    3.6% {
         transform: translate(5.5em, 7.7em) scale(.8);
         animation-timing-function: ease-out;
     }
-    81% {
+    4.05% {
         transform: translate(5.5em, 7.4em) scale(.8);
         animation-timing-function: ease-in;
     }
-    90% {
+    4.5% {
         transform: translate(5.5em, 7.7em) scale(.8);
         animation-timing-function: ease-out;
     }
-    95% {
+    4.75% {
         transform: translate(5.5em, 7.6em) scale(.8);
         animation-timing-function: ease-in;
     }
-    100% {
+    5%,
+    10.5% {
         transform: translate(5.5em, 7.7em) scale(0.8);
         animation-timing-function: ease-out;
-    }      
+    }   
 }
 
 @keyframes left-squirrel-goes-up {
@@ -174,6 +181,8 @@ $animation-delays: (
   }
 
 @keyframes left-squirrel-show {
+    /* starting 5% past where right squirrel left (no pun intended) that equals 1s. (bc both animations are 
+    within 20s period I can follow the % keyframe of the animation 'right-squirrel-goes-up'*/
     0% {
                 transform: translate(3em, 6.3em) scale(.8);
                 animation-timing-function: ease-in;
@@ -210,7 +219,7 @@ $animation-delays: (
     }      
 }
 
-@keyframes tree-motion {
+@keyframes tree-bushes-motion {
     0%,
     10% {
         -webkit-transform: rotate(0deg);
