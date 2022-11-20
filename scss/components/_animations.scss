@@ -35,28 +35,23 @@ $animation-delays: (
     }
 }
 
-.squirrel-right {   
+.squirrel-left {   
     transform-origin: 2em 2em;
     transform-box: fill-box;
-    animation-name: squirrel-show-right, squirrel-right-goes-up;
+    animation-name: left-squirrel-show, left-squirrel-goes-up;
     animation-duration: 1.5s, 0.5s;
     animation-iteration-count: 1;
     animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
     animation-delay: 1s, 2.5s;
-    animation-fill-mode: forwards;   
-    // &-eyes {
-    //     transform-origin: 0.7px 0.7px;
-    //     transform-box: fill-box;
-    //     animation: squirrel-eye-blink .5s both 1;
-    // }
+    animation-fill-mode: forwards; 
 }
-.squirrel-left {
+.squirrel-right {
     transform-origin: 2em 2em;
     transform-box: fill-box;
-    animation-name: squirrel-show, squirrel-goes-up;
-    animation-duration: 1.5s, 0.5s;
+    animation-name: right-squirrel-show, right-squirrel-goes-up; 
+    animation-duration: 1s, .6s; 
     animation-iteration-count: 1;
-    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation-timing-function: default, cubic-bezier(0.250, 0.460, 0.450, 0.940);
     animation-delay: 1s, 2.5s;
     animation-fill-mode: forwards; 
 }
@@ -83,70 +78,88 @@ $animation-delays: (
     animation: falling 4s linear 7s infinite;
 }
 
-// @keyframes squirrel-eye-blink {
-//     0%,
-//     50%,
-//     100% {
-//         transform: translate(3em, 6.3em) scale(.8);
-//     }
-//     25%,
-//     75% {
-//         transform: translate(3.1em, 6.3em) scale(.8);
-//     }
-// }
-
-@keyframes squirrel-left-goes-up {
+@keyframes right-squirrel-goes-up {
     0% {
-      transform: translate(6em, 8.2em) scale(0.8);
+      transform: translate(5.5em, 7.7em) scale(0.8);
       opacity: 1;
     }
-    70% {
+    15% {
+        transform: translate(5.5em, 7.3em) scale(0.8);
+        animation-timing-function: ease-in;
+    }
+    30% {
+        transform: translate(5.5em, 7.7em) scale(0.8);
+        animation-timing-function: ease-out;
+    }
+    60% {
+        transform: translate(4em, 7em) scale(0.8) rotate(-13deg);
+        opacity: 1;
+    }
+    80% {
       opacity: .4;
     }
     100% {
-      transform: translate(3.5em, 6.3em) scale(.8) rotate(10deg);
+      transform: translate(2.5em, 6em) scale(0.6) rotate(-13deg);
       opacity: 0;
     }
   }
 
-@keyframes squirrel-show-left {
+@keyframes right-squirrel-show {
     0% {
-        transform: translate(6em, 8.2em) scale(0.8);
+        transform: translate(7em, 5em) scale(0.8);
         animation-timing-function: ease-in;
         opacity: 0;
     }
-    38% {
-        transform: translate(3em, 8em) scale(.8);
+    5% {
+        translate: (5.5em, 6.8em) scale(0.8);
         animation-timing-function: ease-out;
+        opacity: 0;
+    }
+    47% {
+        translate: (5.5em, 6.6em) scale(0.8);
+        animation-timing-function: ease-in;
+        opacity: .5;
+    }
+    49% {
+        translate: (5.5em, 6.8em) scale(0.8);
+        animation-timing-function: ease-in;
         opacity: 1;
     }
+    53% {
+        translate: (5.5em, 6.7em) scale(0.8);
+        animation-timing-function: ease-out;
+    }
+    57% {
+        transform: translate(5.5em, 7.7em) scale(.8);
+        animation-timing-function: ease-out;
+    }
     55% {
-        transform: translate(3em, 7.6em) scale(.8);
+        transform: translate(5.5em, 7.3em) scale(.8);
         animation-timing-function: ease-in;
     }
     72% {
-        transform: translate(3em, 8em) scale(.8);
+        transform: translate(5.5em, 7.7em) scale(.8);
         animation-timing-function: ease-out;
     }
     81% {
-        transform: translate(3em, 7.7em) scale(.8);
+        transform: translate(5.5em, 7.4em) scale(.8);
         animation-timing-function: ease-in;
     }
     90% {
-        transform: translate(3em, 8em) scale(.8);
+        transform: translate(5.5em, 7.7em) scale(.8);
         animation-timing-function: ease-out;
     }
     95% {
-        transform: translate(3em, 7.9em) scale(.8);
+        transform: translate(5.5em, 7.6em) scale(.8);
         animation-timing-function: ease-in;
     }
     100% {
-        transform: translate(3em, 8em) scale(.8);
+        transform: translate(5.5em, 7.7em) scale(0.8);
         animation-timing-function: ease-out;
     }      
 }
 
-@keyframes squirrel-right-goes-up {
+@keyframes left-squirrel-goes-up {
     0% {
       transform: translate(3em, 8em) scale(.8);
       opacity: 1;
@@ -155,12 +168,12 @@ $animation-delays: (
       opacity: .4;
     }
     100% {
-      transform: translate(3.5em, 6.3em) scale(.8) rotate(10deg);
+      transform: translate(3.5em, 6.3em) scale(.7) rotate(10deg);
       opacity: 0;
     }
   }
 
-@keyframes squirrel-show-right {
+@keyframes left-squirrel-show {
     0% {
                 transform: translate(3em, 6.3em) scale(.8);
                 animation-timing-function: ease-in;
