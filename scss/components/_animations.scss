@@ -14,6 +14,30 @@ $animation-delays: (
     "16" : 15s,
     "17" : 16s,
     "18" : 17s);
+
+    
+.leafs {
+    width: 100%;
+    display: block;
+    opacity: 0;
+    animation: leaf-falling 6s linear 10s infinite;
+    y: 5em;
+    x: -5em;
+    g {
+        path {
+        transform-origin: 11.5px 11.5px;
+        transform-box: fill-box;
+            animation: leaf-motion 6s linear 5s infinite;
+        }
+        rect {
+            opacity: 0;
+        }
+    }
+}
+
+#group-2 {
+    animation: falling 6s linear 7s infinite;
+}
     
 .soil {
     width: 100%;
@@ -35,7 +59,7 @@ $animation-delays: (
     display: block;
     position: relative;
     z-index: 3000;    
-    .bushes {     
+    .tree-bushes {     
         @each $path, $delay in $animation-delays {
             path:nth-child(#{$path}) {
                 animation-delay: $delay;
@@ -73,28 +97,28 @@ $animation-delays: (
     animation-fill-mode: forwards; 
 }
 
-.leafs {
-    position: relative;
-    bottom: 96vw;
-    g {
-        z-index: 0;
-        position: relative;
-        animation: leaf-falling 4s linear 10s infinite;
-        opacity: 0;
-        path {
-        transform-origin: 11.5px 11.5px;
-        transform-box: fill-box;
-            animation: leaf-motion 4s linear 5s infinite;
-        }
-        rect {
-            opacity: 0;
-        }
-    }
-}
+// .leafs {
+//     position: relative;
+//     bottom: 96vw;
+//     g {
+//         z-index: 0;
+//         position: relative;
+//         animation: leaf-falling 4s linear 10s infinite;
+//         opacity: 0;
+//         path {
+//         transform-origin: 11.5px 11.5px;
+//         transform-box: fill-box;
+//             animation: leaf-motion 4s linear 5s infinite;
+//         }
+//         rect {
+//             opacity: 0;
+//         }
+//     }
+// }
 
-#group-2 {
-    animation: falling 4s linear 7s infinite;
-}
+// #group-2 {
+//     animation: falling 4s linear 7s infinite;
+// }
 
 @keyframes right-squirrel-goes-up {
     10.5% {
@@ -276,19 +300,22 @@ $animation-delays: (
 }
 
 @keyframes leaf-motion {
+    0% {
+        transform: rotate(0deg);
+    }
     20% {
-        transform: rotate(0deg) scale(1);
+        transform: rotate(10deg);
     }
     40% {
-        transform: rotate(10deg) scale(1.5); 
+        transform: rotate(0deg); 
     }
     80% {
-        transform: rotate(0deg) scale(1);
+        transform: rotate(-10deg);
     }
 }
 @keyframes leaf-falling {
     10% {
-        transform: translate(10vw, -20vw);
+        transform: translate(10vw, 0vw);
         opacity: 0;
     }
     40% {
@@ -298,7 +325,7 @@ $animation-delays: (
         opacity: 1;
     }
     80% {
-        transform: translate(10vw, 30vw);
+        transform: translate(10vw, 10vw);
         opacity:0;
     }
 }
