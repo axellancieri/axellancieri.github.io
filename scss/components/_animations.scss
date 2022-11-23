@@ -34,15 +34,14 @@ $animation-delays: (
         }
     }
 }
-
-#group-2 {
-    animation: falling 6s linear 7s infinite;
-}
-    
+   
 .soil {
     width: 100%;
     display: block;
     transform: translateY(7.5em);
+    &-below {
+        transform: translateY(11.5em);
+    }
 }
 .grass {
     width: 100%;
@@ -59,6 +58,7 @@ $animation-delays: (
     display: block;
     position: relative;
     z-index: 3000;    
+    animation: tree-on-load 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     .tree-bushes {     
         @each $path, $delay in $animation-delays {
             path:nth-child(#{$path}) {
@@ -73,6 +73,71 @@ $animation-delays: (
     }
 }
 
+.position {
+    &-name {
+        animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+    }
+    &-lastName {
+        animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
+    }
+    &-portfolio {
+        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5s both;
+    }
+}
+
+@keyframes show-name {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+}  
+@keyframes show-last-name {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+}  
+@keyframes show-portfolio-name {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+  
+
+@keyframes tree-on-load {
+    0% {
+      -webkit-transform: translateY(-50px);
+              transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
 .squirrel-right {
     opacity: 0;
     transform-origin: 2em 2em;
@@ -81,7 +146,7 @@ $animation-delays: (
     animation-duration: 20s;  // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
     animation-iteration-count: infinite;
     animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 5s;
+    animation-delay: 8s;
     animation-fill-mode: forwards; 
 }
 
@@ -93,32 +158,9 @@ $animation-delays: (
     animation-duration: 20s; //Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
     animation-iteration-count: infinite;
     animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 8s;
+    animation-delay: 11s;
     animation-fill-mode: forwards; 
 }
-
-// .leafs {
-//     position: relative;
-//     bottom: 96vw;
-//     g {
-//         z-index: 0;
-//         position: relative;
-//         animation: leaf-falling 4s linear 10s infinite;
-//         opacity: 0;
-//         path {
-//         transform-origin: 11.5px 11.5px;
-//         transform-box: fill-box;
-//             animation: leaf-motion 4s linear 5s infinite;
-//         }
-//         rect {
-//             opacity: 0;
-//         }
-//     }
-// }
-
-// #group-2 {
-//     animation: falling 4s linear 7s infinite;
-// }
 
 @keyframes right-squirrel-goes-up {
     10.5% {
@@ -325,7 +367,7 @@ $animation-delays: (
         opacity: 1;
     }
     80% {
-        transform: translate(10vw, 10vw);
+        transform: translate(10vw, 5vw);
         opacity:0;
     }
 }
