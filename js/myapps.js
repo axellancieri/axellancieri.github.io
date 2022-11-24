@@ -5,7 +5,7 @@ const svgTextPortfolio = tree.querySelector('.position-portfolio');
 svgTextPortfolio.addEventListener('click', () => {
     tree.classList.remove('tree-in');
     // void tree.offsetWidth;
-    tree.firstElementChild.classList.add('tree-out');
+    tree.classList.add('tree-out'); //firstElementChild
     svgText[0].classList.remove('svg-name-animation-in');
     svgText[1].classList.remove('svg-lastName-animation-in');
     svgText[2].classList.remove('svg-portfolio-animation-in');
