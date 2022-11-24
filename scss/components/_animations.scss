@@ -19,22 +19,18 @@ $animation-delays: (
 .leafs {
     width: 100%;
     display: block;
-    opacity: 0;
-    animation: leaf-falling 6s linear 10s infinite;
-    y: 5em;
-    x: -5em;
-    g {
-        path {
-        transform-origin: 11.5px 11.5px;
-        transform-box: fill-box;
-            animation: leaf-motion 6s linear 5s infinite;
-        }
-        rect {
-            opacity: 0;
-        }
+    opacity: 0; 
+    &-1 {
+        animation: leaf-falling 6s linear 3s infinite;
+        x: 2em;
+        y: 15em;
+    }
+    &-2 {
+        animation: leaf-falling 6s linear 7s infinite;
+        x: 3em;
+        y: 15em;
     }
 }
-   
 .soil {
     width: 100%;
     display: block;
@@ -58,7 +54,12 @@ $animation-delays: (
     display: block;
     position: relative;
     z-index: 3000;    
-    animation: tree-on-load 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    &-in {
+        animation: tree-on-load 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+    &-out {
+        animation: tree-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
     .tree-bushes {     
         @each $path, $delay in $animation-delays {
             path:nth-child(#{$path}) {
@@ -73,16 +74,53 @@ $animation-delays: (
     }
 }
 
-.position {
-    &-name {
+.svg-text {
+    animation: name-back-in 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s both;
+}
+
+.svg {
+    &-name-animation-in {
         animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
     }
-    &-lastName {
+    &-lastName-animation-in {
         animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
     }
-    &-portfolio {
-        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5s both;
+    &-portfolio-animation-in {
+        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5s both; 
     }
+    &-name-animation-back-in {
+        animation: name-back-in 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
+    }
+    &-lastName-animation-back-in {
+        animation: last-name-back-in 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
+    }
+    &-portfolio-animation-back-in {
+        animation: portfolio-name-back-in 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
+    }
+}
+
+.squirrel-right {
+    opacity: 0;
+    transform-origin: 2em 2em;
+    transform-box: fill-box;
+    animation-name: right-squirrel-show, right-squirrel-goes-up; 
+    animation-duration: 20s;  // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
+    animation-iteration-count: infinite;
+    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation-delay: 8s;
+    animation-fill-mode: forwards; 
+}
+
+.squirrel-left {   
+    opacity: 0;
+    transform-origin: 2em 2em;
+    transform-box: fill-box;
+    animation-name: left-squirrel-show, left-squirrel-goes-up;
+    animation-duration: 20s; //Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
+    animation-iteration-count: infinite;
+    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation-delay: 11s;
+    animation-fill-mode: forwards; 
 }
 
 @keyframes show-name {
@@ -111,6 +149,7 @@ $animation-delays: (
         opacity: 1;
     }
 }  
+
 @keyframes show-portfolio-name {
     0% {
         letter-spacing: -0.5em;
@@ -138,28 +177,55 @@ $animation-delays: (
     }
   }
 
-.squirrel-right {
-    opacity: 0;
-    transform-origin: 2em 2em;
-    transform-box: fill-box;
-    animation-name: right-squirrel-show, right-squirrel-goes-up; 
-    animation-duration: 20s;  // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
-    animation-iteration-count: infinite;
-    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 8s;
-    animation-fill-mode: forwards; 
-}
+@keyframes tree-out {
+    0% {
+              transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+              transform: translateY(-18em);
+      opacity: 1;
+    }
+  }
 
-.squirrel-left {   
-    opacity: 0;
-    transform-origin: 2em 2em;
-    transform-box: fill-box;
-    animation-name: left-squirrel-show, left-squirrel-goes-up;
-    animation-duration: 20s; //Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
-    animation-iteration-count: infinite;
-    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 11s;
-    animation-fill-mode: forwards; 
+  @keyframes name-back-in {
+    0% {
+      -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+              transform: translateY(-600px) rotateX(-30deg) scale(0);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+      opacity: 0;
+    }
+    to {
+              transform: translate(1em, 3.8em) rotateX(0) scale(1);
+              transform-origin: 50% 1400px;
+      opacity: 1 !important;
+    }
+}
+@keyframes last-name-back-in {
+    0% {
+        transform: translateY(-600px) rotateX(-30deg) scale(0);
+        transform-origin: 50% 100%;
+      opacity: 0;
+    }
+    to {
+              transform: translate(3.6em, 3.8em) rotateX(0) scale(1);
+              transform-origin: 50% 1400px;
+      opacity: 1;
+    }
+}
+@keyframes portfolio-name-back-in {
+    0% {
+              transform: translateY(-600px) rotateX(-30deg) scale(0);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+      opacity: 0;
+    }
+    to {
+              transform: translate(2.5em, 5em) rotateX(0) scale(1);
+              transform-origin: 50% 1400px;
+      opacity: 1;
+    }
 }
 
 @keyframes right-squirrel-goes-up {
@@ -356,9 +422,9 @@ $animation-delays: (
     }
 }
 @keyframes leaf-falling {
-    10% {
-        transform: translate(10vw, 0vw);
-        opacity: 0;
+    0%,
+    100% {
+        transform: scale(.6);
     }
     40% {
         opacity: 0.5;
@@ -367,7 +433,7 @@ $animation-delays: (
         opacity: 1;
     }
     80% {
-        transform: translate(10vw, 5vw);
+        transform: translate(10vw, 5vw) scale(.6);
         opacity:0;
     }
 }

@@ -9,17 +9,18 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body class="p-1">
+  <body>
      <nav class="navbar navbar-expand-lg py-0">
           <a class="navbar-brand ms-4 collapse navbar-collapse" href="#home">
                <img src="svg/tree.svg" alt="home-img" width="50em">
           </a>         
      </nav>
-     <div class="container" id="home">
-          <div class="row">
-     <div class="col">
-          <svg class="tree" xmlns="http://www.w3.org/2000/svg" viewBox="0 50 210 297">
-               <use href="#leafs" class="leafs"></use>
+     <div class="container">
+          <div class="row" id="home">
+          <svg class="tree tree-in" xmlns="http://www.w3.org/2000/svg" viewBox="0 50 210 297">
+               <g>
+               <use href="#leafs" class="leafs leafs-1"></use>
+               <use href="#leafs" class="leafs leafs-2"></use>
                <use href="#grass" class="grass grass-r"></use>
                <use href="#grass" class="grass grass-l"></use>
           <g class="tree-bushes">
@@ -66,7 +67,7 @@
                <use href="#squirrel-left" class="squirrel-left" height="50px" width="50px"></use>
                <use href="#squirrel-right" class="squirrel-right" height="50px" width="50px"></use>
                <use href="#soil" class="soil"></use>
-               <!-- <use href="#soil" class="soil-below"></use> -->
+               </g>
                <symbol id="squirrel-left" viewBox="0 0 600 600">
                          <path style="fill:#65513c" d="M185.474 93.505v135.128c0 25.607 20.76 46.367 46.368 46.367v37.1h-74.766c-37.014 0-67.02-30.007-67.02-67.02v-23.175c0-18.609-11.606-34.509-27.975-40.854l-.001.003C25.928 168.396 0 133.978 0 93.505 0 42.288 41.52.768 92.737.768s92.737 41.52 92.737 92.737z"/>
                          <path style="fill:#e1cb81" d="M92.737.768c8.29 0 16.323 1.094 23.97 3.135 32.169 15.985 53.879 49.171 53.879 86.959v137.096c0 24.285 19.758 44.042 44.043 44.042h.796c5.104 1.933 10.634 3 16.416 3v3H214.63c-27.594 0-50.043-22.449-50.043-50.042V90.862c0-44.998-32.796-83.057-76.845-89.959a93.992 93.992 0 0 1 4.995-.135z"/>
@@ -105,8 +106,7 @@
                          <path d="M706.1 6.2C703 16 690.8 57.4 683 84.5c-31.3 109.2-63.8 238.6-89 354-5.1 23.1-9.4 42.7-9.7 43.5-.7 1.9 0 3.8-11.8-36.5-28.1-96.1-65-205.9-104.3-310-15.3-40.5-17.6-46.4-18-46.1-.2.3.4 17.2 1.2 37.8 3.1 74.6 5 137.7 6.6 223.8 1.1 59.1 1.3 236.2.3 260.2l-.6 15.6-9.9-23.1c-11.9-27.8-39.1-83-51.8-105.2-21.5-37.3-44.5-70.5-64.8-93.3-3.6-4-6.6-7.1-6.8-7-.1.2 1.9 8.4 4.6 18.3 14.2 53.2 27.4 119.1 36.5 182.5 3.1 22 9.5 72.6 9.5 75.4 0 1.2-4.7-6.9-10.3-17.9-35.2-68.2-71.3-121.3-115.7-170-15.3-16.8-25.4-26.6-24.6-24 3.4 12.3 18.6 80.1 25 111.5C274.5 698.2 292 824.5 298 925.5c.6 9.9 1.2 20.4 1.5 23.4.2 3 0 5-.5 4.5-.4-.5-5-8.1-10-16.9-67.3-116.8-156.2-219.5-247.5-286-12.7-9.2-27.7-19.3-36-24.1l-5-2.9 3 4c19.1 25.4 28.4 38.2 37.9 52.3 79.2 117.9 135.6 266 164.5 431.7 8.3 47.4 14.8 102.1 16.6 140 .3 6.6.8 15.7 1.1 20.2l.6 8.3h766.3l.2-19.1c.5-56.2 13.6-110.5 40.8-169.8 29.7-64.8 80.4-134.5 138-189.9 8.1-7.8 14.2-14.2 13.5-14.2-.7 0-9.4 2.7-19.4 6.1-97.8 32.9-178.9 82.6-251.1 154.1l-14.1 13.8 3.8-33.2c11.4-102 18.1-200.7 19.6-289.2 2.3-134-5.2-242.3-23.3-337.8-14.3-75.5-37.1-142.8-61.2-180.2-2.4-3.7-4.6-6.6-4.8-6.4-.3.2.2 11.9 1 25.9 2.9 50.9 3.8 85.7 3.8 147.9 0 88.2-2.6 151.4-9.9 238-4.7 57.3-15.9 155.4-17.6 154.4-.4-.3-.8-2-.8-3.9 0-4-2.9-29.8-6.6-57.5-10.4-80.4-26.6-161.3-46.5-233.5-4.5-16.3-16.6-55.9-20.2-66l-1.4-4-.7 6c-.3 3.3-2.5 22.6-4.7 43-10.1 93.1-26.7 218.4-39.3 296.5-3 19-3.2 17.9-5.1-42-8.1-252.7-1.3-480.1 21-693 1.2-12.4 2.2-22.6 2-22.8-.2-.2-.8 1.2-1.4 3z"/>
                     </g>
                </symbol>
-               <symbol id="leafs" class="leafs" viewBox="0 0 570 855.02" preserveAspectRatio="xMaxYMax slice">
-                    <g transform="scale(1.24276)">
+               <symbol id="leafs" viewBox="0 0 570 855.02" preserveAspectRatio="xMaxYMax slice">
                          <rect width="458.667" height="688" fill="#fff"/>
                          <path d="M22.93 22.93A22.93 22.93 0 0 1 45.86 0L22.93 22.93A22.93 22.93 0 0 0 45.86 0" fill="#c6e6e8"/>
                          <rect x="412.8" y="22.933" width="22.933" height="22.933" fill="#fff"/>
@@ -142,8 +142,6 @@
                          <path d="M298.13 298.13a22.93 22.93 0 0 1 22.93 22.93l-22.93-22.93a22.93 22.93 0 0 0 22.93 22.93" fill="#80af7e"/>
                          <rect x="366.933" y="298.133" width="22.933" height="22.933" fill="#fff"/>
                          <path d="M378.4 309.6a11.47 11.47 0 0 1 11.47 11.47L378.4 309.6a11.47 11.47 0 0 0 11.47 11.47" fill="#d5ecee"/>
-                    </g>
-                    <g transform="scale(1.24276)">
                          <rect width="458.667" height="688" fill="#fff"/>
                          <path d="M22.93 22.93A22.93 22.93 0 0 1 45.86 0L22.93 22.93A22.93 22.93 0 0 0 45.86 0" fill="#c6e6e8"/>
                          <rect x="412.8" y="22.933" width="22.933" height="22.933" fill="#fff"/>
@@ -179,13 +177,21 @@
                          <path d="M298.13 298.13a22.93 22.93 0 0 1 22.93 22.93l-22.93-22.93a22.93 22.93 0 0 0 22.93 22.93" fill="#80af7e"/>
                          <rect x="366.933" y="298.133" width="22.933" height="22.933" fill="#fff"/>
                          <path d="M378.4 309.6a11.47 11.47 0 0 1 11.47 11.47L378.4 309.6a11.47 11.47 0 0 0 11.47 11.47" fill="#d5ecee"/>
-                    </g>
                </symbol>
-               <text class="position position-name">Axel</text>
-               <text class="position position-lastName">Lancieri</text>
-               <text class="position position-portfolio">Portfolio</text>
+               <!-- <g class="svg-text"> -->
+               <text class="position position-name svg-name-animation-in">Axel</text>
+               <text class="position position-lastName svg-lastName-animation-in">Lancieri</text>
+               <text class="position position-portfolio svg-portfolio-animation-in">Portfolio</text>
+               <!-- </g> -->
           </svg>
-     </div>
+          <!-- <div class="row">
+               <div class="col-12">
+                    <h1>About me</h1>
+               </div>
+               <div class="col-12">
+                    <h1>Skills</h1>
+               </div>
+          </div>  -->
      </div>
       <script src="js/myapps.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

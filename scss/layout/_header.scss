@@ -1,15 +1,13 @@
 .position {
     &-name {
         transform: translate(1em, 10.8em);
-        animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
     }
     &-lastName {
         transform: translate(3.6em, 10.8em);
-        animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
     }
     &-portfolio {
         transform: translate(2.5em, 12em);
-        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5s both;
+        cursor: pointer;
     }
 }
 text {
@@ -18,3 +16,4 @@ text {
 a {
     color: #b1a2a2;
 }
+
