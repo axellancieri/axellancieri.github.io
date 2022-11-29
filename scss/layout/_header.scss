@@ -1,4 +1,5 @@
 .position {
+    position: absolute;
     &-name {
         transform: translate(1em, 10.8em);
     }
@@ -7,13 +8,12 @@
     }
     &-portfolio {
         transform: translate(2.5em, 12em);
-        cursor: pointer;
     }
 }
 text {
-    fill: #b1a2a2;
+    fill: #a6a66d;
 }
 a {
-    color: #b1a2a2;
+    color: #a6a66d;
 }
 

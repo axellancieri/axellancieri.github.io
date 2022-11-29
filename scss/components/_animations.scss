@@ -15,20 +15,20 @@ $animation-delays: (
     "17" : 16s,
     "18" : 17s);
 
-    
+
 .leafs {
     width: 100%;
     display: block;
     opacity: 0; 
     &-1 {
-        animation: leaf-falling 6s linear 3s infinite;
+        animation: leaf-falling 8s linear 5s infinite;
         x: 2em;
         y: 15em;
     }
     &-2 {
-        animation: leaf-falling 6s linear 7s infinite;
-        x: 3em;
-        y: 15em;
+        animation: leaf-falling 8s linear 5s infinite;
+        x: 5em;
+        y: 16em;
     }
 }
 .soil {
@@ -49,13 +49,35 @@ $animation-delays: (
         transform: translate(3.9em, 11.7em) scale(0.15);
     }
 }
-#home {
-    position: relative;
+// #home {
+//     clip-path: url(#frame);
+// }
+body {
+    // background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(141, 205, 207));
+    // background: url(../../svg/texture.jpg) center/contain, linear-gradient(to top, rgba(255, 166, 0, 0.527), rgba(238, 130, 238, 0.5)), linear-gradient(to top, green, white);//linear-gradient(to bottom, #9fad5f, #AD8382, #61403F, #61AD79, #df44ca), linear-gradient(to bottom, rgb(255, 255, 255), rgb(56, 160, 108));
+    // background-blend-mode: hard-light;
+}
+.hexagon {
+    transform: translate(0.35em, 3.1em) scale(.99);
+    fill: #a6a66dbf;
+    stroke: white;
+    stroke-width: 2;
+
+}
+body {
+    background-color: #a6a66db0;
 }
 .tree {
     width: 100%;
     display: block;
     z-index: 3000;    
+    // background-color: #E8D5D5;
+    // background: url(../../svg/texture.jpg) center/contain, linear-gradient(to top, rgba(255, 166, 0, 0.527), rgba(238, 130, 238, 0.5)), linear-gradient(to top, green, white);//linear-gradient(to bottom, #9fad5f, #AD8382, #61403F, #61AD79, #df44ca), linear-gradient(to bottom, rgb(255, 255, 255), rgb(56, 160, 108));
+    //linear-gradient(to top, rgba(255, 166, 0, 0.527), rgba(238, 130, 238, 0.5)), linear-gradient(to top, green, white);
+    //pretty pink to greish one - linear-gradient(to bottom, #AD615F, #AD8382, #61403F, #61AD79, #4F6355)
+    // background-blend-mode: difference;
+    clip-path: url(#frame);
+    position: relative;
     &-in {
         animation: tree-on-load 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
@@ -76,24 +98,23 @@ $animation-delays: (
     }
 }
 
-.svg {
-    &-name-animation-in {
+#frame {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+
+.animation {
+    &-name-in {
         animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
     }
-    &-lastName-animation-in {
+    &-lastName-in {
         animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
     }
-    &-portfolio-animation-in {
-        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5s both; 
-    }
-    &-name-animation-back-in {
-        animation: name-back-in 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
-    }
-    &-lastName-animation-back-in {
-        animation: last-name-back-in 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
-    }
-    &-portfolio-animation-back-in {
-        animation: portfolio-name-back-in 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.3s both;
+    &-portfolio-in {
+        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5s both;
     }
 }
 
@@ -174,58 +195,6 @@ $animation-delays: (
       opacity: 1;
     }
   }
-
-@keyframes tree-out {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-18em);
-      opacity: 1;
-      position: absolute;
-    }
-  }
-
-  @keyframes name-back-in {
-    0% {
-      -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
-              transform: translateY(-600px) rotateX(-30deg) scale(0);
-      -webkit-transform-origin: 50% 100%;
-              transform-origin: 50% 100%;
-      opacity: 0;
-    }
-    to {
-              transform: translate(1em, 3.8em) rotateX(0) scale(1);
-              transform-origin: 50% 1400px;
-      opacity: 1 !important;
-    }
-}
-@keyframes last-name-back-in {
-    0% {
-        transform: translateY(-600px) rotateX(-30deg) scale(0);
-        transform-origin: 50% 100%;
-      opacity: 0;
-    }
-    to {
-              transform: translate(3.6em, 3.8em) rotateX(0) scale(1);
-              transform-origin: 50% 1400px;
-      opacity: 1;
-    }
-}
-@keyframes portfolio-name-back-in {
-    0% {
-              transform: translateY(-600px) rotateX(-30deg) scale(0);
-      -webkit-transform-origin: 50% 100%;
-              transform-origin: 50% 100%;
-      opacity: 0;
-    }
-    to {
-              transform: translate(2.5em, 5em) rotateX(0) scale(1);
-              transform-origin: 50% 1400px;
-      opacity: 1;
-    }
-}
 
 @keyframes right-squirrel-goes-up {
     10.5% {
@@ -432,7 +401,7 @@ $animation-delays: (
         opacity: 1;
     }
     80% {
-        transform: translate(10vw, 5vw) scale(.6);
+        transform: translate(5vw, 10vw) scale(.6);
         opacity:0;
     }
 }
