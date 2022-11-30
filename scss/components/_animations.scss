@@ -15,7 +15,48 @@ $animation-delays: (
     "17" : 16s,
     "18" : 17s);
 
+.tree {
+    width: 100%;
+    display: block;
+    position: relative;
+    transform: translateY(10em);
+    &-in {
+        -webkit-animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+        animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+    }
+    &-out {
+        -webkit-animation: tree-out 1.5s ease forwards;
+        animation: tree-out 1.5s ease forwards;
+    }
+    &-up {
+        -webkit-animation: tree-up 4s ease-in both;
+        animation: tree-up 4s ease-in both;
+    }
+    &-back-in {
+        -webkit-animation: tree-back-in 0.7s ease-in forwards;
+        animation: tree-back-in 0.7s ease-in forwards;
+    }
+    .tree-bushes {     
+        @each $path, $delay in $animation-delays {
+            path:nth-child(#{$path}) {
+                animation-delay: $delay;
+            } 
+        }
+        path{
+            transform-origin: 30px 25px;
+            transform-box: fill-box;
+            animation: tree-bushes-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+        }
+    }
+}
+.hexagon {
+    visibility: hidden;
+    transform: translate(0.35em, 2.5em) scale(1);
+    fill: #a6a66dbf;
+    stroke: white;
+    stroke-width: 2;
 
+}
 .leafs {
     width: 100%;
     display: block;
@@ -31,14 +72,6 @@ $animation-delays: (
         y: 16em;
     }
 }
-.soil {
-    width: 100%;
-    display: block;
-    transform: translateY(7.5em);
-    &-below {
-        transform: translateY(11.5em);
-    }
-}
 .grass {
     width: 100%;
     display: block;
@@ -49,72 +82,28 @@ $animation-delays: (
         transform: translate(3.9em, 11.7em) scale(0.15);
     }
 }
-// #home {
-//     clip-path: url(#frame);
-// }
-body {
-    // background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(141, 205, 207));
-    // background: url(../../svg/texture.jpg) center/contain, linear-gradient(to top, rgba(255, 166, 0, 0.527), rgba(238, 130, 238, 0.5)), linear-gradient(to top, green, white);//linear-gradient(to bottom, #9fad5f, #AD8382, #61403F, #61AD79, #df44ca), linear-gradient(to bottom, rgb(255, 255, 255), rgb(56, 160, 108));
-    // background-blend-mode: hard-light;
-}
-.hexagon {
-    transform: translate(0.35em, 3.1em) scale(.99);
-    fill: #a6a66dbf;
-    stroke: white;
-    stroke-width: 2;
-
-}
-body {
-    background-color: #a6a66db0;
-}
-.tree {
+.soil {
     width: 100%;
     display: block;
-    z-index: 3000;    
-    // background-color: #E8D5D5;
-    // background: url(../../svg/texture.jpg) center/contain, linear-gradient(to top, rgba(255, 166, 0, 0.527), rgba(238, 130, 238, 0.5)), linear-gradient(to top, green, white);//linear-gradient(to bottom, #9fad5f, #AD8382, #61403F, #61AD79, #df44ca), linear-gradient(to bottom, rgb(255, 255, 255), rgb(56, 160, 108));
-    //linear-gradient(to top, rgba(255, 166, 0, 0.527), rgba(238, 130, 238, 0.5)), linear-gradient(to top, green, white);
-    //pretty pink to greish one - linear-gradient(to bottom, #AD615F, #AD8382, #61403F, #61AD79, #4F6355)
-    // background-blend-mode: difference;
-    clip-path: url(#frame);
-    position: relative;
-    &-in {
-        animation: tree-on-load 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    }
-    &-out {
-        animation: tree-out 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) forwards;
-    }
-    .tree-bushes {     
-        @each $path, $delay in $animation-delays {
-            path:nth-child(#{$path}) {
-                animation-delay: $delay;
-            } 
-        }
-        path{
-            transform-origin: 30px 25px;
-            transform-box: fill-box;
-            animation: tree-bushes-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
-        }
-    }
-}
-
-#frame {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    width: 100px;
-    height: 100px;
-    display: block;
+    transform: translateY(7.5em);
 }
 
 .animation {
     &-name-in {
+        -webkit-animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
         animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
     }
     &-lastName-in {
+        -webkit-animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
         animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
     }
     &-portfolio-in {
-        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 5s both;
+        -webkit-animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 4s both;
+        animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 4s both;
+    }
+    &-name-up-js {
+        -webkit-animation: js-name-up 2s ease-out both;
+        animation: js-name-up 2s ease-out both;
     }
 }
 
@@ -141,65 +130,140 @@ body {
     animation-delay: 11s;
     animation-fill-mode: forwards; 
 }
-
-@keyframes show-name {
-    0% {
-      letter-spacing: -0.5em;
-      -webkit-filter: blur(12px);
-              filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-filter: blur(0px);
-              filter: blur(0px);
-      opacity: 1;
-    }
-}  
-@keyframes show-last-name {
-    0% {
-        letter-spacing: -0.5em;
-        -webkit-filter: blur(12px);
-                filter: blur(12px);
-        opacity: 0;
-    }
-    100% {
-        -webkit-filter: blur(0px);
-                filter: blur(0px);
-        opacity: 1;
-    }
-}  
-
-@keyframes show-portfolio-name {
-    0% {
-        letter-spacing: -0.5em;
-        opacity: 0;
-    }
-    40% {
-        opacity: 0.6;
-    }
-    100% {
-        opacity: 1;
-    }
-}
   
-
-@keyframes tree-on-load {
+@keyframes tree-in {
     0% {
-      -webkit-transform: translateY(-50px);
-              transform: translateY(-50px);
       opacity: 0;
     }
     100% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
       opacity: 1;
     }
   }
 
+@keyframes tree-out {
+    0% {
+        opacity: 1;
+    }
+    60%,
+    100% {
+        opacity: 0;
+    }    
+}
+@-webkit-keyframes tree-up {
+    50% {
+        transform: translateY(none);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+
+    }     
+}
+@keyframes tree-up {
+    50% {
+        transform: translateY(none);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+
+    }     
+}
+@keyframes tree-back-in {
+    0% {
+        -webkit-transform: translateY(0) rotateX(0) scale(1);
+                transform: translateY(0) rotateX(0) scale(1);
+        -webkit-transform-origin: 50% 1400px;
+                transform-origin: 50% 1400px;
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+                transform: translateY(-600px) rotateX(-30deg) scale(0);
+        -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+        opacity: 1;
+    }      
+}
+
+@keyframes tree-bushes-motion {
+    0%,
+    10% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+    }
+    1% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    2%,
+    4%,
+    6% {
+        -webkit-transform: rotate(-4deg);
+                transform: rotate(-4deg);
+    }
+    3%,
+    5%,
+    7% {
+        -webkit-transform: rotate(4deg);
+                transform: rotate(4deg);
+    }
+    8% {
+        -webkit-transform: rotate(-2deg);
+                transform: rotate(-2deg);
+    }
+    9% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    100% {
+    -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+    }
+}
+
+@keyframes leaf-motion {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(10deg);
+    }
+    40% {
+        transform: rotate(0deg); 
+    }
+    80% {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes leaf-falling {
+    0%,
+    100% {
+        transform: scale(.6);
+    }
+    40% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 1;
+    }
+    80% {
+        transform: translate(5vw, 10vw) scale(.6);
+        opacity:0;
+    }
+}
+
 @keyframes right-squirrel-goes-up {
     10.5% {
-      transform: translate(5.5em, 7.7em) scale(0.8);
-      opacity: 1;
+        transform: translate(5.5em, 7.7em) scale(0.8);
+        opacity: 1;
     }
     10.95% {
         transform: translate(5.5em, 7.3em) scale(0.8);
@@ -214,17 +278,17 @@ body {
         opacity: 1;
     }
     12.9% {
-      opacity: .4;
+        opacity: .4;
     }
     13.5% {
-      transform: translate(2.5em, 6em) scale(0.6) rotate(-13deg);
-      opacity: 0;
+        transform: translate(2.5em, 6em) scale(0.6) rotate(-13deg);
+        opacity: 0;
     }
     13.5%,
     100% {
         opacity: 0;
     }
-  }
+}
 
 @keyframes right-squirrel-show {
     0% {
@@ -335,73 +399,58 @@ body {
     }      
 }
 
-@keyframes tree-bushes-motion {
-    0%,
-    10% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-        -webkit-transform-origin: 50% 100%;
-                transform-origin: 50% 100%;
-    }
-    1% {
-        -webkit-transform: rotate(2deg);
-                transform: rotate(2deg);
-    }
-    2%,
-    4%,
-    6% {
-        -webkit-transform: rotate(-4deg);
-                transform: rotate(-4deg);
-    }
-    3%,
-    5%,
-    7% {
-        -webkit-transform: rotate(4deg);
-                transform: rotate(4deg);
-    }
-    8% {
-        -webkit-transform: rotate(-2deg);
-                transform: rotate(-2deg);
-    }
-    9% {
-        -webkit-transform: rotate(2deg);
-                transform: rotate(2deg);
+@keyframes show-name {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
     }
     100% {
-    -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    -webkit-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+}  
+@keyframes show-last-name {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+}  
+
+@keyframes show-portfolio-name {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
-@keyframes leaf-motion {
-    0% {
-        transform: rotate(0deg);
+@keyframes js-name-up {
+    5%,
+    15% {
+        scale: 1.02;
+        fill: white;
+        
     }
-    20% {
-        transform: rotate(10deg);
+    35% {
+        scale: 1;
     }
-    40% {
-        transform: rotate(0deg); 
-    }
-    80% {
-        transform: rotate(-10deg);
-    }
-}
-@keyframes leaf-falling {
-    0%,
-    100% {
-        transform: scale(.6);
-    }
-    40% {
-        opacity: 0.5;
-    }
-    60% {
-        opacity: 1;
-    }
-    80% {
-        transform: translate(5vw, 10vw) scale(.6);
-        opacity:0;
+    to {
+        fill: white;
+        // transform: scale(1.1);
     }
 }

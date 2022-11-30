@@ -1,17 +1,28 @@
 const tree = document.querySelector('.tree');
-const svgText = tree.querySelectorAll('.position');
-const svgTextPortfolio = tree.querySelector('.position-portfolio');
+const treeIn = document.querySelector('.tree-in');
+const treeAll = Array.from(tree.querySelectorAll('use, path, g, text'));
+const treeAllButText = Array.from(tree.querySelectorAll('use, path, g'));
+const svgText = Array.from(tree.querySelectorAll('.position'));
+// const svgTextPortfolio = tree.querySelector('.position-portfolio');
 
-// svgTextPortfolio.addEventListener('click', () => {
-//     tree.firstElementChild.classList.remove('tree-in');
-//     void tree.offsetWidth;
-//     tree.firstElementChild.classList.add('tree-out');
-//     tree.style.position = 'absolute';
-//     svgText[0].classList.remove('svg-name-animation-in');
-//     svgText[1].classList.remove('svg-lastName-animation-in');
-//     svgText[2].classList.remove('svg-portfolio-animation-in');
-//     void svgText[index].offsetWidth;
-//     svgText[0].classList.add('svg-name-animation-back-in');
-//     svgText[1].classList.add('svg-lastName-animation-back-in');
-//     svgText[2].classList.add('svg-portfolio-animation-back-in');
+
+
+// treeIn.addEventListener('click', () => {
+//     tree.classList.remove('tree-in');
+//     treeAllButText.forEach(element => element.classList.add('tree-out'));
+//     tree.classList.add('tree-up');
+//     svgText.forEach((text) => {
+//         text.classList.remove('animation-name-in', 'animation-lastName-in', 'animation-portfolio-in');
+//         text.classList.add('animation-name-up-js');
+//     });    
+// });
+
+// treeIn.addEventListener('click', () => {
+//     tree.classList.remove('tree-in');
+//     treeAllButText.forEach(element => element.classList.add('tree-out'));
+//     tree.classList.add('tree-up');
+//     svgText.forEach((text) => {
+//         text.classList.remove('animation-name-in', 'animation-lastName-in', 'animation-portfolio-in');
+//         text.classList.add('animation-name-up-js');
+//     });    
 // });
