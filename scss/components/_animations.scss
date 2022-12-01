@@ -21,19 +21,15 @@ $animation-delays: (
     position: relative;
     transform: translateY(10em);
     &-in {
-        -webkit-animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
         animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
     }
     &-out {
-        -webkit-animation: tree-out 1.5s ease forwards 1;
-        animation: tree-out 1.5s ease forwards 1;
+        animation: tree-out 1.5s ease forwards;
     }
     &-up {
-        -webkit-animation: tree-up 4s ease-in both;
         animation: tree-up 4s ease-in both;
     }
     &-back-in {
-        -webkit-animation: tree-back-in 0.7s ease-in forwards;
         animation: tree-back-in 0.7s ease-in forwards;
     }
     .tree-bushes {     
@@ -58,7 +54,7 @@ $animation-delays: (
     stroke-dasharray: 1371.8;
     stroke-dashoffset: 1371.8;
     &-animation {
-        animation: dash-offset 5s linear 4s forwards, fill-hexagon 1s 9s linear forwards; //fill-hexagon had 5s duration diff
+        animation: dash-offset 5s linear 4s forwards, fill-hexagon 1s 9s linear forwards;
     }
     
 
@@ -88,27 +84,18 @@ $animation-delays: (
         transform: translate(3.9em, 11.7em) scale(0.15);
     }
 }
-.soil {
-    width: 100%;
-    display: block;
-    transform: translateY(7.5em);
-}
 
 .animation {
     &-name-in {
-        -webkit-animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
         animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
     }
     &-lastName-in {
-        -webkit-animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
         animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.8s both;
     }
     &-portfolio-in {
-        -webkit-animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 4s both;
         animation: show-portfolio-name 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) 4s both;
     }
     &-name-up-js {
-        -webkit-animation: js-name-up 2s ease-out both;
         animation: js-name-up 2s ease-out both;
     }
 }
@@ -137,6 +124,19 @@ $animation-delays: (
     animation-fill-mode: forwards; 
 }
   
+.soil {
+    width: 100%;
+    display: block;
+    transform: translateY(7.5em);
+    fill: #47352b;
+    &-animation-fade {
+        animation: js-soil-fade 2s linear forwards;
+    }
+    &-animation-back-in {
+        animation: js-soil-back-in 1s linear forwards;
+    }
+}
+
 @keyframes tree-in {
     0% {
       opacity: 0;
@@ -462,5 +462,27 @@ $animation-delays: (
     }
     to {
         fill: white;
+    }
+}
+@keyframes js-soil-fade {
+    5%,
+    15% {
+        scale: 1.02;
+        fill: #1f1611;
+        
+    }
+    95% {
+        scale: 1.02;
+    }
+    to {
+        fill: #1f1611;
+    }
+}
+@keyframes js-soil-back-in {
+    from {
+        fill: #1f1611;
+    }
+    to {
+        fill: #47352b;
     }
 }

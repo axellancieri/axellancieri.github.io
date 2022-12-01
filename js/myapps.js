@@ -1,40 +1,34 @@
-const tree = document.querySelector('.tree');
-const treeIn = document.querySelector('.tree-in');
-const treeAll = Array.from(tree.querySelectorAll('use, g, text'));
-const treeAllButText = Array.from(tree.querySelectorAll('use, g'));
-const svgText = Array.from(tree.querySelectorAll('.position'));
-const hexagon = tree.querySelector('.hexagon');
-// const svgTextPortfolio = tree.querySelector('.position-portfolio');
+const treeSvg = document.querySelector('.tree');
+const treeInSvg = document.querySelector('.tree-in');
+const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #squirrel-left, #squirrel-right, #leafs')); 
+const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
+const hexagonSvg = treeSvg.querySelector('.hexagon');
+const soilSvg = treeSvg.querySelector('.soil');
 
+hexagon.childNodes
 
-
-treeIn.addEventListener('click', () => {
-    tree.classList.remove('tree-in');
-    treeAllButText.forEach((element, index) => {
-        if(index !== 0) {
+treeInSvg.addEventListener('click', () => {
+    treeSvg.classList.remove('tree-in');
+    treeAllButTextSvg.forEach((element, index) => {
+        if(index !== 9) {
             element.classList.add('tree-out');
         }
     });
-    tree.classList.add('tree-up');
-    svgText.forEach((text) => {
+    treeSvg.classList.add('tree-up');
+    textSvg.forEach((text) => {
         text.classList.remove('animation-name-in', 'animation-lastName-in', 'animation-portfolio-in');
         text.classList.add('animation-name-up-js');
     });
-    const checkAnimation = document.querySelector('.tree-up');
-    checkAnimation.addEventListener('animationend', () => {
-        treeAllButText.forEach((element) => {
+    soilSvg.classList.add('soil-animation-fade');
+    hexagonSvg.classList.add('hexagon-animation');
+    hexagonSvg.addEventListener('animationend', () => {
+        treeAllButTextSvg.forEach((element, index) => {
+            if(index ===     9) {
+                element.classList.remove('soil-animation-fade');
+                element.classList.add('soil-animation-back-in');
+            } else {
                 element.classList.remove('tree-out');
+            }
         });
-            hexagon.classList.add('hexagon-animation');
     });
 });
-
-// treeIn.addEventListener('click', () => {
-//     tree.classList.remove('tree-in');
-//     treeAllButText.forEach(element => element.classList.add('tree-out'));
-//     tree.classList.add('tree-up');
-//     svgText.forEach((text) => {
-//         text.classList.remove('animation-name-in', 'animation-lastName-in', 'animation-portfolio-in');
-//         text.classList.add('animation-name-up-js');
-//     });    
-// });
