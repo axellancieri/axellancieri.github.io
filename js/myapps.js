@@ -5,8 +5,6 @@ const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
 const hexagonSvg = treeSvg.querySelector('.hexagon');
 const soilSvg = treeSvg.querySelector('.soil');
 
-hexagon.childNodes
-
 treeInSvg.addEventListener('click', () => {
     treeSvg.classList.remove('tree-in');
     treeAllButTextSvg.forEach((element, index) => {

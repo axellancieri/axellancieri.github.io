@@ -1,2 +1,0 @@
-- got an idea to use an img background on tree/title area with a big width border on it
-- leafs to symbol and inside tree so it looks betta
