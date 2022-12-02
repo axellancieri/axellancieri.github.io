@@ -24,13 +24,13 @@ $animation-delays: (
         animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
     }
     &-out {
-        animation: tree-out 1.5s ease forwards;
+        animation: tree-out 1.5s ease both;
     }
     &-up {
         animation: tree-up 4s ease-in both;
     }
     &-back-in {
-        animation: tree-back-in 0.7s ease-in forwards;
+        animation: tree-back-in 1s ease-in forwards;
     }
     .tree-bushes {     
         @each $path, $delay in $animation-delays {
@@ -54,7 +54,7 @@ $animation-delays: (
     stroke-dasharray: 1371.8;
     stroke-dashoffset: 1371.8;
     &-animation {
-        animation: dash-offset 5s linear 4s forwards, fill-hexagon 1s 9s linear forwards;
+        animation: dash-offset 5s linear 4s forwards, fill-hexagon 1s 8.5s linear forwards;
     }
     
 
@@ -166,22 +166,14 @@ $animation-delays: (
 
     }     
 }
-// @keyframes tree-back-in {
-//     0% {
-//         -webkit-transform: translateY(0) rotateX(0) scale(1);
-//                 transform: translateY(0) rotateX(0) scale(1);
-//         -webkit-transform-origin: 50% 1400px;
-//                 transform-origin: 50% 1400px;
-//         opacity: 1;
-//     }
-//     100% {
-//         -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
-//                 transform: translateY(-600px) rotateX(-30deg) scale(0);
-//         -webkit-transform-origin: 50% 100%;
-//                 transform-origin: 50% 100%;
-//         opacity: 1;
-//     }      
-// }
+@keyframes tree-back-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }      
+}
 
 @keyframes tree-bushes-motion {
     0%,
@@ -453,12 +445,12 @@ $animation-delays: (
 @keyframes js-name-up {
     5%,
     15% {
-        scale: 1.02;
+        scale: 1.01;
         fill: white;
         
     }
     95% {
-        scale: 1.02;
+        scale: 1.01;
     }
     to {
         fill: white;
@@ -467,12 +459,8 @@ $animation-delays: (
 @keyframes js-soil-fade {
     5%,
     15% {
-        scale: 1.02;
         fill: #1f1611;
         
-    }
-    95% {
-        scale: 1.02;
     }
     to {
         fill: #1f1611;
@@ -483,6 +471,6 @@ $animation-delays: (
         fill: #1f1611;
     }
     to {
-        fill: #47352b;
+        fill: #4c575b;
     }
 }
