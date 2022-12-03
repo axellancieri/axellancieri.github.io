@@ -1,4 +1,4 @@
-$animation-delays: (
+$animation-bushes-delays: (
     "4" : 3s,
     "5" : 4s,
     "6" : 5s,
@@ -20,6 +20,7 @@ $animation-delays: (
     width: 100%;
     display: block;
     position: relative;
+    z-index: 100;
     transform: translateY(10em);
     &-in {
         animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
@@ -34,7 +35,7 @@ $animation-delays: (
         animation: tree-back-in 1s ease-in forwards;
     }
     .tree-bushes {     
-        @each $path, $delay in $animation-delays {
+        @each $path, $delay in $animation-bushes-delays {
             path:nth-child(#{$path}) {
                 animation-delay: $delay;
             } 
