@@ -23,8 +23,11 @@ $pillar-rocks: (
 .pillar {
     position: relative;
     z-index: 10;
-    width: 51%;
+    display: block;
     fill: #4c575b;
+    &-flip-left {
+        animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
     &-all {
         stroke: transparent;
         &-animation {
@@ -42,7 +45,7 @@ $pillar-rocks: (
     &-leafs {
         stroke: #fff;
         stroke-width: .5;
-        transform: translate(-250.25px, -255.58px);
+        transform: translate(-192.25px, -255.58px);
         @each $leaf, $color in $pillar-leaf-colors {
             path:nth-child(#{$leaf}) {
                 fill: $color;
@@ -52,24 +55,36 @@ $pillar-rocks: (
     &-banner {
         position: absolute;
         &-1 {
-            transform: translate(0.4em, 31em) scale(.876);
+            transform: translate(-192.25px, -255.58px);
         }
     }
 }
 
 @keyframes js-rocks-in {
     from {
-        transform: translate(-250.25px, -275.58px);
+        transform: translate(-192.25px, -255.58px);
         opacity: 0;
     }
-    10% {
-        opacity: .5;
+    40% {
+        opacity: 0;
     }
-    20% {
+    50% {
         opacity: 1;
     }
     to {
-        transform: translate(-250.25px, -255.58px);
+        transform: translate(-192.25px, -255.58px);
         opacity: 1;
+    }
+}
+@keyframes flip-left {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(-70deg);
+              transform: rotateY(-70deg);
+      opacity: 0;
     }
 }

@@ -1,0 +1,18 @@
+.position {
+    position: absolute;
+    &-name {
+        transform: translate(1em, 10.8em);
+    }
+    &-lastName {
+        transform: translate(3.6em, 10.8em);
+    }
+    &-portfolio {
+        transform: translate(2.5em, 12em);
+    }
+}
+text {
+    fill: #a6a66d;
+}
+a {
+    color: #a6a66d;
+}

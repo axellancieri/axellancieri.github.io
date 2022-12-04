@@ -34,6 +34,9 @@ $animation-bushes-delays: (
     &-back-in {
         animation: tree-back-in 1s ease-in forwards;
     }
+    &-flip-left {
+        animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
     .tree-bushes {     
         @each $path, $delay in $animation-bushes-delays {
             path:nth-child(#{$path}) {
@@ -176,6 +179,20 @@ $animation-bushes-delays: (
         opacity: 1;
     }      
 }
+
+@keyframes flip-left {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(-70deg);
+              transform: rotateY(-70deg);
+      opacity: 0;
+    }
+}
+  
 
 @keyframes tree-bushes-motion {
     0%,
@@ -459,18 +476,17 @@ $animation-bushes-delays: (
     }
 }
 @keyframes js-soil-fade {
-    5%,
-    15% {
-        fill: #1f1611;
-        
+    0%,
+    95% {
+        fill: #47352b;
     }
     to {
-        fill: #1f1611;
+        fill: #2b2c3c;
     }
 }
 @keyframes js-soil-back-in {
     from {
-        fill: #1f1611;
+        fill: #2b2c3c;
     }
     to {
         fill: #4c575b;
