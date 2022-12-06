@@ -83,26 +83,50 @@ $align-rocks: (
     }
     &-banner {
         display: block;
+        x: 4.1em;
+        y: -4em;
+    }
+    &-holder {
+        display: block;
+        width: 100%;
         fill: #198410;
-        stroke: #000;
+        stroke: black;
+        stroke-width: 20;
+        &-1 {
+            x: 3.9em;
+            y: -0.5em;
+        }   
+        &-2 {
+            x: -9.2em;
+            y: -18.7em;
+            rotate: 181deg;
+        }   
+    }
+    &-scroll {
+        display: block;
         x: 4.2em;
-        y: 2em;
+        y: 12em;
         stroke-width: 1.9;
-        &-holder {
-            display: block;
-            width: 100%;
+        &-plants {
             fill: #198410;
+            stroke-width: 2;
             stroke: black;
-            stroke-width: 20;
-            &-1 {
-                x: 3.9em;
-                y: -0.5em;
-            }   
-            &-2 {
-                x: -9.2em;
-                y: -18.7em;
-                rotate: 181deg;
-            }   
+            &-spots {
+                fill: transparent;
+            }
+        }
+        &-main {
+            fill: #cec094;
+            stroke: #000;
+            stroke-width: 4;
+        }
+        &-right-dots {
+            fill: #d7d2c2;
+        }
+        &-sides {
+            fill: #cec094;
+            stroke: black;
+            stroke-width: 1;
         }
     }
 }
