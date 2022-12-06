@@ -11,7 +11,7 @@ const navBar = document.querySelector('nav');
 
 /* FUNCTIONS */
 
-const treeFirstAnimation = () => {
+const treeIn = () => {
     treeSvg.classList.remove('tree-in');
 
     treeAllButTextSvg.forEach((element) => {
@@ -21,18 +21,16 @@ const treeFirstAnimation = () => {
             element.classList.add('tree-out');
         }
     });
-    treeSecondAnimation();
 }
-const treeSecondAnimation = () => {
+const treeOut = () => {
     treeSvg.classList.add('tree-up');
 
     textSvg.forEach((text) => {
         text.classList.remove('animation-name-in', 'animation-lastName-in', 'animation-portfolio-in');
         text.classList.add('animation-name-up-js');
     });
-    treeThirdAnimation();
 }
-const treeThirdAnimation = () => {
+const treeBackIn = (callback) => {
     navBar.classList.add('appear');
     hexagonSvg.classList.add('hexagon-animation');
     hexagonSvg.addEventListener('animationend', () => {
@@ -43,8 +41,25 @@ const treeThirdAnimation = () => {
                 element.classList.replace('tree-out', 'tree-back-in');
             }
         });
-        pillar.firstElementChild.classList.add('pillar-all-animation');
+        callback();
     });
+}
+
+const pillarIn = () => {
+    pillar.firstElementChild.classList.add('pillar-animation-in');
+}
+
+const rocksAlign = () => {
+    pillar.firstElementChild.children[12].addEventListener('animationend', () => {
+        pillar.firstElementChild.classList.replace('pillar-animation-in', 'pillar-animation-align');
+    })
+}
+
+function animationSequence(animation1, animation2, animation3, animation4) {
+    animation1;
+    animation2;
+    animation3;
+    animation4;
 }
 
 /* TREE-PILLAR-ANIMATION */
@@ -52,18 +67,22 @@ const treeThirdAnimation = () => {
 treeSvg.addEventListener('click', () => {
     
     if (treeSvg.classList.contains("tree-in")) {
-        treeFirstAnimation();
+        animationSequence(
+            treeIn(),
+            treeOut(),
+            treeBackIn(pillarIn),
+            rocksAlign()
+        );    
     }
-    
 });
 
-projects.addEventListener('click', () => {
+// projects.addEventListener('click', () => {
     
-    if (treeSvg.classList.contains("tree-in")) {
-        treeFirstAnimation();
+//     if (treeSvg.classList.contains("tree-in")) {
+//         treeFirstAnimation();
         // add flip class
         // add collapse
         // add new content or give it show class 
-    }
+    // }
     
-});
+// });

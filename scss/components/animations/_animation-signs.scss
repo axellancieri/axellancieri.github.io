@@ -18,28 +18,57 @@ $pillar-rocks: (
     "12" : 8s,
     "13" : 9s
 );
-
+$align-rocks: (
+    "4" : -258px,
+    "5" : -256px,
+    "6" : -254px,
+    "7" : -252px,
+    "8" : -249px,
+    "9" : -248px,
+    "10" : -245.58px
+);
 
 .pillar {
     position: relative;
     z-index: 10;
     display: block;
     fill: #4c575b;
-    &-flip-left {
-        animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    }
-    &-all {
-        stroke: transparent;
-        &-animation {
+    stroke: transparent;
+    // &-g {
+    //     transform: translate(-192.25px, -255.58px);
+    // }
+    &-animation {
+        &-in {
             path {
                 opacity: 0;
-                animation: js-rocks-in .5s linear forwards;
+                animation: js-rocks-in .3s linear forwards;
             }
             @each $rock, $delay in $pillar-rocks {
                 path:nth-child(#{$rock}) {
                     animation-delay: $delay;
                 }
             }
+        }
+        &-align {
+            path {
+                transform: translate(-192.25px, -255.58px);
+                transform-origin: 30px 31px;
+                transform-box: fill-box;
+            }
+            @each $rock, $translateY in $align-rocks {
+                path:nth-child(#{$rock}) {
+                    animation: rotate-flat-#{$rock} 2s steps(10) 1.5s forwards;
+                }
+            }
+            path:nth-child(3) {
+                animation: rock-up 4s steps(10) 2.5s forwards;
+            }
+            path:nth-child(11) {
+                animation: rock-down 4s steps(10) 2.5s forwards;
+            }
+        }
+        &-flip-left {
+            animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
         }
     }
     &-leafs {
@@ -53,16 +82,34 @@ $pillar-rocks: (
         }
     }
     &-banner {
-        position: absolute;
-        &-1 {
-            transform: translate(-192.25px, -255.58px);
+        display: block;
+        fill: #198410;
+        stroke: #000;
+        x: 4.2em;
+        y: 2em;
+        stroke-width: 1.9;
+        &-holder {
+            display: block;
+            width: 100%;
+            fill: #198410;
+            stroke: black;
+            stroke-width: 20;
+            &-1 {
+                x: 3.9em;
+                y: -0.5em;
+            }   
+            &-2 {
+                x: -9.2em;
+                y: -18.7em;
+                rotate: 181deg;
+            }   
         }
     }
 }
 
 @keyframes js-rocks-in {
     from {
-        transform: translate(-192.25px, -255.58px);
+        transform: translate(-192.25px, -265.58px);
         opacity: 0;
     }
     40% {
@@ -76,6 +123,55 @@ $pillar-rocks: (
         opacity: 1;
     }
 }
+
+@keyframes rock-up {
+    from {
+        transform: translate(-192.25px, -255.58px);
+    }   
+    40% {
+        transform: translate(-192.25px, -262px);
+    }
+    41% {
+        transform: translate(-192.25px, -262px);
+        opacity: 1;
+    }
+    42%,
+    to {
+        opacity: 0;
+        transform: translate(-192.25px, -262px);
+    } 
+}
+
+@keyframes rock-down {
+    from {
+        transform: translate(-192.25px, -255.58px);
+    }   
+
+    40% {
+        transform: translate(-192.25px, -249.58px);
+    }
+    41% {
+        opacity: 1;
+    }
+    42%,
+    100%{
+        opacity: 0;
+        transform: translate(-192.25px, -249.58px);
+    }
+}
+
+@each $rock, $translateY in $align-rocks {
+
+    @keyframes rotate-flat-#{$rock} {
+        from {
+            transform: translate(-192.25px, -255.58px) rotate(0deg);
+        }
+        to {
+            transform: translate(-195px, $translateY) rotate(20deg) scale(1.1);
+        }
+    }
+}
+
 @keyframes flip-left {
     0% {
       -webkit-transform: rotateY(0);
