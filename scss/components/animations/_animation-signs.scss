@@ -74,7 +74,11 @@ $align-rocks: (
     &-leafs {
         stroke: #fff;
         stroke-width: .5;
-        transform: translate(-192.25px, -255.58px);
+        fill: blue;
+        transform-origin: 10px 10px;
+        transform-box: fill-box;
+        transform: scale(.3);
+        transform: translate(-192.25px, -255.58px) scale(.3);
         @each $leaf, $color in $pillar-leaf-colors {
             path:nth-child(#{$leaf}) {
                 fill: $color;
@@ -89,17 +93,19 @@ $align-rocks: (
     &-holder {
         display: block;
         width: 100%;
-        fill: #588a41;
+        fill: var(--color-fill);
         stroke: black;
         stroke-width: 20;
         &-1 {
             x: 3.9em;
             y: -0.5em;
+            --color-fill: #588a41;
         }   
         &-2 {
             x: -9.2em;
             y: -18.7em;
             rotate: 181deg;
+            --color-fill: #71c486;
         }   
     }
     &-scroll {
@@ -108,7 +114,7 @@ $align-rocks: (
             x: 4.2em;
             y: 12em;
             stroke-width: 1.9;
-            --color-plants: #198410;
+            --color-plants: #71c486; //#198410
             &-plants {
                 fill: var(--color-plants);
                 stroke-width: 2;
@@ -134,7 +140,7 @@ $align-rocks: (
         &-2 {
             display: block;
             x: 4.55em;
-            y: 7em;
+            y: 7.7em;
             &-all {
                 fill: #0d1046; //#187e0f
                 stroke: black;
@@ -153,7 +159,7 @@ $align-rocks: (
             x: 5.9em;
             y: 4.5em;
             scale: .8;
-            --color-plants: black;
+            --color-plants: #598a42;
         }
     }
 }

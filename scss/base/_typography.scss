@@ -1,16 +1,18 @@
 // font-family: 'Cormorant', serif;
 // font-family: 'Kadwa', serif;
 // font-family: 'Martel', serif;
-text {
+.position {
     font-family: 'Kadwa', serif;
     font-weight: bold;
     font-size: 1.5rem;
+    &-portfolio {
+        font-family: 'Cormorant', serif;
+    }
 }
-.position-portfolio {
+.pillar-text {
     font-family: 'Cormorant', serif;
+    font-weight: bold;
+    font-size: .6rem;
 }
 
- a {
-    font-family: 'Kadwa', serif;
-    font-weight: bold;
- }
+
