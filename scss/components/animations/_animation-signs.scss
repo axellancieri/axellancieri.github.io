@@ -1,8 +1,3 @@
-$pillar-leaf-colors: (
-    "1": #588a41,
-    "2": #77a377,
-    "3": #3f573f
-);
 $pillar-rocks: (
     "1": 2s,
     "2": 2.5s,
@@ -27,16 +22,63 @@ $align-rocks: (
     "9" : -248px,
     "10" : -245.58px
 );
-
+$pillar-leafs-group-animation-start-point: (
+    /*by default these leafs paths came in a single group of 3 that were Y vector separated,
+      made little changes in comparison to the X one is because of the default setting */
+    /* targeting leafs in 8 groups of 3 and these are the properties you see below:
+      - transl X start - transl Y start - scale */ 
+    "1" "2" "3" -283px -404px .3, 
+    "4" "5" "6" -264px -427px .5,
+    "7" "8" "9" -243px -433px .4,
+    "10" "11" "12" -270px -400px .3, 
+    "13" "14" "15" -151px -415px .5,
+    "16" "17" "18" -131px -382px .3,
+    "19" "20" "21" -106px -410px .4,
+    "22" "23" "24" -125px -395px .3,
+);
+$pillar-leafs-group-animation-end-point: (
+    // each leaf in groups of 8 - transl X finish - transl Y finish - scale
+    "1" "2" "3" -283px  -20px .3,
+    "4" "5" "6" -264px -30px .5,
+    "7" "8" "9" -243px -25px .4,
+    "10" "11" "12" -270px -15px .3,
+    "13" "14" "15" -151px -20px .5,
+    "16" "17" "18" -131px -30px .3,
+    "19" "20" "21" -106px -25px .4,
+    "22" "23" "24" -125px -15px .3,
+);
+$pillar-leafs-delay: (
+    "1": 2s,
+    "2": 2.5s,
+    "3": 3s,
+    "4" : 5s,
+    "5" : 5.3s,
+    "6" : 5.6s,
+    "7" : 5.9s,
+    "8" : 6.1s,
+    "9" : 6.4s,
+    "10" : 6.8s,
+    "11" : 7.5s,
+    "12" : 8s,
+    "13" : 9s,
+    "14": 2s,
+    "15": 2.5s,
+    "16": 3s,
+    "17" : 5s,
+    "18" : 5.3s,
+    "19" : 5.6s,
+    "20" : 5.9s,
+    "21" : 6.1s,
+    "22" : 6.4s,
+    "23" : 6.8s,
+    "24" : 7.5s,
+);
 .pillar {
     position: relative;
     z-index: 10;
     display: block;
     fill: #4c575b;
     stroke: transparent;
-    // &-g {
-    //     transform: translate(-192.25px, -255.58px);
-    // }
     &-animation {
         &-in {
             path {
@@ -72,16 +114,31 @@ $align-rocks: (
         }
     }
     &-leafs {
-        stroke: #fff;
+        stroke: #c1c19a;
         stroke-width: .5;
-        fill: blue;
-        transform-origin: 10px 10px;
-        transform-box: fill-box;
-        transform: scale(.3);
-        transform: translate(-192.25px, -255.58px) scale(.3);
-        @each $leaf, $color in $pillar-leaf-colors {
+        fill: #acac78;
+        path {
+            transform-origin: 10px 10px;
+            transform-box: fill-box;
+            opacity: 0;
+        }
+        @each $middleLeaf, $bottomLeaf, $upperLeaf, $translX, $translY, $scale in $pillar-leafs-group-animation-start-point {
+            path:nth-child(#{$middleLeaf}) {
+                transform: translate($translX, $translY) scale($scale);
+                animation: pillar-leaf-fall-#{$middleLeaf} 8s linear infinite;
+            }
+            path:nth-child(#{$bottomLeaf}) {
+                transform: translate($translX, $translY) scale($scale);
+                animation: pillar-leaf-fall-#{$bottomLeaf} 8s linear infinite;
+            }
+            path:nth-child(#{$upperLeaf}) {
+                transform: translate($translX, $translY) scale($scale);
+                animation: pillar-leaf-fall-#{$upperLeaf} 8s linear infinite;
+            }
+        }
+        @each $leaf, $delay in $pillar-leafs-delay {
             path:nth-child(#{$leaf}) {
-                fill: $color;
+                animation-delay: $delay;
             }
         }
     }
@@ -225,6 +282,45 @@ $align-rocks: (
         }
         to {
             transform: translate(-195px, $translateY) rotate(20deg) scale(1.1);
+        }
+    }
+}
+
+@each $middleLeaf, $bottomLeaf, $upperLeaf, $translX, $translY, $scale in $pillar-leafs-group-animation-end-point {
+    @keyframes pillar-leaf-fall-#{$middleLeaf} {
+        from {
+            opacity: .5;
+        }
+        10% {
+            opacity: 1;
+        }
+        to {
+            opacity: 1;
+            transform: translate($translX, $translY) scale($scale);
+        }
+    }
+    @keyframes pillar-leaf-fall-#{$bottomLeaf} {
+        from {
+            opacity: .5;
+        }
+        10% {
+            opacity: 1;
+        }
+        to {
+            opacity: 1;
+            transform: translate($translX, $translY) scale($scale);
+        }
+    }
+    @keyframes pillar-leaf-fall-#{$upperLeaf} {
+        from {
+            opacity: .5;
+        }
+        10% {
+            opacity: 1;
+        }
+        to {
+            opacity: 1;
+            transform: translate($translX, $translY) scale($scale);
         }
     }
 }
