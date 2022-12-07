@@ -89,7 +89,7 @@ $align-rocks: (
     &-holder {
         display: block;
         width: 100%;
-        fill: #198410;
+        fill: #588a41;
         stroke: black;
         stroke-width: 20;
         &-1 {
@@ -103,30 +103,57 @@ $align-rocks: (
         }   
     }
     &-scroll {
-        display: block;
-        x: 4.2em;
-        y: 12em;
-        stroke-width: 1.9;
-        &-plants {
-            fill: #198410;
-            stroke-width: 2;
-            stroke: black;
-            &-spots {
-                fill: transparent;
+        &-1 {
+            display: block;
+            x: 4.2em;
+            y: 12em;
+            stroke-width: 1.9;
+            --color-plants: #198410;
+            &-plants {
+                fill: var(--color-plants);
+                stroke-width: 2;
+                stroke: black;
+                &-spots {
+                    fill: transparent;
+                }
+            }
+            &-main {
+                fill: white;
+                stroke: #000;
+                stroke-width: 4;
+            }
+            &-right-dots {
+                fill: #d7d2c2;
+            }
+            &-sides {
+                fill: white;
+                stroke: black;
+                stroke-width: 1;
             }
         }
-        &-main {
-            fill: #cec094;
-            stroke: #000;
-            stroke-width: 4;
+        &-2 {
+            display: block;
+            x: 4.55em;
+            y: 7em;
+            &-all {
+                fill: #0d1046; //#187e0f
+                stroke: black;
+            }
+            &-spaces {
+                fill: transparent;
+            }
+            &-blooms {
+                fill: #7fbeb9; //#a8a82a #c0c21a
+            }
+            &-main {
+                fill: white;
+            }
         }
-        &-right-dots {
-            fill: #d7d2c2;
-        }
-        &-sides {
-            fill: #cec094;
-            stroke: black;
-            stroke-width: 1;
+        &-3 {
+            x: 5.9em;
+            y: 4.5em;
+            scale: .8;
+            --color-plants: black;
         }
     }
 }
