@@ -1,6 +1,5 @@
 .position {
     fill: #a6a66d;
-    position: absolute;
     &-name {
         transform: translate(1em, 10.8em);
     }
@@ -9,18 +8,5 @@
     }
     &-portfolio {
         transform: translate(2.5em, 12em);
-    }
-}
-
-.pillar-text {
-    position: absolute;
-    &-about-me {
-        transform: translate(8.5em, 9.1em);
-    }
-    &-projects {
-        transform: translate(8.8em, 16.2em);
-    }
-    &-get-in-touch {
-        transform: translate(7.7em, 23.75em);
     }
 }
