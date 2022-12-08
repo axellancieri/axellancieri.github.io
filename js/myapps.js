@@ -8,7 +8,8 @@ const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
 const hexagonSvg = treeSvg.querySelector('.hexagon');
 const soilSvg = treeSvg.querySelector('.soil');
 const pillar = document.querySelector('.pillar');
-const banner = pillar.querySelector('.pillar-banner');
+const pillarRocks = pillar.firstElementChild;
+const banner = Array.from(pillar.querySelectorAll('use, text'));
 
 /* FUNCTIONS */
 
@@ -47,41 +48,67 @@ function treeBackIn(callback) {
 };
 
 function pillarIn() {
-    pillar.classList.add('pillar-animation-in');
+    pillarRocks.classList.add('pillar-animation-in');
 };
 
-function rocksAlign(callback) {
-    pillar.children[12].addEventListener('animationend', () => {
-        pillar.classList.replace('pillar-animation-in', 'pillar-animation-align');
-            callback();
+function rocksAlign(callback2) {
+    pillarRocks.children[12].addEventListener('animationend', () => {
+        pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
+        callback2();
     });
 };
 
 function bannerIn() {
-    pillar.children[10].addEventListener(('animationend'), () => {
-            banner.classList.add('pillar-banner-animation');
+    pillarRocks.children[9].addEventListener(('animationend'), ()  => {
+            banner.forEach((element, index) => {
+
+                element.classList.contains('pillar-banner') ? 
+                  element.classList.add('pillar-banner-animation') : 
+
+                element.classList.contains('pillar-holder-1') ? 
+                    element.classList.add('pillar-holder-1-animation') : 
+
+                element.classList.contains('pillar-holder-2') ? 
+                    element.classList.add('pillar-holder-2-animation') : 
+
+                element.classList.contains('pillar-scroll-3') ? 
+                    element.classList.add('pillar-scroll-3-animation') : 
+
+                  element.classList.contains('pillar-scroll-2') ? 
+                    element.classList.add('pillar-scroll-2-animation') : 
+
+                element.classList.contains('pillar-scroll-1') ? 
+                    element.classList.add('pillar-scroll-1-animation') : 
+
+                element.classList.contains('pillar-text') && element.innerHTML.includes('About') ? 
+                 element.classList.add('pillar-text-about-me') : 
+
+                element.classList.contains('pillar-text') && element.innerHTML.includes('Projects') ? 
+                  element.classList.add('pillar-text-projects') : 
+
+                element.classList.contains('pillar-text') && element.innerHTML.includes('Get') ? 
+                  element.classList.add('pillar-text-get-in-touch') : 
+                    console.log(`${index} was not found`);
         });
-};
-
-function animationSequence(animation1, animation2, animation3, animation4, animation5) {
-    animation1;
-    animation2;
-    animation3;
-    animation4;
-    animation5;
-};
-
+        pillarLeafsIn();
+    });
+}
+function pillarLeafsIn() {
+    const bannerLastAnimation = banner.find(element => element.classList.contains('pillar-text-get-in-touch'));
+    bannerLastAnimation.addEventListener('animationend', () => {
+        console.log('leafs in');
+    });
+}
 /* TREE-PILLAR-ANIMATION */
 
 treeSvg.addEventListener('click', () => {
     
     if (treeSvg.classList.contains("tree-in")) {
-        animationSequence(
-            treeIn(),
-            treeOut(),
-            treeBackIn(pillarIn),
-            rocksAlign(bannerIn),
-        );    
+        treeIn(),
+        treeOut(),
+        treeBackIn(pillarIn),
+        rocksAlign(bannerIn)
+        
     };
 });
 

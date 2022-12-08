@@ -1,6 +1,8 @@
 .navbar {
-    position: absolute;
-    right: 0;
+    position: relative;
+    // right: 0;
+    padding-top: 1em;
+    padding-bottom: 0;
     z-index: 110;
     &-content {
     background-color: #a6a66d;
@@ -19,5 +21,5 @@
     top: 0em;
 }
 .border-style {
-    border-bottom: 3px dotted white;
+    border-bottom: 1px dashed white;
 }
