@@ -1,13 +1,18 @@
 .navbar {
     position: relative;
-    // right: 0;
     padding-top: 1em;
     padding-bottom: 0;
     z-index: 110;
     &-content {
     background-color: #a6a66d;
     border-radius: 1em;
-    border: 1px solid white;
+    border: 1px solid #ffffff7d;;
+    }
+    &-dropdown {
+        position: absolute;
+        right: 5em;
+        top: 3.5em;
+        z-index: 300;
     }
 }
 .navbar,

@@ -116,7 +116,9 @@ $pillar-leafs-delay: (
         // }
     }
     &-leafs {
-        opacity: 0;
+        path {
+            opacity: 0;
+        }
         &-animation {
             stroke: #c1c19a;
             stroke-width: .5;

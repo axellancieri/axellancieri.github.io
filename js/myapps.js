@@ -1,6 +1,8 @@
-/* VARIABLES */
+/* ALL VARIABLES */
 
 const navBar = document.querySelector('nav');
+const navButton = navBar.querySelector('button');
+const navBarDropdown = document.querySelector('.navbar-dropdown');
 const treeSvg = document.querySelector('.tree');
 const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
 const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
@@ -9,9 +11,10 @@ const hexagonSvg = treeSvg.querySelector('.hexagon');
 const soilSvg = treeSvg.querySelector('.soil');
 const pillar = document.querySelector('.pillar');
 const pillarRocks = pillar.firstElementChild;
-const banner = Array.from(pillar.querySelectorAll('use, text'));
+const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
+const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
-/* FUNCTIONS */
+/* TREE-PILLAR ANIMATION FUNCTIONS */
 
 function treeIn() {
     treeSvg.classList.remove('tree-in');
@@ -51,16 +54,17 @@ function pillarIn() {
     pillarRocks.classList.add('pillar-animation-in');
 };
 
-function rocksAlign(callback2) {
+function rocksAlign(callback2, callback3) {
     pillarRocks.children[12].addEventListener('animationend', () => {
         pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
-        callback2();
+        callback2(callback3);
+
     });
 };
 
-function bannerIn() {
+function bannerIn(callback3) {
     pillarRocks.children[9].addEventListener(('animationend'), ()  => {
-            banner.forEach((element, index) => {
+            bannerAll.forEach((element, index) => {
 
                 element.classList.contains('pillar-banner') ? 
                   element.classList.add('pillar-banner-animation') : 
@@ -90,13 +94,13 @@ function bannerIn() {
                   element.classList.add('pillar-text-get-in-touch') : 
                     console.log(`${index} was not found`);
         });
-        pillarLeafsIn();
+        callback3();
     });
 }
 function pillarLeafsIn() {
-    const bannerLastAnimation = banner.find(element => element.classList.contains('pillar-text-get-in-touch'));
+    const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
     bannerLastAnimation.addEventListener('animationend', () => {
-        console.log('leafs in');
+        pillarLeafs.classList.add('pillar-leafs-animation');
     });
 }
 /* TREE-PILLAR-ANIMATION */
@@ -104,13 +108,41 @@ function pillarLeafsIn() {
 treeSvg.addEventListener('click', () => {
     
     if (treeSvg.classList.contains("tree-in")) {
-        treeIn(),
+        treeIn()
         treeOut(),
         treeBackIn(pillarIn),
-        rocksAlign(bannerIn)
-        
+        rocksAlign(bannerIn, pillarLeafsIn)   
     };
 });
+
+/* NAV BAR */
+
+function navDropDownClick(e) {
+    if (e.target.closest('button').getAttribute('aria-expanded') === 'true') {
+        navButton.removeEventListener('click', navDropDownClick);
+        setTimeout(() => { 
+            document.addEventListener('click', navDropdownClose);
+        }, 300);
+        return (console.log('passing through'));
+    } else if (e.target.closest('button').getAttribute('aria-expanded') === 'false') {
+        console.log('closing dropdown');
+    };
+}
+function navDropdownClose(e) {
+ if (e.target.innerHTML.includes('About')) {
+        document.removeEventListener('click', navDropdownClose);
+        console.log('about')
+        navButton.click();
+        navButton.addEventListener('click', navDropDownClick);
+    } else {
+        document.removeEventListener('click', navDropdownClose);
+        console.log('else');
+        navButton.click();
+        navButton.addEventListener('click', navDropDownClick); 
+    };
+};
+
+    navButton.addEventListener('click', navDropDownClick); 
 
 // projects.addEventListener('click', () => {
     
@@ -122,3 +154,4 @@ treeSvg.addEventListener('click', () => {
     // }
     
 // });
+
