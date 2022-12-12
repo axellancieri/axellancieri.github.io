@@ -13,6 +13,7 @@ const pillar = document.querySelector('.pillar');
 const pillarRocks = pillar.firstElementChild;
 const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
 const pillarLeafs = pillar.querySelector('.pillar-leafs');
+const footerSoil = document.querySelector('.footer-soil');
 
 /* TREE-PILLAR ANIMATION FUNCTIONS */
 
@@ -55,6 +56,10 @@ function pillarIn() {
 };
 
 function rocksAlign(callback2, callback3) {
+    pillarRocks.children[6].addEventListener('animationend', () => {
+        footerSoil.classList.add('footer-soil-animation');
+
+    });
     pillarRocks.children[12].addEventListener('animationend', () => {
         pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
         callback2(callback3);

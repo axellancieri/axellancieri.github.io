@@ -1,7 +1,31 @@
 .footer-soil {
-    background-color: #5e5634;
+    // background-color: transparent;
+    background-image: linear-gradient(to top, #5e5634, #c0c19a);
     height: 80px;
-    border-top: 8px double #acac78;
-    border-top-left-radius: 30%;
-    border-top-right-radius: 30%;
+    background-size: 200% 200%;
+}
+.footer-soil-animation {
+    animation: footer-soil 4s linear forwards;
+}
+
+@keyframes footer-soil {
+    from {
+        background-position: 1% 0%;
+    }
+    80% {
+        background-position: 80% 100%;
+    }
+    90% {
+        background-position: 80% 100%;
+        border-top: 8px double #acac78;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+    }
+    to {
+        background-position: 100% 100%;
+        border-top: 8px double #acac78;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+        background-size: 200% 250%;
+    }
 }

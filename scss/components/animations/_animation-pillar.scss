@@ -74,11 +74,6 @@ $pillar-leafs-delay: (
     "24" : 7.5s,
 );
 .pillar {
-    position: relative;
-    z-index: 10;
-    display: block;
-    fill: #4c575b;
-    stroke: transparent;
     &-animation {
         &-in {
             path {
@@ -116,17 +111,7 @@ $pillar-leafs-delay: (
         // }
     }
     &-leafs {
-        path {
-            opacity: 0;
-        }
         &-animation {
-            stroke: #c1c19a;
-            stroke-width: .5;
-            fill: #acac78;
-            path {
-                transform-origin: 10px 10px;
-                transform-box: fill-box;
-            }
             @each $middleLeaf, $bottomLeaf, $upperLeaf, $translX, $translY, $scale in $pillar-leafs-group-animation-start-point {
                 path:nth-child(#{$middleLeaf}) {
                     transform: translate($translX, $translY) scale($scale);
@@ -148,101 +133,29 @@ $pillar-leafs-delay: (
             }
         }
     }
-    &-banner {
-        display: block;
-        x: -4.25em;
-        y: -5.1em;
-        opacity: 0;
-        &-animation {
+    &-banner-animation {
             animation: banner-drop 1.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s both;
         }
-    }
     &-holder {
-        display: block;
-        width: 100%;
-        fill: var(--color-fill);
-        stroke: black;
-        stroke-width: 20;
-        opacity: 0;
-        &-1 {
-            x: 3.9em;
-            y: -0.5em;
-            --color-fill: #588a41;
-            &-animation {
+        &-1-animation {
                 animation: holder-1 1s ease-out 2s both;
-            }
         }   
-        &-2 {
-            x: -9.2em;
-            y: -18.7em;
-            rotate: 181deg;
-            --color-fill: #71c486;
-            &-animation {
+        &-2-animation {
                 animation: holder-2 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both;
-            }
         }   
     }
     &-scroll {
         &-1 {
-            display: block;
-            x: 4.2em;
-            y: 12em;
-            stroke-width: 1.9;
-            --color-plants: #71c486;
-            opacity: 0;
             &-animation {
                 animation: scrolls-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both;
             }
-            &-plants {
-                fill: var(--color-plants);
-                stroke-width: 2;
-                stroke: black;
-                &-spots {
-                    fill: transparent;
-                }
-            }
-            &-main {
-                fill: white;
-                stroke: #000;
-                stroke-width: 4;
-            }
-            &-right-dots {
-                fill: #d7d2c2;
-            }
-            &-sides {
-                fill: white;
-                stroke: black;
-                stroke-width: 1;
-            }
         }
         &-2 {
-            display: block;
-            x: 4.55em;
-            y: 7.7em;
-            opacity: 0;
             &-animation {
                 animation: scrolls-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5.5s both;
             }
-            &-all {
-                fill: #0d1046;
-                stroke: black;
-            }
-            &-spaces {
-                fill: transparent;
-            }
-            &-blooms {
-                fill: #7fbeb9;
-            }
-            &-main {
-                fill: white;
-            }
         }
         &-3 {
-            x: 5.9em;
-            y: 4.5em;
-            scale: .8;
-            --color-plants: #598a42;
-            opacity: 0;
             &-animation {
                 animation: scrolls-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both;
             }

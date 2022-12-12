@@ -17,11 +17,6 @@ $animation-bushes-delays: (
 );
 
 .tree {
-    width: 100%;
-    display: block;
-    position: relative;
-    z-index: 100;
-    transform: translateY(10em);
     &-in {
         animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
     }
@@ -44,52 +39,21 @@ $animation-bushes-delays: (
             } 
         }
         path{
-            transform-origin: 30px 25px;
-            transform-box: fill-box;
             animation: tree-bushes-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
         }
     }
 }
-.hexagon {
-    opacity: 1;
-    transform: translate(0.35em, 2.5em) scale(1);
-    fill: transparent;
-    stroke: white;
-    stroke-width: 2;
-    stroke-dasharray: 1371.8;
-    stroke-dashoffset: 1371.8;
-    &-animation {
+.hexagon-animation {
         animation: dash-offset 5s linear 4s forwards, fill-hexagon 1s 8.5s linear forwards;
     }
-    
-
-}
 .leafs {
-    width: 100%;
-    display: block;
-    opacity: 0; 
     &-1 {
         animation: leaf-falling 8s linear 5s infinite;
-        x: 2em;
-        y: 15em;
     }
     &-2 {
         animation: leaf-falling 8s linear 5s infinite;
-        x: 5em;
-        y: 16em;
     }
 }
-.grass {
-    width: 100%;
-    display: block;
-    &-r {
-        transform: translate(5.3em, 11.7em) scale(0.15);
-    }
-    &-l {
-        transform: translate(3.9em, 11.7em) scale(0.15);
-    }
-}
-
 .animation {
     &-name-in {
         animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
@@ -104,36 +68,24 @@ $animation-bushes-delays: (
         animation: js-name-up 2s ease-out both;
     }
 }
-
-.squirrel-right {
-    opacity: 0;
-    transform-origin: 2em 2em;
-    transform-box: fill-box;
-    animation-name: right-squirrel-show, right-squirrel-goes-up; 
-    animation-duration: 20s;  // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
-    animation-iteration-count: infinite;
-    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 8s;
-    animation-fill-mode: forwards; 
+.squirrel {
+    &-right {
+        animation-name: right-squirrel-show, right-squirrel-goes-up;   // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
+        animation-delay: 8s;
+    }
+    &-left {
+        animation-name: left-squirrel-show, left-squirrel-goes-up; //Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
+        animation-delay: 11s;
+    }
+    &-left,
+    &-right {
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards; 
+        animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    }
 }
-
-.squirrel-left {   
-    opacity: 0;
-    transform-origin: 2em 2em;
-    transform-box: fill-box;
-    animation-name: left-squirrel-show, left-squirrel-goes-up;
-    animation-duration: 20s; //Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
-    animation-iteration-count: infinite;
-    animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-delay: 11s;
-    animation-fill-mode: forwards; 
-}
-  
 .soil {
-    width: 100%;
-    display: block;
-    transform: translateY(7.5em);
-    fill: #47352b;
     &-animation-fade {
         animation: js-soil-fade 2s linear forwards;
     }
