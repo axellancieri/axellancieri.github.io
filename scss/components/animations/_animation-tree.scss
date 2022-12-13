@@ -29,18 +29,18 @@ $animation-bushes-delays: (
     &-back-in {
         animation: tree-back-in 1s ease-in forwards;
     }
-    &-flip-left {
-        animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-    }
     .tree-bushes {     
         @each $path, $delay in $animation-bushes-delays {
             path:nth-child(#{$path}) {
                 animation-delay: $delay;
             } 
         }
-        path{
+        path {
             animation: tree-bushes-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
         }
+    }
+    &-flip-left {
+        animation: tree-flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     }
 }
 .hexagon-animation {
@@ -132,7 +132,7 @@ $animation-bushes-delays: (
     }      
 }
 
-@keyframes flip-left {
+@keyframes tree-flip-left {
     0% {
       -webkit-transform: rotateY(0);
               transform: rotateY(0);

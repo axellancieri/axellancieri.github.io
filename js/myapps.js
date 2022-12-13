@@ -3,19 +3,22 @@
 const navBar = document.querySelector('nav');
 const navButton = navBar.querySelector('button');
 const navBarDropdown = document.querySelector('.navbar-dropdown');
+
 const treeSvg = document.querySelector('.tree');
 const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
 const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
 const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
 const hexagonSvg = treeSvg.querySelector('.hexagon');
 const soilSvg = treeSvg.querySelector('.soil');
+
 const pillar = document.querySelector('.pillar');
 const pillarRocks = pillar.querySelector('.pillar-rocks');
 const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
 const pillarLeafs = pillar.querySelector('.pillar-leafs');
+
 const footerSoil = document.querySelector('.footer-soil');
 
-/* TREE-PILLAR ANIMATION FUNCTIONS */
+/* TREE-PILLAR APPEARANCE ANIMATION FUNCTIONS */
 
 function treeIn() {
     treeSvg.classList.remove('tree-in');
@@ -134,20 +137,38 @@ function navDropDownClick(e) {
     };
 }
 function navDropdownClose(e) {
- if (e.target.innerHTML.includes('About')) {
+    if (e.target.closest("h5")) {
+        const text = e.target.innerHTML;
+        if (text.includes('Projects')) {
+            document.removeEventListener('click', navDropdownClose);
+            console.log('projects')
+            navButton.click();
+            navButton.addEventListener('click', navDropDownClick);
+        } else if (text.includes('About')) {
+            document.removeEventListener('click', navDropdownClose);
+            console.log('about')
+            navButton.click();
+            navButton.addEventListener('click', navDropDownClick);
+        } else if (text.includes('Get in')) {
+            document.removeEventListener('click', navDropdownClose);
+            console.log('get in touch')
+            navButton.click();
+            navButton.addEventListener('click', navDropDownClick);
+        }
+    } else if (e.target.closest(":not(h5)")) {
         document.removeEventListener('click', navDropdownClose);
-        console.log('about')
-        navButton.click();
-        navButton.addEventListener('click', navDropDownClick);
-    } else {
-        document.removeEventListener('click', navDropdownClose);
-        console.log('else');
+        console.log('closing');
         navButton.click();
         navButton.addEventListener('click', navDropDownClick); 
-    };
-};
-
+    }
+}
     navButton.addEventListener('click', navDropDownClick); 
+
+/* TREE-PILLAR IN-OUTS BETWEEN SECTIONS */
+
+
+
+/* SCROLLS INTERACTIVITY */
 
 // projects.addEventListener('click', () => {
     

@@ -106,9 +106,7 @@ $pillar-leafs-delay: (
                 animation: rock-down 4s steps(10) 2.5s forwards;
             }
         }
-        // &-flip-left {
-        //     animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-        // }
+
     }
     &-leafs {
         &-animation {
@@ -172,6 +170,9 @@ $pillar-leafs-delay: (
         &-get-in-touch {
             animation: get-in-touch-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both;
         }
+    }
+    &-flip-left {
+        animation: pillar-flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     }
 }
 .footer-soil-animation {
@@ -397,15 +398,15 @@ $pillar-leafs-delay: (
         background-size: 200% 250%;
     }
 }
-// @keyframes flip-left {
-//     0% {
-//       -webkit-transform: rotateY(0);
-//               transform: rotateY(0);
-//       opacity: 1;
-//     }
-//     100% {
-//       -webkit-transform: rotateY(-70deg);
-//               transform: rotateY(-70deg);
-//       opacity: 0;
-//     }
-// }
+@keyframes pillar-flip-left {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(-70deg);
+              transform: rotateY(-70deg);
+      opacity: 0;
+    }
+}
