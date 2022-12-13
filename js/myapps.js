@@ -18,6 +18,10 @@ const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
 const footerSoil = document.querySelector('.footer-soil');
 
+const scroll1 = bannerAll.filter(element => element.matches('.pillar-scroll-1')); //.pillar-text-get-in-touch,  
+const scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
+const scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
+
 /* TREE-PILLAR APPEARANCE ANIMATION FUNCTIONS */
 
 function treeIn() {
@@ -66,7 +70,6 @@ function rocksAlign(callback2, callback3) {
     pillarRocks.children[12].addEventListener('animationend', () => {
         pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
         callback2(callback3);
-
     });
 };
 
@@ -104,6 +107,7 @@ function bannerIn(callback3) {
         });
         callback3();
     });
+    callback4();
 }
 function pillarLeafsIn() {
     const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
@@ -166,8 +170,26 @@ function navDropdownClose(e) {
 
 /* TREE-PILLAR IN-OUTS BETWEEN SECTIONS */
 
+function hoverOnScroll(scroll, action) {
+    const eventHover = scroll.addEventListener(('onmouseenter', action()));
+    return eventHover;
+}
 
-
+function addAnimationHover(scroll, action) {
+    if(scroll[0].classList.contains('growHover')) {
+        return console.log('Animation Running atm, gotta wait until it finishes before it starts again')
+    } else {
+        scroll.removeEventListener('onmouseenter', action());
+        return scroll.map(element => {
+                element.classList.add('growHover');
+                element.addEventListener('animationend', () => {
+                    element.classList.remove('growHover');
+                    scroll.addEventListener('onmouseenter', action());
+                });
+    });
+    }
+}
+hoverOnScroll(scroll1, addAnimationHover);
 /* SCROLLS INTERACTIVITY */
 
 // projects.addEventListener('click', () => {
