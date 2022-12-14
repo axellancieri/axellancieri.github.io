@@ -18,9 +18,10 @@ const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
 const footerSoil = document.querySelector('.footer-soil');
 
-const scroll1 = bannerAll.filter(element => element.matches('.pillar-scroll-1')); //.pillar-text-get-in-touch,  
+const scroll1 = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
 const scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
 const scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
+// const scroll1 = bannerAll.querySelectorAll('.pillar-text-get-in-touch, .pillar-scroll-1');
 
 /* TREE-PILLAR APPEARANCE ANIMATION FUNCTIONS */
 
@@ -70,6 +71,7 @@ function rocksAlign(callback2, callback3) {
     pillarRocks.children[12].addEventListener('animationend', () => {
         pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
         callback2(callback3);
+        hoverOnScroll(scroll1[0], addAnimationHover);
     });
 };
 
@@ -107,7 +109,6 @@ function bannerIn(callback3) {
         });
         callback3();
     });
-    callback4();
 }
 function pillarLeafsIn() {
     const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
@@ -123,7 +124,7 @@ treeSvg.addEventListener('click', () => {
         treeIn()
         treeOut(),
         treeBackIn(pillarIn),
-        rocksAlign(bannerIn, pillarLeafsIn)   
+        rocksAlign(bannerIn, pillarLeafsIn);   
     };
 });
 
@@ -170,26 +171,30 @@ function navDropdownClose(e) {
 
 /* TREE-PILLAR IN-OUTS BETWEEN SECTIONS */
 
-function hoverOnScroll(scroll, action) {
-    const eventHover = scroll.addEventListener(('onmouseenter', action()));
-    return eventHover;
+function hoverOnScroll() {
+ scroll1[0].addEventListener('mouseover', addAnimationHover);
 }
 
-function addAnimationHover(scroll, action) {
-    if(scroll[0].classList.contains('growHover')) {
-        return console.log('Animation Running atm, gotta wait until it finishes before it starts again')
-    } else {
-        scroll.removeEventListener('onmouseenter', action());
-        return scroll.map(element => {
-                element.classList.add('growHover');
-                element.addEventListener('animationend', () => {
-                    element.classList.remove('growHover');
-                    scroll.addEventListener('onmouseenter', action());
-                });
-    });
+function addAnimationHover() {
+    if(scroll1[0].classList.contains('growHover')) {
+        console.log('Animation Running atm, gotta wait until it finishes before it starts again')
+        scroll1[0].classList.remove('growHover');
+    } else if(!scroll1[0].classList.contains('growHover')) {
+        // scroll1[0].removeEventListener('mouseover', hoverOnScroll);
+            //  scroll1.forEach(element => {
+            //     element.classList.add('growHover');
+            //     element.addEventListener('animationend', () => {
+            //         element.classList.remove('growHover');
+                    // scroll1.addEventListener('mouseover', hoverOnScroll);
+            //     });
+    // });
+        scroll1[0].classList.add('growHover');
+        // scroll1[0].addEventListener('animationend', () => {
+        //     scroll1[0].classList.remove('growHover');
+        // })
+        // scroll1.addEventListener('mouseover', hoverOnScroll);
     }
 }
-hoverOnScroll(scroll1, addAnimationHover);
 /* SCROLLS INTERACTIVITY */
 
 // projects.addEventListener('click', () => {
