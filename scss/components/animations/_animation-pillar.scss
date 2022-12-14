@@ -145,7 +145,9 @@ $pillar-leafs-delay: (
     &-scroll {
         &-1 {
             &-animation {
-                animation: scrolls-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both;
+                --second-animation: waiting-js;
+                animation: scrolls-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both,
+                var(--second-animation) 1s linear forwards;
             }
         }
         &-2 {
@@ -161,6 +163,7 @@ $pillar-leafs-delay: (
     }
     &-text {
         opacity: 0;
+        --second-animation: waiting-js;
         &-about-me {
             animation: about-me-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both;
         }
@@ -168,7 +171,8 @@ $pillar-leafs-delay: (
             animation: projects-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5.5s both;
         }
         &-get-in-touch {
-            animation: get-in-touch-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both;
+            animation: get-in-touch-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both,
+                var(--second-animation) 1s linear forwards;
         }
     }
     &-flip-left {
@@ -377,6 +381,21 @@ $pillar-leafs-delay: (
       opacity: 1;
     }
   }
+
+  @keyframes grow-hover {
+    from {
+        scale: 1;
+        opacity: 1;
+    }
+    50% {
+        scale: 1.1;
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+  }
+  
   @keyframes footer-soil {
     from {
         background-position: 1% 0%;

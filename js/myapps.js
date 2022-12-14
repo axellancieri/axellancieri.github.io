@@ -4,12 +4,12 @@ const navBar = document.querySelector('nav');
 const navButton = navBar.querySelector('button');
 const navBarDropdown = document.querySelector('.navbar-dropdown');
 
-const treeSvg = document.querySelector('.tree');
-const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
-const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
-const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
-const hexagonSvg = treeSvg.querySelector('.hexagon');
-const soilSvg = treeSvg.querySelector('.soil');
+// const treeSvg = document.querySelector('.tree');
+// const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
+// const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
+// const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
+// const hexagonSvg = treeSvg.querySelector('.hexagon');
+// const soilSvg = treeSvg.querySelector('.soil');
 
 const pillar = document.querySelector('.pillar');
 const pillarRocks = pillar.querySelector('.pillar-rocks');
@@ -71,12 +71,12 @@ function rocksAlign(callback2, callback3) {
     pillarRocks.children[12].addEventListener('animationend', () => {
         pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
         callback2(callback3);
-        hoverOnScroll(scroll1[0], addAnimationHover);
+        // hoverOnScroll(scroll1[0], addAnimationHover);
     });
 };
 
 function bannerIn(callback3) {
-    pillarRocks.children[9].addEventListener(('animationend'), ()  => {
+    // pillarRocks.children[9].addEventListener(('animationend'), ()  => {
             bannerAll.forEach((element, index) => {
 
                 element.classList.contains('pillar-banner') ? 
@@ -106,9 +106,11 @@ function bannerIn(callback3) {
                 element.classList.contains('pillar-text') && element.innerHTML.includes('Get') ? 
                   element.classList.add('pillar-text-get-in-touch') : 
                     console.log(`${index} was not found`);
-        });
-        callback3();
+        // });
+        // callback3();
+        hoverOnScroll();
     });
+    
 }
 function pillarLeafsIn() {
     const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
@@ -118,14 +120,17 @@ function pillarLeafsIn() {
 }
 /* TREE-PILLAR-ANIMATION */
 
-treeSvg.addEventListener('click', () => {
+// treeSvg.addEventListener('click', () => {
+    window.addEventListener('click', () => {
     
-    if (treeSvg.classList.contains("tree-in")) {
-        treeIn()
-        treeOut(),
-        treeBackIn(pillarIn),
-        rocksAlign(bannerIn, pillarLeafsIn);   
-    };
+    // if (treeSvg.classList.contains("tree-in")) {
+        // treeIn(),
+        // treeOut(),
+        // treeBackIn(pillarIn),
+        // pillarIn(),
+        // rocksAlign(bannerIn, pillarLeafsIn);   
+        bannerIn();
+    // };
 });
 
 /* NAV BAR */
@@ -176,25 +181,38 @@ function hoverOnScroll() {
 }
 
 function addAnimationHover() {
-    if(scroll1[0].classList.contains('growHover')) {
-        console.log('Animation Running atm, gotta wait until it finishes before it starts again')
-        scroll1[0].classList.remove('growHover');
-    } else if(!scroll1[0].classList.contains('growHover')) {
+    const currentStyle = getComputedStyle(scroll1[0]).getPropertyValue('--second-animation');
+    if(currentStyle.trim() === 'waiting-js') {
+        scroll1[0].removeEventListener('mouseover', hoverOnScroll);
+        scroll1[0].style.setProperty('--second-animation', ' grow-hover');
+        scroll1[0].addEventListener('animationend', () => {
+            scroll1[0].addEventListener('mouseover', hoverOnScroll);
+            scroll1[0].style.setProperty('--second-animation', ' waiting-js');
+        });
+    } else if(currentStyle.trim() === 'grow-hover') {
+        console.log('gotta wait for animataion to finish')
+        // scroll1[0].removeEventListener('mouseover', hoverOnScroll);
+        // scroll1[0].addEventListener('animationend', () => {
+            // scroll1[0].style.setProperty('--second-animation', ' waiting-js');
+            // scroll1[0].addEventListener('mouseover', hoverOnScroll);
+        // });
         // scroll1[0].removeEventListener('mouseover', hoverOnScroll);
             //  scroll1.forEach(element => {
-            //     element.classList.add('growHover');
+            //     element.classList.add('grow-hover');
             //     element.addEventListener('animationend', () => {
-            //         element.classList.remove('growHover');
+            //         element.classList.remove('grow-hover');
                     // scroll1.addEventListener('mouseover', hoverOnScroll);
             //     });
     // });
-        scroll1[0].classList.add('growHover');
         // scroll1[0].addEventListener('animationend', () => {
-        //     scroll1[0].classList.remove('growHover');
+        //     scroll1[0].classList.remove('grow-hover');
         // })
         // scroll1.addEventListener('mouseover', hoverOnScroll);
     }
 }
+// scroll1[0].style.setProperty('--second-animation', 'grow-hover');
+// scroll1[0].style.setProperty('--second-animation', 'waiting-js');
+// getComputedStyle(scroll1[0]).getPropertyValue('--second-animation');
 /* SCROLLS INTERACTIVITY */
 
 // projects.addEventListener('click', () => {
