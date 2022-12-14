@@ -124,7 +124,6 @@ function hoverStateListeners() {
             scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
             scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3')); 
         hoverOnScroll(scroll1, scroll2, scroll3);
-        // return scroll1;
     });
 }
 /* TREE-PILLAR-ANIMATION */
@@ -187,20 +186,54 @@ function navDropdownClose(e) {
 /* TREE-PILLAR IN-OUTS BETWEEN SECTIONS */
 
 function hoverOnScroll() {
- scroll1[0].addEventListener('mouseover', addAnimationHover);
+ scroll1.forEach(element => {
+    element.addEventListener('mouseover', addAnimationHover);
+ });
 }
 
 function addAnimationHover() {
-    const currentStyle = getComputedStyle(scroll1[0]).getPropertyValue('--second-animation');
-    if(currentStyle.trim() === 'waiting-js') {
-        scroll1[0].removeEventListener('mouseover', hoverOnScroll);
-        scroll1[0].style.setProperty('--second-animation', ' grow-hover');
-        scroll1[0].addEventListener('animationend', () => {
-            scroll1[0].addEventListener('mouseover', hoverOnScroll);
-            scroll1[0].style.setProperty('--second-animation', ' waiting-js');
-        });
-    } else if(currentStyle.trim() === 'grow-hover') {
-        console.log('gotta wait for animataion to finish')
+    scroll1.forEach(element => {
+        const currentAnimation = getComputedStyle(element).getPropertyValue('--second-animation');
+        if (currentAnimation.trim() === 'waiting-js') {
+            element.removeEventListener('mouseover', hoverOnScroll);
+            element.style.setProperty('--second-animation', ' grow-hover');
+            element.addEventListener('animationend', () => {
+                element.addEventListener('mouseover', hoverOnScroll);
+                element.style.setProperty('--second-animation', ' waiting-js');
+        })} else if(currentAnimation.trim() === 'grow-hover') {
+            console.log('gotta wait for animataion to finish')
+
+         }
+    }
+)};
+
+
+
+
+
+
+
+
+
+    // const currentStyle = getComputedStyle(scroll1[0]).getPropertyValue('--second-animation');
+    // if(currentStyle.trim() === 'waiting-js') {
+    //     scroll1[0].removeEventListener('mouseover', hoverOnScroll);
+    //     scroll1[0].style.setProperty('--second-animation', ' grow-hover');
+    //     scroll1[0].addEventListener('animationend', () => {
+    //         scroll1[0].addEventListener('mouseover', hoverOnScroll);
+    //         scroll1[0].style.setProperty('--second-animation', ' waiting-js');
+    //     });
+    // } else if(currentStyle.trim() === 'grow-hover') {
+    //     console.log('gotta wait for animataion to finish')
+
+
+
+
+
+
+
+
+
         // scroll1[0].removeEventListener('mouseover', hoverOnScroll);
         // scroll1[0].addEventListener('animationend', () => {
             // scroll1[0].style.setProperty('--second-animation', ' waiting-js');
@@ -218,8 +251,8 @@ function addAnimationHover() {
         //     scroll1[0].classList.remove('grow-hover');
         // })
         // scroll1.addEventListener('mouseover', hoverOnScroll);
-    }
-}
+//     }
+// }
 // scroll1[0].style.setProperty('--second-animation', 'grow-hover');
 // scroll1[0].style.setProperty('--second-animation', 'waiting-js');
 // getComputedStyle(scroll1[0]).getPropertyValue('--second-animation');
