@@ -10,3 +10,4 @@ I'd like to like push main content to one side and make projects come from the o
 Gonna go for modals to display get in touch information
 
 Get growHover animaation after scrolls are displayed on screen
+on growHover animaation give some empty % on keyframe so it won constantly

@@ -18,9 +18,9 @@ const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
 const footerSoil = document.querySelector('.footer-soil');
 
-const scroll1 = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
-const scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
-const scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
+// const scroll1 = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
+// const scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
+// const scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
 // const scroll1 = bannerAll.querySelectorAll('.pillar-text-get-in-touch, .pillar-scroll-1');
 
 /* TREE-PILLAR APPEARANCE ANIMATION FUNCTIONS */
@@ -108,7 +108,6 @@ function bannerIn(callback3) {
                     console.log(`${index} was not found`);
         // });
         // callback3();
-        hoverOnScroll();
     });
     
 }
@@ -116,6 +115,16 @@ function pillarLeafsIn() {
     const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
     bannerLastAnimation.addEventListener('animationend', () => {
         pillarLeafs.classList.add('pillar-leafs-animation');
+    });
+}
+function hoverStateListeners() {
+    const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
+    bannerLastAnimation.addEventListener('animationend', () => {
+           scroll1 = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
+            scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
+            scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3')); 
+        hoverOnScroll(scroll1, scroll2, scroll3);
+        // return scroll1;
     });
 }
 /* TREE-PILLAR-ANIMATION */
@@ -129,7 +138,8 @@ function pillarLeafsIn() {
         // treeBackIn(pillarIn),
         // pillarIn(),
         // rocksAlign(bannerIn, pillarLeafsIn);   
-        bannerIn();
+        bannerIn(),
+        hoverStateListeners();
     // };
 });
 
