@@ -23,6 +23,12 @@ const footerSoil = document.querySelector('.footer-soil');
 // const scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
 // const scroll1 = bannerAll.querySelectorAll('.pillar-text-get-in-touch, .pillar-scroll-1');
 
+/* OBJECT LITERALS */
+
+// const scrollsAll = [
+// scrolls once loaded will go here
+// ];
+
 /* TREE-PILLAR APPEARANCE ANIMATION FUNCTIONS */
 
 function treeIn() {
@@ -120,10 +126,15 @@ function pillarLeafsIn() {
 function hoverStateListeners() {
     const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
     bannerLastAnimation.addEventListener('animationend', () => {
-           scroll1 = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
-            scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
-            scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3')); 
-        hoverOnScroll(scroll1, scroll2, scroll3);
+        //    scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
+        //    scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
+        //    scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3')); 
+         scroll1 = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
+ scroll2 = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
+ scroll3 = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
+        hoverOnScroll1();
+        hoverOnScroll2();
+        hoverOnScroll3();
     });
 }
 /* TREE-PILLAR-ANIMATION */
@@ -185,24 +196,81 @@ function navDropdownClose(e) {
 
 /* TREE-PILLAR IN-OUTS BETWEEN SECTIONS */
 
-function hoverOnScroll() {
- scroll1.forEach(element => {
-    element.addEventListener('mouseover', addAnimationHover);
+function hoverOnScroll1() {
+    // scroll1 = scrollsAll.scrollGetInTouch;
+    scroll1.forEach(element => {
+    element.addEventListener('mouseover', addAnimationHoverScr1);
  });
 }
+function hoverOnScroll2() {
+    // scroll2 = scrollsAll.scrollProjects;
+    scroll2.forEach(element => {
+        element.addEventListener('mouseover', addAnimationHoverScr2);
+     });
+}
+function hoverOnScroll3() {
+    // scroll3 = scrollsAll.scrollAboutMe;
+    scroll3.forEach(element => {
+        element.addEventListener('mouseover', addAnimationHoverScr3);
+     });
+}
+function addAnimationHoverScr1() {
 
-function addAnimationHover() {
     scroll1.forEach(element => {
-        const currentAnimation = getComputedStyle(element).getPropertyValue('--second-animation');
+
+        const currentAnimation = getComputedStyle(element).getPropertyValue('--get-in-touch-animation');
+
         if (currentAnimation.trim() === 'waiting-js') {
-            element.removeEventListener('mouseover', hoverOnScroll);
-            element.style.setProperty('--second-animation', ' grow-hover');
+
+            element.removeEventListener('mouseover', hoverOnScroll1);
+            element.style.setProperty('--get-in-touch-animation', ' grow-hover');
+
             element.addEventListener('animationend', () => {
-                element.addEventListener('mouseover', hoverOnScroll);
-                element.style.setProperty('--second-animation', ' waiting-js');
+                element.addEventListener('mouseover', hoverOnScroll1);
+                element.style.setProperty('--get-in-touch-animation', ' waiting-js');
+
         })} else if(currentAnimation.trim() === 'grow-hover') {
             console.log('gotta wait for animataion to finish')
+         }
+    }
+)};
+function addAnimationHoverScr2() {
 
+    scroll2.forEach(element => {
+
+        const currentAnimation = getComputedStyle(element).getPropertyValue('--projects-animation');
+
+        if (currentAnimation.trim() === 'waiting-js') {
+
+            element.removeEventListener('mouseover', hoverOnScroll2);
+            element.style.setProperty('--projects-animation', ' grow-hover');
+
+            element.addEventListener('animationend', () => {
+                element.addEventListener('mouseover', hoverOnScroll2);
+                element.style.setProperty('--projects-animation', ' waiting-js');
+
+        })} else if(currentAnimation.trim() === 'grow-hover') {
+            console.log('gotta wait for animataion to finish')
+         }
+    }
+)};
+function addAnimationHoverScr3() {
+
+    scroll3.forEach(element => {
+
+        const currentAnimation = getComputedStyle(element).getPropertyValue('--about-me-animation');
+
+        if (currentAnimation.trim() === 'waiting-js') {
+
+            element.removeEventListener('mouseover', hoverOnScroll3);
+            element.style.setProperty('--about-me-animation', ' grow-hover');
+
+            element.addEventListener('animationend', () => {
+                element.addEventListener('mouseover', hoverOnScroll3);
+                element.style.setProperty('--about-me-animation', ' waiting-js');
+
+        })} else if(currentAnimation.trim() === 'grow-hover') {
+            console.log('gotta wait for animataion to finish')
          }
     }
 )};
