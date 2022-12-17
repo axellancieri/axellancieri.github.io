@@ -142,11 +142,13 @@ $pillar-leafs-delay: (
         }   
     }
     &-scroll {
-        &-1 {
+        &-3 {
             &-animation {
-                --get-in-touch-animation: waiting-js;
-                animation: scrolls-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 6s both,
-                var(--get-in-touch-animation) 2s ease-in-out both;
+                --about-me-back-in-animation: waiting-js;
+                --about-me-animation: waiting-js;
+                animation: about-me-scroll-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both,
+                var(--about-me-animation) 2s ease-in-out both,
+                var(--about-me-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             }
         }
         &-2 {
@@ -156,34 +158,40 @@ $pillar-leafs-delay: (
                 var(--projects-animation) 2s ease-in-out both;
             }
         }
-        &-3 {
+        &-1 {
             &-animation {
-                --about-me-animation: waiting-js;
-                animation: about-me-scroll-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both,
-                var(--about-me-animation) 2s ease-in-out both;
+                //--get-in-touch-back-in-animation: scroll-comeback-js;
+                --get-in-touch-animation: waiting-js;
+                animation: scrolls-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 6s both,
+                var(--get-in-touch-animation) 2s ease-in-out both;
+                // var(--get-in-touch-back-in-animation) scroll-comeback-js 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             }
         }
     }
     &-text {
         opacity: 0;
-        &-get-in-touch {
-            --get-in-touch-animation: waiting-js;
-            animation: text-get-in-touch-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) 6s both,
-                var(--get-in-touch-animation) 2s ease-in-out both;
+        &-about-me {
+            --about-me-back-in-animation: waiting-js;
+            --about-me-animation: waiting-js;
+            animation: text-about-me-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both,
+            var(--about-me-animation) 2s ease-in-out both,
+            var(--about-me-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
         &-projects {
             --projects-animation: waiting-js;
-            animation: text-projects-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
+            animation: text-projects-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
             var(--projects-animation) 2s ease-in-out both;
         }
-        &-about-me {
-            --about-me-animation: waiting-js;
-            animation: text-about-me-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both,
-            var(--about-me-animation) 2s ease-in-out both;
+        &-get-in-touch {
+            //--get-in-touch-back-in-animation: scroll-comeback-js;
+            --get-in-touch-animation: waiting-js;
+            animation: text-get-in-touch-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 6s both,
+            var(--get-in-touch-animation) 2s ease-in-out both;
+            // var(--get-in-touch-back-in-animation) scroll-comeback-js 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
     }
-    &-flip-left {
-        animation: pillar-flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    &-out-animation {
+        animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     }
 }
 .footer-soil-animation {
@@ -464,15 +472,29 @@ $pillar-leafs-delay: (
         background-size: 200% 250%;
     }
 }
-@keyframes pillar-flip-left {
+@keyframes flip-left {
     0% {
       -webkit-transform: rotateY(0);
               transform: rotateY(0);
-      opacity: 1;
+      visibility: visible;
     }
     100% {
       -webkit-transform: rotateY(-70deg);
               transform: rotateY(-70deg);
       opacity: 0;
+      visibility: hidden;
     }
+}
+@keyframes flip-right {
+    0% {
+        -webkit-transform: rotateY(80deg);
+                transform: rotateY(80deg);
+        visibility: hidden;
+      }
+      100% {
+        -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
 }

@@ -122,10 +122,19 @@ function hoverStateListeners(callback) {
     scrollsFirstAnimation = bannerAll.find(element => element.classList.contains('pillar-text-about-me'));
     // scrollsSecondAnimation = bannerAll.find(element => element.classList.contains('pillar-text-projects'));
     scrollsFirstAnimation.addEventListener('animationend', () => {
+
+        //might wanna think if I really need to use an object here once finish
+
            scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
            scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
-           scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3')); 
-        scrollsInteract();
+           scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
+
+           scroll1 = scrollsAll.scrollGetInTouch;
+           scroll2 = scrollsAll.scrollProjects;
+           scroll3 = scrollsAll.scrollAboutMe; 
+
+        scrollsInteract('mouseover');
+        scrollsInteract('click');
         callback();
     });
 }
@@ -186,30 +195,30 @@ function navDropdownClose(e) {
 /* TREE-PILLAR IN-OUTS BETWEEN SECTIONS */
 
 
-function scrollsInteract() {
-
-    scroll1 = scrollsAll.scrollGetInTouch;
-    scroll2 = scrollsAll.scrollProjects;
-    scroll3 = scrollsAll.scrollAboutMe;
-
-    pillar.addEventListener('mouseover', addAnimationHover);
-    pillar.addEventListener('click', addAnimationClick);
+function scrollsInteract(type) {
+    pillar.addEventListener(type, addInteract);
 };
 
-function addAnimationClick(e) {
 
-    console.log(e.target);
-}
+function addInteract(e) {
 
-function addAnimationHover(e) {
-
-    if (e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
+    if (e.type === 'mouseover' && e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
 
             scroll3.forEach(element => {
                 addAnimationHoverScr(element, '--about-me-animation');
              });   
 
-    } else if (e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
+    } else if (e.type === 'click' && e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
+        // pillar.classList.add('pillar-out-animation');
+        // pillar.addEventListener('animationend', () => {
+        //     scrollsAll.scrollAboutMe.forEach(element => {
+        //         element.style.setProperty('--about-me-back-in-animation', ' flip-right');
+        //     });
+        // });
+        console.log('this is a click 1');
+    }
+    
+    if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
 
             scroll2.forEach(element => {
                 getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
@@ -217,7 +226,11 @@ function addAnimationHover(e) {
                         console.log('not loaded yet');            
         });
 
-    } else if (e.target.closest('.pillar-get-in-touch, .pillar-scroll-1')) {
+    } else if (e.type === 'click' && e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
+        console.log('this is a click 2');
+    }
+    
+    if (e.type === 'mouseover' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-1')) {
 
         scroll1.forEach(element => {
             getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
@@ -225,21 +238,24 @@ function addAnimationHover(e) {
                     console.log('not loaded yet');            
     });
 
-    } else {
-        console.log('not clicking on scroll');
-    };
+    } else if (e.type === 'click' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-1')) {
+        console.log('this is a click 3');
+    }
 };
 
 function addAnimationHoverScr(target, propertyName) {
         const currentAnimation = getComputedStyle(target).getPropertyValue(propertyName);
 
         if (currentAnimation.trim() === 'waiting-js') {
-
-            target.removeEventListener('mouseover', addAnimationHover);
+   
             target.style.setProperty(propertyName, ' grow-hover');
-
+            pillar.removeEventListener('mouseover', addInteract);
+/*moving from animationend event to setTimeout so its more dynamic when switching between scrolls hover and also giving time for else if
+     statement to dislay. Might be good for troubleshooting aswell.*/
+                setTimeout(() => { 
+                    pillar.addEventListener('mouseover', addInteract);
+                }, 1000);
             target.addEventListener('animationend', () => {
-                target.addEventListener('mouseover', addAnimationHover);
                 target.style.setProperty(propertyName, ' waiting-js');
             });
         } else if(currentAnimation.trim() === 'grow-hover') {

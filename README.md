@@ -12,3 +12,5 @@ Gonna go for modals to display get in touch information
 check on full animation if rocks break in go invisble when cicked as they are being animataed
 
 If once everything is done the click on scrolls is not consistant. Might want to consider having like a transparent square on top of each scroll with the event listener on it.
+
+check myappsjs line 126 note once finished project
