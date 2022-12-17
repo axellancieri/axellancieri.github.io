@@ -4,12 +4,12 @@ const navBar = document.querySelector('nav');
 const navButton = navBar.querySelector('button');
 const navBarDropdown = document.querySelector('.navbar-dropdown');
 
-const treeSvg = document.querySelector('.tree');
-const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
-const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
-const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
-const hexagonSvg = treeSvg.querySelector('.hexagon');
-const soilSvg = treeSvg.querySelector('.soil');
+// const treeSvg = document.querySelector('.tree');
+// const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
+// const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
+// const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
+// const hexagonSvg = treeSvg.querySelector('.hexagon');
+// const soilSvg = treeSvg.querySelector('.soil');
 
 const pillar = document.querySelector('.pillar');
 const pillarRocks = pillar.querySelector('.pillar-rocks');
@@ -112,34 +112,34 @@ function bannerIn(callback, callback1) {
     
 }
 function pillarLeafsIn() {
+    scrollsLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
     scrollsLastAnimation.addEventListener('animationend', () => {
         pillarLeafs.classList.add('pillar-leafs-animation');
     });
     
 }
 function hoverStateListeners(callback) {
-     scrollsFirstAnimation = bannerAll.find(element => element.classList.contains('pillar-text-about-me'));
-     scrollsSecondAnimation = bannerAll.find(element => element.classList.contains('pillar-text-projects'));
-     scrollsLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
+    scrollsFirstAnimation = bannerAll.find(element => element.classList.contains('pillar-text-about-me'));
+    // scrollsSecondAnimation = bannerAll.find(element => element.classList.contains('pillar-text-projects'));
     scrollsFirstAnimation.addEventListener('animationend', () => {
            scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
            scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
            scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3')); 
-        hoverOnScroll();
+        scrollsInteract();
         callback();
     });
 }
 /* TREE-PILLAR-ANIMATION */
 
-treeSvg.addEventListener('click', () => {
-    // window.addEventListener('click', () => {    
-    if (treeSvg.classList.contains("tree-in")) {
-        treeIn(),
-        treeOut(),
-        treeBackIn(pillarIn),
-        // pillarIn(),
+// treeSvg.addEventListener('click', () => {
+    window.addEventListener('click', () => {    
+    // if (treeSvg.classList.contains("tree-in")) {
+        // treeIn(),
+        // treeOut(),
+        // treeBackIn(pillarIn),
+        pillarIn(),
         rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
-    };
+    // };
 });
 
 /* NAV BAR */
@@ -186,34 +186,45 @@ function navDropdownClose(e) {
 /* TREE-PILLAR IN-OUTS BETWEEN SECTIONS */
 
 
-function hoverOnScroll() {
-    pillar.addEventListener('mouseover', addAnimationHover);
-};
+function scrollsInteract() {
 
-function addAnimationHover(e) {
     scroll1 = scrollsAll.scrollGetInTouch;
     scroll2 = scrollsAll.scrollProjects;
     scroll3 = scrollsAll.scrollAboutMe;
 
+    pillar.addEventListener('mouseover', addAnimationHover);
+    pillar.addEventListener('click', addAnimationClick);
+};
+
+function addAnimationClick(e) {
+
+    console.log(e.target);
+}
+
+function addAnimationHover(e) {
+
     if (e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
+
             scroll3.forEach(element => {
                 addAnimationHoverScr(element, '--about-me-animation');
              });   
-    } else if (e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
-            scroll2.forEach(element => {
-                if (getComputedStyle(element).getPropertyValue('opacity') === '1') {
 
-                    addAnimationHoverScr(element, '--projects-animation');
-                }
+    } else if (e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
+
+            scroll2.forEach(element => {
+                getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
+                    addAnimationHoverScr(element, '--projects-animation') :
+                        console.log('not loaded yet');            
         });
 
     } else if (e.target.closest('.pillar-get-in-touch, .pillar-scroll-1')) {
-            scroll1.forEach(element => {
-                if (getComputedStyle(element).getPropertyValue('opacity') === '1') {
 
-                    addAnimationHoverScr(element, '--get-in-touch-animation');
-                }
-        }); 
+        scroll1.forEach(element => {
+            getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
+                addAnimationHoverScr(element, '--get-in-touch-animation') :
+                    console.log('not loaded yet');            
+    });
+
     } else {
         console.log('not clicking on scroll');
     };
