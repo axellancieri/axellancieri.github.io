@@ -88,14 +88,14 @@ function bannerIn(callback, callback1) {
                 element.classList.contains('pillar-holder-2') ? 
                     element.classList.add('pillar-holder-2-animation') : 
 
-                element.classList.contains('pillar-scroll-3') ? 
-                    element.classList.add('pillar-scroll-3-animation') : 
+                element.classList.contains('pillar-scroll-about-me') ? 
+                    element.classList.add('pillar-scroll-about-me-animation') : 
 
-                  element.classList.contains('pillar-scroll-2') ? 
-                    element.classList.add('pillar-scroll-2-animation') : 
+                  element.classList.contains('pillar-scroll-projects') ? 
+                    element.classList.add('pillar-scroll-projects-animation') : 
 
-                element.classList.contains('pillar-scroll-1') ? 
-                    element.classList.add('pillar-scroll-1-animation') : 
+                element.classList.contains('pillar-scroll-get-in-touch') ? 
+                    element.classList.add('pillar-scroll-get-in-touch-animation') : 
 
                 element.classList.contains('pillar-text') && element.innerHTML.includes('About') ? 
                  element.classList.add('pillar-text-about-me') : 
@@ -125,13 +125,9 @@ function hoverStateListeners(callback) {
 
         //might wanna think if I really need to use an object here once finish
 
-           scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
-           scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
-           scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3'));
-
-           scroll1 = scrollsAll.scrollGetInTouch;
-           scroll2 = scrollsAll.scrollProjects;
-           scroll3 = scrollsAll.scrollAboutMe; 
+           scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-about-me'));
+           scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch'));  
+           scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-projects'));
 
         scrollsInteract('mouseover');
         scrollsInteract('click');
@@ -202,43 +198,61 @@ function scrollsInteract(type) {
 
 function addInteract(e) {
 
-    if (e.type === 'mouseover' && e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
+    if (e.type === 'mouseover' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
 
-            scroll3.forEach(element => {
+        scrollsAll.scrollAboutMe.forEach(element => {
                 addAnimationHoverScr(element, '--about-me-animation');
              });   
 
-    } else if (e.type === 'click' && e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
-        // pillar.classList.add('pillar-out-animation');
-        // pillar.addEventListener('animationend', () => {
-        //     scrollsAll.scrollAboutMe.forEach(element => {
-        //         element.style.setProperty('--about-me-back-in-animation', ' flip-right');
-        //     });
-        // });
+    } else if (e.type === 'click' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
+        pillar.classList.add('pillar-out-animation');
+        pillar.addEventListener('animationend', () => {
+            scrollsAll.scrollAboutMe.filter(element => {
+                element.classList.contains('pillar-scroll') ? 
+                  element.style.setProperty('--about-me-back-in-animation', ' flip-right-scroll-about-me') :
+                    element.style.setProperty('--about-me-back-in-animation', ' flip-right-text-about-me');
+            });
+        });
         console.log('this is a click 1');
     }
     
-    if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
+    if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
 
-            scroll2.forEach(element => {
+        scrollsAll.scrollProjects.forEach(element => {
                 getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
                     addAnimationHoverScr(element, '--projects-animation') :
                         console.log('not loaded yet');            
         });
 
-    } else if (e.type === 'click' && e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
+    } else if (e.type === 'click' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
+        pillar.classList.add('pillar-out-animation');
+        pillar.addEventListener('animationend', () => {
+            scrollsAll.scrollProjects.filter(element => {
+                element.classList.contains('pillar-scroll') ? 
+                  element.style.setProperty('--projects-back-in-animation', ' flip-right-scroll') :
+                    element.style.setProperty('--projects-back-in-animation', ' flip-right-text-projects');
+            });
+        });
         console.log('this is a click 2');
     }
     
-    if (e.type === 'mouseover' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-1')) {
+    if (e.type === 'mouseover' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-get-in-touch')) {
 
-        scroll1.forEach(element => {
+        scrollsAll.scrollGetInTouch.forEach(element => {
             getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
                 addAnimationHoverScr(element, '--get-in-touch-animation') :
                     console.log('not loaded yet');            
     });
 
-    } else if (e.type === 'click' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-1')) {
+    } else if (e.type === 'click' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-get-in-touch')) {
+        pillar.classList.add('pillar-out-animation');
+        pillar.addEventListener('animationend', () => {
+            scrollsAll.scrollGetInTouch.filter(element => {
+                element.classList.contains('pillar-scroll') ? 
+                  element.style.setProperty('--get-in-touch-back-in-animation', ' flip-right-scroll') :
+                    element.style.setProperty('--get-in-touch-back-in-animation', ' flip-right-text-get-in-touch');
+            });
+        });
         console.log('this is a click 3');
     }
 };

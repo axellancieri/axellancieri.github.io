@@ -114,7 +114,7 @@
     }
     &-scroll {
         cursor: pointer;
-        &-1 {
+        &-get-in-touch {
             display: block;
             x: 4.2em;
             y: 12em;
@@ -143,7 +143,7 @@
                 stroke-width: 1;
             }
         }
-        &-2 {
+        &-projects {
             display: block;
             x: 4.55em;
             y: 7.7em;
@@ -162,7 +162,7 @@
                 fill: white;
             }
         }
-        &-3 {
+        &-about-me {
             x: 4.3em;
             y: 2.25em;
             --color-plants: #598a42;
