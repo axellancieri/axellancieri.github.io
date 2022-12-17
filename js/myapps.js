@@ -130,8 +130,7 @@ function hoverStateListeners() {
 /* TREE-PILLAR-ANIMATION */
 
 treeSvg.addEventListener('click', () => {
-    // window.addEventListener('click', () => {
-    
+    // window.addEventListener('click', () => {    
     if (treeSvg.classList.contains("tree-in")) {
         treeIn(),
         treeOut(),
