@@ -106,7 +106,6 @@ $pillar-leafs-delay: (
                 animation: rock-down 4s steps(10) 2.5s forwards;
             }
         }
-
     }
     &-leafs {
         &-animation {
@@ -147,21 +146,21 @@ $pillar-leafs-delay: (
             &-animation {
                 --get-in-touch-animation: waiting-js;
                 animation: scrolls-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both,
-                var(--get-in-touch-animation) 1s linear forwards;
+                var(--get-in-touch-animation) 2s ease-in-out both;
             }
         }
         &-2 {
             &-animation {
                 --projects-animation: waiting-js;
                 animation: scrolls-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5.5s both,
-                var(--projects-animation) 1s linear forwards;
+                var(--projects-animation) 2s ease-in-out both;
             }
         }
         &-3 {
             &-animation {
                 --about-me-animation: waiting-js;
-                animation: scrolls-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
-                var(--about-me-animation) 1s linear forwards;
+                animation: about-me-scroll-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
+                var(--about-me-animation) 2s ease-in-out both;
             }
         }
     }
@@ -169,18 +168,18 @@ $pillar-leafs-delay: (
         opacity: 0;
         &-get-in-touch {
             --get-in-touch-animation: waiting-js;
-            animation: get-in-touch-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both,
-                var(--get-in-touch-animation) 1s linear forwards;
+            animation: text-get-in-touch-in .8s cubic-bezier(0.390, 0.575, 0.565, 1.000) 7.5s both,
+                var(--get-in-touch-animation) 2s ease-in-out both;
         }
         &-projects {
             --projects-animation: waiting-js;
-            animation: projects-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5.5s both,
-            var(--projects-animation) 1s linear forwards;
+            animation: text-projects-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 5.5s both,
+            var(--projects-animation) 2s ease-in-out both;
         }
         &-about-me {
             --about-me-animation: waiting-js;
-            animation: about-me-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
-            var(--about-me-animation) 1s linear forwards;
+            animation: text-about-me-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
+            var(--about-me-animation) 2s ease-in-out both;
         }
     }
     &-flip-left {
@@ -327,52 +326,73 @@ $pillar-leafs-delay: (
   
   @keyframes scrolls-in {
     0% {
+        transform-origin: center center;
       -webkit-transform: translateZ(-80px);
               transform: translateZ(-80px);
       opacity: 0;
     }
     100% {
+        transform-origin: center center;
       -webkit-transform: translateZ(0);
               transform: translateZ(0);
       opacity: 1;
     }
   }
-  
-@keyframes about-me-in {
+  @keyframes about-me-scroll-in {
     0% {
-        -webkit-transform: translate(8.5em, 9.13em) translateZ(-80px);
-                transform: translate(8.5em, 9.13em) translateZ(-80px);
+        transform-origin: center center;
+      -webkit-transform: scale(.8) translateZ(-80px);
+              transform: scale(.8) translateZ(-80px);
+      opacity: 0;
+    }
+    100% {
+        transform-origin: center center;
+      -webkit-transform: scale(.8) translateZ(0);
+              transform: scale(.8) translateZ(0);
+      opacity: 1;
+    }
+  }
+@keyframes text-about-me-in {
+    0% {
+        transform-origin: center center;
+        -webkit-transform: translate(7.05em, 6.05em) scale(.8) translateZ(-80px);
+                transform: translate(7.05em, 6.05em) scale(.8) translateZ(-80px);
         opacity: 0;
       }
       100% {
-        -webkit-transform: translate(8.5em, 9.13em) translateZ(0);
-                transform: translate(8.5em, 9.13em) translateZ(0);
+        transform-origin: center center;
+        -webkit-transform: translate(7.05em, 6.05em) scale(.8) translateZ(0);
+                transform: translate(7.05em, 6.05em) scale(.8) translateZ(0);
         opacity: 1;
       }
 }
 
-@keyframes projects-in {
+@keyframes text-projects-in {
     0% {
-        -webkit-transform: translate(8.8em, 16.2em) translateZ(-80px);
-                transform: translate(8.8em, 16.2em) translateZ(-80px);
+        transform-origin: center center;
+        -webkit-transform: translate(9em, 16.3em) translateZ(-80px);
+                transform: translate(9em, 16.3em) translateZ(-80px);
         opacity: 0;
       }
       100% {
-        -webkit-transform: translate(8.8em, 16.2em) translateZ(0);
-                transform: translate(8.8em, 16.2em) translateZ(0);
+        transform-origin: center center;
+        -webkit-transform: translate(9em, 16.3em) translateZ(0);
+                transform: translate(9em, 16.3em) translateZ(0);
         opacity: 1;
       }
 }
 
-@keyframes get-in-touch-in {
+@keyframes text-get-in-touch-in {
     0% {
-        -webkit-transform: translate(7.7em, 23.75em) translateZ(-80px);
-                transform: translate(7.7em, 23.75em) translateZ(-80px);
+        transform-origin: center center;
+        -webkit-transform: translate(8em, 23.75em) translateZ(-80px);
+                transform: translate(8em, 23.75em) translateZ(-80px);
         opacity: 0;
       }
       100% {
-        -webkit-transform: translate(7.7em, 23.75em) translateZ(0);
-                transform: translate(7.7em, 23.75em) translateZ(0);
+        transform-origin: center center;
+        -webkit-transform: translate(8em, 23.75em) translateZ(0);
+                transform: translate(8em, 23.75em) translateZ(0);
         opacity: 1;
       }
 }
@@ -393,15 +413,34 @@ $pillar-leafs-delay: (
   @keyframes grow-hover {
     from {
         scale: 1;
-        opacity: 1;
-    }
-    50% {
-        scale: 1.1;
-    }
-    to {
+        -webkit-transform-origin: center center;
+                transform-origin: center center;
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+                opacity: 1;
+      }
+      10% {
+        scale: 0.91;
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+                opacity: 1;
+      }
+      17% {
+        scale: 0.98;
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+      }
+      33% {
+        scale: 0.87;
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+      }
+      45% {
         scale: 1;
-        opacity: 1;
-    }
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+                opacity: 1;
+      }
   }
   
   @keyframes footer-soil {
