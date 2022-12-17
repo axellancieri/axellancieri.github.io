@@ -111,20 +111,22 @@ function bannerIn(callback, callback1) {
     });
     
 }
-function pillarLeafsIn(callback) {
-    const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
-    bannerLastAnimation.addEventListener('animationend', () => {
+function pillarLeafsIn() {
+    scrollsLastAnimation.addEventListener('animationend', () => {
         pillarLeafs.classList.add('pillar-leafs-animation');
     });
-    callback();
+    
 }
-function hoverStateListeners() {
-    const bannerLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
-    bannerLastAnimation.addEventListener('animationend', () => {
+function hoverStateListeners(callback) {
+     scrollsFirstAnimation = bannerAll.find(element => element.classList.contains('pillar-text-about-me'));
+     scrollsSecondAnimation = bannerAll.find(element => element.classList.contains('pillar-text-projects'));
+     scrollsLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
+    scrollsFirstAnimation.addEventListener('animationend', () => {
            scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-1'));  
            scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-2'));
            scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-3')); 
         hoverOnScroll();
+        callback();
     });
 }
 /* TREE-PILLAR-ANIMATION */
@@ -135,7 +137,8 @@ treeSvg.addEventListener('click', () => {
         treeIn(),
         treeOut(),
         treeBackIn(pillarIn),
-        rocksAlign(bannerIn, pillarLeafsIn, hoverStateListeners);   
+        // pillarIn(),
+        rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
     };
 });
 
@@ -192,21 +195,25 @@ function addAnimationHover(e) {
     scroll2 = scrollsAll.scrollProjects;
     scroll3 = scrollsAll.scrollAboutMe;
 
-    if (e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-1')) {
-        scroll1.forEach(element => {
-            addAnimationHoverScr(element, '--get-in-touch-animation');
-         });
-
+    if (e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
+            scroll3.forEach(element => {
+                addAnimationHoverScr(element, '--about-me-animation');
+             });   
     } else if (e.target.closest('.pillar-text-projects, .pillar-scroll-2')) {
-        scroll2.forEach(element => {
-            addAnimationHoverScr(element, '--projects-animation');
-         });
+            scroll2.forEach(element => {
+                if (getComputedStyle(element).getPropertyValue('opacity') === '1') {
 
-    } else if (e.target.closest('.pillar-text-about-me, .pillar-scroll-3')) {
-        scroll3.forEach(element => {
-            addAnimationHoverScr(element, '--about-me-animation');
-         });
+                    addAnimationHoverScr(element, '--projects-animation');
+                }
+        });
 
+    } else if (e.target.closest('.pillar-get-in-touch, .pillar-scroll-1')) {
+            scroll1.forEach(element => {
+                if (getComputedStyle(element).getPropertyValue('opacity') === '1') {
+
+                    addAnimationHoverScr(element, '--get-in-touch-animation');
+                }
+        }); 
     } else {
         console.log('not clicking on scroll');
     };
