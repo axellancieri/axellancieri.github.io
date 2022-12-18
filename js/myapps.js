@@ -202,8 +202,7 @@ function addInteract(e) {
 
         scrollsAll.scrollAboutMe.forEach(element => {
                 addAnimationHoverScr(element, '--about-me-animation');
-             });   
-
+             })
     } else if (e.type === 'click' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
         pillar.classList.add('pillar-out-animation');
         pillar.addEventListener('animationend', () => {
@@ -212,9 +211,9 @@ function addInteract(e) {
                   element.style.setProperty('--about-me-back-in-animation', ' flip-right-scroll-about-me') :
                     element.style.setProperty('--about-me-back-in-animation', ' flip-right-text-about-me');
             });
+            pillar.removeEventListener('mouseover', addInteract);
         });
-        console.log('this is a click 1');
-    }
+    };
     
     if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
 
@@ -222,8 +221,7 @@ function addInteract(e) {
                 getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
                     addAnimationHoverScr(element, '--projects-animation') :
                         console.log('not loaded yet');            
-        });
-
+        })
     } else if (e.type === 'click' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
         pillar.classList.add('pillar-out-animation');
         pillar.addEventListener('animationend', () => {
@@ -232,19 +230,18 @@ function addInteract(e) {
                   element.style.setProperty('--projects-back-in-animation', ' flip-right-scroll') :
                     element.style.setProperty('--projects-back-in-animation', ' flip-right-text-projects');
             });
+            pillar.removeEventListener('mouseover', addInteract);
         });
-        console.log('this is a click 2');
-    }
+    };
     
-    if (e.type === 'mouseover' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-get-in-touch')) {
+    if (e.type === 'mouseover' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
 
         scrollsAll.scrollGetInTouch.forEach(element => {
             getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
                 addAnimationHoverScr(element, '--get-in-touch-animation') :
                     console.log('not loaded yet');            
-    });
-
-    } else if (e.type === 'click' && e.target.closest('.pillar-get-in-touch, .pillar-scroll-get-in-touch')) {
+    })
+    } else if (e.type === 'click' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
         pillar.classList.add('pillar-out-animation');
         pillar.addEventListener('animationend', () => {
             scrollsAll.scrollGetInTouch.filter(element => {
@@ -252,9 +249,9 @@ function addInteract(e) {
                   element.style.setProperty('--get-in-touch-back-in-animation', ' flip-right-scroll') :
                     element.style.setProperty('--get-in-touch-back-in-animation', ' flip-right-text-get-in-touch');
             });
+            pillar.removeEventListener('mouseover', addInteract);
         });
-        console.log('this is a click 3');
-    }
+    };
 };
 
 function addAnimationHoverScr(target, propertyName) {
