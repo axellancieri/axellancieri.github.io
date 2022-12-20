@@ -1,3 +1,17 @@
+:root {
+    --about-me-animation: waiting-js;
+    --about-me-back-in-animation: waiting-js;
+    --about-me-after-flip-grow: waiting-js;
+
+    --projects-animation: waiting-js;
+    --projects-back-in-animation: waiting-js;
+    --projects-after-flip-grow: waiting-js;
+
+    --get-in-touch-animation: waiting-js;
+    --get-in-touch-back-in-animation: waiting-js;
+    --get-in-touch-after-flip-grow: waiting-js;
+}
+
 $pillar-rocks: (
     "1": 2s,
     "2": 2.5s,
@@ -144,54 +158,48 @@ $pillar-leafs-delay: (
     &-scroll {
         &-about-me {
             &-animation {
-                --about-me-back-in-animation: waiting-js;
-                --about-me-animation: waiting-js;
                 animation: about-me-scroll-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both,
                 var(--about-me-animation) 2s ease-in-out both,
-                var(--about-me-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s forwards;
+                var(--about-me-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s forwards,
+                var(--about-me-after-flip-grow) 2s linear 1.4s forwards;
             };
         };
         &-projects {
             &-animation {
-                --projects-back-in-animation: waiting-js;
-                --projects-animation: waiting-js;
                 animation: scrolls-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
                 var(--projects-animation) 2s ease-in-out both,
-                var(--projects-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s forwards;
+                var(--projects-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s forwards,
+                var(--projects-after-flip-grow) 2s linear 1.4s forwards;
             };
         };
         &-get-in-touch {
             &-animation {
-                --get-in-touch-back-in-animation: waiting-js;
-                --get-in-touch-animation: waiting-js;
                 animation: scrolls-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 6s both,
                 var(--get-in-touch-animation) 2s ease-in-out forwards,
-                var(--get-in-touch-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s forwards;
+                var(--get-in-touch-back-in-animation) 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s forwards,
+                var(--get-in-touch-after-flip-grow) 2s linear 1.4s forwards;
             };
         };
     };
     &-text {
         opacity: 0;
         &-about-me {
-            --about-me-back-in-animation: waiting-js;
-            --about-me-animation: waiting-js;
             animation: text-about-me-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both,
             var(--about-me-animation) 2s ease-in-out both,
-            var(--about-me-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s forwards;
+            var(--about-me-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s forwards,
+            var(--about-me-after-flip-grow) 2s linear 1s forwards;
         };
         &-projects {
-            --projects-back-in-animation: waiting-js;
-            --projects-animation: waiting-js;
             animation: text-projects-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 4.5s both,
             var(--projects-animation) 2s ease-in-out both,
-            var(--projects-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s forwards;
+            var(--projects-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s forwards,
+            var(--projects-after-flip-grow) 1.2s linear 1s forwards;
         };
         &-get-in-touch {
-            --get-in-touch-back-in-animation: waiting-js;
-            --get-in-touch-animation: waiting-js;
             animation: text-get-in-touch-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 6s both,
             var(--get-in-touch-animation) 2s ease-in-out both,
-            var(--get-in-touch-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s forwards;
+            var(--get-in-touch-back-in-animation) 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s forwards,
+            var(--get-in-touch-after-flip-grow) 3s linear 1s forwards;
         };
     };
     &-out-animation {
@@ -563,3 +571,98 @@ $pillar-leafs-delay: (
         cursor: default;
       };
 };
+@keyframes scroll-after-right-about-me {
+    0% {
+        transform-origin: center center;
+        -webkit-transform: scale(.8) rotateY(0) translateZ(0);
+        transform: scale(.8) rotateY(0) translateZ(0);
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+    50%,
+    100% {
+        transform-origin: center center;
+        transform: scale(1.5) rotateY(0) translateZ(0);
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+        opacity: 0;
+
+    }
+}
+@keyframes text-after-right-about-me {
+    0% {
+        -webkit-filter: blur(0.01);
+                filter: blur(0.01);
+      }
+      100% {
+        -webkit-filter: blur(12px) opacity(0%);
+                filter: blur(12px) opacity(0%);
+      }
+}
+
+@keyframes scroll-after-right-projects {
+    0% {
+        transform-origin: center center;
+        -webkit-transform: rotateY(0) translateZ(0);
+        transform: rotateY(0) translateZ(0);
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+        x: 4.55em;
+        y: 7.7em;
+    }
+    50%,
+    100% {
+        transform-origin: center center;
+        transform: scale(1.5) rotateY(0) translateZ(0);
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+        opacity: 0;
+        x: 4.55em;
+        y: 7.7em;
+    }
+}
+@keyframes text-after-right-projects {
+    0% {
+        -webkit-filter: blur(0.01);
+                filter: blur(0.01);
+      }
+      100% {
+        -webkit-filter: blur(12px) opacity(0%);
+                filter: blur(12px) opacity(0%);
+      }
+}
+
+
+@keyframes scroll-after-right-get-in-touch {
+    0% {
+        transform-origin: center center;
+        -webkit-transform: rotateY(0) translateZ(0);
+        transform: rotateY(0) translateZ(0);
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+    50%,
+    100% {
+        transform-origin: center center;
+        transform: scale(1.5) rotateY(0) translateZ(0);
+        -webkit-filter: blur(4px);
+        filter: blur(4px);
+        opacity: 0;
+        x: 4.2em;
+        y: 10em;
+    }
+}
+@keyframes text-after-right-get-in-touch {
+    0% {
+        -webkit-filter: blur(0.01);
+                filter: blur(0.01);
+    }
+      100% {
+        -webkit-filter: blur(12px) opacity(0%);
+                filter: blur(12px) opacity(0%);
+      }
+}
+
