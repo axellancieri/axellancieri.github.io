@@ -1,5 +1,7 @@
 /* ALL VARIABLES */
 
+const bgColor = document.querySelector('.index-color');
+
 const navBar = document.querySelector('nav');
 const navButton = navBar.querySelector('button');
 const navBarDropdown = document.querySelector('.navbar-dropdown');
@@ -11,10 +13,10 @@ const navBarDropdown = document.querySelector('.navbar-dropdown');
 // const hexagonSvg = treeSvg.querySelector('.hexagon');
 // const soilSvg = treeSvg.querySelector('.soil');
 
-const pillar = document.querySelector('.pillar');
-const pillarRocks = pillar.querySelector('.pillar-rocks');
-const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
-const pillarLeafs = pillar.querySelector('.pillar-leafs');
+// const pillar = document.querySelector('.pillar');
+// const pillarRocks = pillar.querySelector('.pillar-rocks');
+// const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
+// const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
 const footerSoil = document.querySelector('.footer-soil');
 
@@ -137,15 +139,15 @@ function hoverStateListeners(callback) {
 /* TREE-PILLAR-ANIMATION */
 
 // treeSvg.addEventListener('click', () => {
-    window.addEventListener('click', () => {    
+    // window.addEventListener('click', () => {    
     // if (treeSvg.classList.contains("tree-in")) {
         // treeIn(),
         // treeOut(),
         // treeBackIn(pillarIn),
-        pillarIn(),
-        rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
+        // pillarIn(),
+        // rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
     // };
-});
+// });
 
 /* NAV BAR */
 
@@ -215,6 +217,7 @@ function addInteract(e) {
                     element.style.setProperty('--about-me-after-flip-grow', ' text-after-right-about-me');
                 }
             });
+            bgColor.classList.replace('index-color', 'index-color-about-me');
             pillar.removeEventListener('mouseover', addInteract);
         });
     };
@@ -239,6 +242,7 @@ function addInteract(e) {
                     element.style.setProperty('--projects-after-flip-grow', ' text-after-right-projects');
                 }
             });
+            bgColor.classList.replace('index-color', 'index-color-projects');
             pillar.removeEventListener('mouseover', addInteract);
         });
     };
@@ -262,6 +266,7 @@ function addInteract(e) {
                     element.style.setProperty('--get-in-touch-after-flip-grow', ' text-after-right-get-in-touch');
                 }
             });
+            bgColor.classList.replace('index-color', 'index-color-get-in-touch');
             pillar.removeEventListener('mouseover', addInteract);
         });
     };
