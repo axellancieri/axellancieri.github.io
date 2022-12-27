@@ -1,10 +1,10 @@
 /* ALL VARIABLES */
 
-const bgColor = document.querySelector('.index-color');
+// const bgColor = document.querySelector('.index-color');
 
-const navBar = document.querySelector('nav');
-const navButton = navBar.querySelector('button');
-const navBarDropdown = document.querySelector('.navbar-dropdown');
+// const navBar = document.querySelector('nav');
+// const navButton = navBar.querySelector('button');
+// const navBarDropdown = document.querySelector('.navbar-dropdown');
 
 // const treeSvg = document.querySelector('.tree');
 // const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
@@ -19,6 +19,7 @@ const navBarDropdown = document.querySelector('.navbar-dropdown');
 // const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
 const footerSoil = document.querySelector('.footer-soil');
+const footerObjects = Array.from(footerSoil.querySelectorAll('object'));
 
 /* OBJECT LITERALS */
 
@@ -99,13 +100,13 @@ function bannerIn(callback, callback1) {
                 element.classList.contains('pillar-scroll-get-in-touch') ? 
                     element.classList.add('pillar-scroll-get-in-touch-animation') : 
 
-                element.classList.contains('pillar-text') && element.innerHTML.includes('About') ? 
+                element.classList.contains('pillar-text') && element.innerHTML.includes('ABOUT') ? 
                  element.classList.add('pillar-text-about-me') : 
 
-                element.classList.contains('pillar-text') && element.innerHTML.includes('Projects') ? 
+                element.classList.contains('pillar-text') && element.innerHTML.includes('PROJECTS') ? 
                   element.classList.add('pillar-text-projects') : 
 
-                element.classList.contains('pillar-text') && element.innerHTML.includes('Get') ? 
+                element.classList.contains('pillar-text') && element.innerHTML.includes('GET') ? 
                   element.classList.add('pillar-text-get-in-touch') : 
                     console.log(`${index} was not found`);
         });
@@ -117,6 +118,12 @@ function pillarLeafsIn() {
     scrollsLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
     scrollsLastAnimation.addEventListener('animationend', () => {
         pillarLeafs.classList.add('pillar-leafs-animation');
+        footerObjects.filter(element => {
+            element.getAttribute('class').includes('icon');
+            if (element) {
+                element.classList.add('icons-footer-in-animation');
+            }
+        });
     });
     
 }
@@ -141,12 +148,12 @@ function hoverStateListeners(callback) {
 // treeSvg.addEventListener('click', () => {
     // window.addEventListener('click', () => {    
     // if (treeSvg.classList.contains("tree-in")) {
-        // treeIn(),
-        // treeOut(),
-        // treeBackIn(pillarIn),
+    //     treeIn(),
+    //     treeOut(),   
+    //     treeBackIn(pillarIn),
         // pillarIn(),
-        // rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
-    // };
+//         rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
+//     };
 // });
 
 /* NAV BAR */
@@ -291,17 +298,3 @@ function addAnimationHoverScr(target, propertyName) {
             console.log('gotta wait for animataion to finish')
         };
 };
-
-/* SCROLLS INTERACTIVITY */
-
-// projects.addEventListener('click', () => {
-    
-//     if (treeSvg.classList.contains("tree-in")) {
-//         treeFirstAnimation();
-        // add flip class
-        // add collapse
-        // add new content or give it show class 
-    // }
-    
-// });
-

@@ -1,5 +1,7 @@
 Notes
 
+on footer view when page loads and animations are about to complete or completed. I want to have mail - CV - linkedin  SVGs
+
 (might want to check if gotta take care of that taking the user to another html file. Although it might be decent still
 to do on contact us modal)Use 'animation-play-state: paused;' on infinite animations when offscreen or offview.
 

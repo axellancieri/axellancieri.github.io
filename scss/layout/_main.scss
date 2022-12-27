@@ -103,13 +103,13 @@
         &-1 {
             x: 3.9em;
             y: -0.5em;
-            --color-fill: #588a41;
+            --color-fill: #598a42;
         };
         &-2 {
             x: -9.2em;
             y: -18.7em;
             rotate: 181deg;
-            --color-fill: #71c486;
+            --color-fill: #598a42;
         };
     };
     &-scroll {
@@ -118,7 +118,7 @@
             x: 4.2em;
             y: 12em;
             stroke-width: 1.9;
-            --color-plants: #71c486;
+            --color-plants: #598a42; //71c486
             opacity: 0;
             &-plants {
                 fill: var(--color-plants);
@@ -129,7 +129,7 @@
                 };
             };
             &-main {
-                fill: white;
+                fill: #c1c19a;
                 stroke: #000;
                 stroke-width: 4;
             };
@@ -137,7 +137,7 @@
                 fill: #d7d2c2;
             };
             &-sides {
-                fill: white;
+                fill: #c1c19a;
                 stroke: black;
                 stroke-width: 1;
             };
@@ -158,7 +158,7 @@
                 fill: #7fbeb9;
             };
             &-main {
-                fill: white;
+                fill: #c1c19a;
             };
         };
         &-about-me {
