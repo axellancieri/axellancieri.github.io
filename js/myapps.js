@@ -1,10 +1,10 @@
 /* ALL VARIABLES */
 
-// const bgColor = document.querySelector('.index-color');
+const bgColor = document.querySelector('.index-color');
 
-// const navBar = document.querySelector('nav');
-// const navButton = navBar.querySelector('button');
-// const navBarDropdown = document.querySelector('.navbar-dropdown');
+const navBar = document.querySelector('nav');
+const navButton = navBar.querySelector('button');
+const navBarDropdown = document.querySelector('.navbar-dropdown');
 
 // const treeSvg = document.querySelector('.tree');
 // const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
@@ -20,6 +20,9 @@
 
 const footerSoil = document.querySelector('.footer-soil');
 const footerObjects = Array.from(footerSoil.querySelectorAll('object'));
+const footerIcons = Array.from(footerSoil.querySelectorAll('span'));
+const myEmail = footerSoil.querySelector('.email');
+
 
 /* OBJECT LITERALS */
 
@@ -298,3 +301,51 @@ function addAnimationHoverScr(target, propertyName) {
             console.log('gotta wait for animataion to finish')
         };
 };
+
+/* Footer icons interactivity */
+
+footerSoil.addEventListener('click', soilClickEvent);
+
+function soilClickEvent(e) {
+    if (e.target.closest('.ff-mail-copy')) {
+        navigator.clipboard.writeText(myEmail.textContent).then(
+            function() {
+                runOnce();
+                const successMsg = footerSoil.querySelector('.email-success');
+                successMsg.style.setProperty('--email-success-icon', 'email-success-icon-in');
+                successMsg.addEventListener('animationend', () => {
+                    setTimeout( () => {
+                        successMsg.style.setProperty('--email-success-icon', 'email-success-icon-out');
+                    }, 500);
+                });
+                console.log('copied successfully!');
+        },
+            () => {
+                console.log('copy not successful');
+            }
+        )
+    } else {
+        console.log('nope');
+    };
+};
+
+const runOnce = (function() {
+    // grabbed from https://www.geeksforgeeks.org/function-that-can-be-called-only-once-in-javascript/
+    let done = false;
+    return () => {
+        if (!done) {
+            done = true;
+            const successMsg = document.createElement('p');
+            successMsg.textContent = 'Email copied!';
+            successMsg.classList.add('email-success', 'm-0');
+            myEmail.insertAdjacentElement('afterend', successMsg);
+        }
+    };
+})();
+
+// function initCopyText() {
+//     const successMsg = document.createElement('p');
+//     successMsg.textContent = 'Email copied!';
+//     successMsg.classList.add('email-success');
+//     myEmail.insertAdjacentElement('afterend', successMsg);
+// }
