@@ -7,6 +7,11 @@
         -webkit-font-smoothing: antialiased;
     }
     &-mail-copy::after {
+        position: absolute;
+        background-color: #c0c19a;
+        border-radius: 3em;
+        top: 2.2em;
+        right: 5em;
         padding: .1em .5em;
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
@@ -73,12 +78,12 @@
     padding: .1em .5em;
     background-color: #c1c19a;
     font-family: 'Kadwa', serif;
-    font-size: .4rem;
+    font-size: .6rem;
     white-space: nowrap;
-    border-top-left-radius: 3em;
-    border-top-right-radius: 3em;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 3em;
+    border-bottom-right-radius: 3em;
     transform: scale(0);
     transition: transform .2s linear .2s;
     &:hover,
@@ -95,17 +100,17 @@
         padding: .1em .5em;
         background-color: #c1c19a;
         font-family: 'Kadwa', serif;
-        font-size: .4rem;
+        font-size: .6rem;
         white-space: nowrap;
-        border-top-left-radius: 3em;
-        border-top-right-radius: 3em;
-        border-bottom-left-radius: 1em;
-        border-bottom-right-radius: 1em;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        border-bottom-left-radius: 3em;
+        border-bottom-right-radius: 3em;
         transform: scale(0);
     }
 }
 .icon-linkedin {
-    transform: scale(0.4); //translate(9.3em, -1.28em)
+    transform: scale(0.8); //translate(9.3em, -1.28em)
     opacity: 0;
     &-path {
         fill:#c1c19a;
@@ -123,7 +128,7 @@
     }
 }
 .icon-cv {
-    transform: scale(0.5); //translate(13.3em, -4.23em)
+    transform: scale(0.9); //translate(13.3em, -4.23em)
     opacity: 0;
     &-path {
         fill:#c1c19a;

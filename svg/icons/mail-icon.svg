@@ -1,5 +1,5 @@
 <?xml-stylesheet type="text/css" href="../../assets/css/style.css"?>
-<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130" width="25" heigh="25">
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 130" width="40" heigh="40">
   <g class="icon-mail-g">
     <ellipse class="icon-mail-ellipse" cx="381.54001" cy="525.82001" rx="143.45773" ry="143.45013"/>
     <g transform="matrix(3.82 0 0 3.82 -1398.1 -1597.5)">

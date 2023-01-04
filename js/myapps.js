@@ -318,17 +318,19 @@ function soilClickEvent(e) {
             function() {
                 runOnce();
                 const successMsg = footerSoil.querySelector('.email-success');
+                footerSoil.removeEventListener('click', soilClickEvent);
                 successMsg.style.setProperty('--email-success-icon', 'email-success-icon-in');
                 successMsg.addEventListener('animationend', () => {
                     setTimeout( () => {
                         successMsg.style.setProperty('--email-success-icon', 'email-success-icon-out');
+                        footerSoil.addEventListener('click', soilClickEvent);
                     }, 500);
                 });
                 myEmail.style.setProperty('--email-out', 'email-out');
                 myEmail.addEventListener('animationend', () => {
-                    // setTimeout( () => {
+                    setTimeout( () => {
                         myEmail.style.setProperty('--email-out', 'waiting-js');
-                    // }, 500);
+                    }, 500);
                 });
                 console.log('copied successfully!');
         },
@@ -345,42 +347,33 @@ const runOnce = (function() {
     return () => {
         if (!done) {
             done = true;
-            const successMsg = document.createElement('p');
-            successMsg.textContent = 'Email copied!';
-            successMsg.classList.add('email-success', 'm-0');
-            myEmail.insertAdjacentElement('afterend', successMsg);
+            const createSuccessMsg = document.createElement('p');
+            createSuccessMsg.textContent = 'Email copied!';
+            createSuccessMsg.classList.add('email-success', 'm-0');
+            myEmail.insertAdjacentElement('afterend', createSuccessMsg);
         }
     };
 })();
 
-// const iconLinkedin = footerSoil.querySelector('.icon-linkedin');
-// iconLinkedin.addEventListener('load', () => {
-//     console.log('rdy');
-//     const grabDoc = iconLinkedin.contentDocument;
-//     const test1 = grabDoc.querySelector('.icon-linkedin-svg');
-//     test1.addEventListener('click', () => {  
-//         console.log('gol');
-//     });
-// });
+function loadSvg(e) {
+    console.log('rdy');
+    if(e.target.matches('.icon-linkedin')) {
+        e.target.removeEventListener('load', loadSvg);
+        const grabDoc = e.target.contentDocument;
+        const bringDoc = grabDoc.querySelector('.icon-linkedin-svg');
+        bringDoc.addEventListener('click', () => {  
+            console.log('linkedin');
+        });
+    }else if(e.target.matches('.icon-cv')) {
+        e.target.removeEventListener('load', loadSvg);
+        const grabDoc = e.target.contentDocument;
+        const bringDoc = grabDoc.querySelector('.icon-cv-svg');
+        bringDoc.addEventListener('click', () => {  
+            console.log('cv');
+        });
+    };;
+};
 
 footerObjects.forEach(element => {
-    if (element.matches('.icon-linkedin')) {
-        element.addEventListener('load', () => {
-            console.log('rdy');
-            const grabDoc = element.contentDocument;
-            const bringDoc = grabDoc.querySelector('.icon-linkedin-svg');
-            bringDoc.addEventListener('click', () => {  
-                console.log('linkedin');
-            });
-        });
-    } else if (element.matches('.icon-cv')) {
-        element.addEventListener('load', () => {
-            console.log('rdy');
-            const grabDoc = element.contentDocument;
-            const bringDoc = grabDoc.querySelector('.icon-cv-svg');
-            bringDoc.addEventListener('click', () => {  
-                console.log('cv');
-            });
-        });
-    };
+        element.addEventListener('load', loadSvg);
 });

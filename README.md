@@ -17,5 +17,8 @@ check myappsjs line 126 note once finished project
 
 --not something to do rn
 
+- not happy about cv download approach. Works fine on firefox but on all other browsers just opens on a new tab.
+- email tooltip and copy buttons work and behave fine although sometimes they dont perform as expected.
+
 - change mouseover on scrolls for css transitions grabbing an element that tags the entire scroll
 - and/or scrolls themselves. Not maatching simplistic approach of general site.
