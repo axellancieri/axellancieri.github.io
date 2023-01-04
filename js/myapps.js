@@ -20,7 +20,6 @@ const navBarDropdown = document.querySelector('.navbar-dropdown');
 
 const footerSoil = document.querySelector('.footer-soil');
 const footerObjects = Array.from(footerSoil.querySelectorAll('object'));
-const footerIcons = Array.from(footerSoil.querySelectorAll('span'));
 const myEmail = footerSoil.querySelector('.email');
 
 
@@ -336,24 +335,9 @@ function soilClickEvent(e) {
             () => {
                 console.log('copy not successful');
             }
-        )
-    } else if (e.target.closest('.icon-linkedin')) {
-        // console.log('linkedin');
-    } else {
-        // console.log('nope');
-        // console.log(e.target.getAttribute('class'));
+        );
     };
 };
-
-const iconLinkedin = footerSoil.querySelector('.icon-linkedin');
-iconLinkedin.addEventListener('load', () => {
-    console.log('rdy');
-    const grabDoc = test.contentDocument;
-    const test1 = grabDoc.querySelector('.icon-linkedin-svg');
-    test1.addEventListener('mouseenter', () => {  
-        console.log('gol');
-    });
-});
 
 const runOnce = (function() {
     // grabbed from https://www.geeksforgeeks.org/function-that-can-be-called-only-once-in-javascript/
@@ -369,9 +353,34 @@ const runOnce = (function() {
     };
 })();
 
-// function initCopyText() {
-//     const successMsg = document.createElement('p');
-//     successMsg.textContent = 'Email copied!';
-//     successMsg.classList.add('email-success');
-//     myEmail.insertAdjacentElement('afterend', successMsg);
-// }
+// const iconLinkedin = footerSoil.querySelector('.icon-linkedin');
+// iconLinkedin.addEventListener('load', () => {
+//     console.log('rdy');
+//     const grabDoc = iconLinkedin.contentDocument;
+//     const test1 = grabDoc.querySelector('.icon-linkedin-svg');
+//     test1.addEventListener('click', () => {  
+//         console.log('gol');
+//     });
+// });
+
+footerObjects.forEach(element => {
+    if (element.matches('.icon-linkedin')) {
+        element.addEventListener('load', () => {
+            console.log('rdy');
+            const grabDoc = element.contentDocument;
+            const bringDoc = grabDoc.querySelector('.icon-linkedin-svg');
+            bringDoc.addEventListener('click', () => {  
+                console.log('linkedin');
+            });
+        });
+    } else if (element.matches('.icon-cv')) {
+        element.addEventListener('load', () => {
+            console.log('rdy');
+            const grabDoc = element.contentDocument;
+            const bringDoc = grabDoc.querySelector('.icon-cv-svg');
+            bringDoc.addEventListener('click', () => {  
+                console.log('cv');
+            });
+        });
+    };
+});
