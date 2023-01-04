@@ -1,5 +1,6 @@
 :root {
     --email-success-icon: waiting-js;
+    --email-out: waitin-js;
 }
 
 .footer-soil-animation {
@@ -12,6 +13,9 @@
 }
 .email-success {
     animation: var(--email-success-icon) .5s ease-in forwards;
+}
+.email {
+    animation: var(--email-out) .5s ease-in 1s forwards;
 }
 @keyframes footer-soil {
     from {
@@ -47,46 +51,46 @@
 
 @keyframes email-success-icon-in {
     0% {
+        opacity: 0;
         transform: scale(0);
-        bottom: 9.35em;
+        bottom: 7.3em;;
         left: 16.7em;
 
     }
-    30% {
-        transform: scale(1);
-        bottom: 9.35em;
-        left: 12.7em;
-    }
-    60% {
-        padding-right: 3.5em;
-        left: 9.7em;
+    10% {
+        opacity: 1;
     }
     100% {
+        opacity: 1;
         transform: scale(1);
         padding-right: 6.5em;
         left: 6.7em;
-        bottom: 9.35em;
+        bottom: 7.3em;;
     }
 }
 @keyframes email-success-icon-out {
     0% {
         transform: scale(1);
+        opacity: 1;
         padding-right: 6.5em;
         left: 6.7em;
-        bottom: 9.35em;
-    }
-    30% {
-        padding-right: 3.5em;
-        left: 9.7em;
-    }
-    60% {
-        transform: scale(1);
-        bottom: 9.35em;
-        left: 12.7em;
+        bottom: 7.3em;;
     }
     100% {
+        left: 6.7em;
+        bottom: 7.3em;;
+        left: 6.7em;
+        padding-right: 6.5em;
+        opacity: 0;
+    }
+}
+@keyframes email-out {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
         transform: scale(0);
-        bottom: 9.35em;
-        left: 16.7em;
+        opacity: 0;
     }
 }

@@ -149,15 +149,22 @@ function hoverStateListeners(callback) {
 /* TREE-PILLAR-ANIMATION */
 
 // treeSvg.addEventListener('click', () => {
-    // window.addEventListener('click', () => {    
+    window.addEventListener('click', () => {    
     // if (treeSvg.classList.contains("tree-in")) {
     //     treeIn(),
     //     treeOut(),   
     //     treeBackIn(pillarIn),
         // pillarIn(),
-//         rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
+        // rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
 //     };
-// });
+footerSoil.classList.add('footer-soil-animation');
+footerObjects.filter(element => {
+    element.getAttribute('class').includes('icon');
+    if (element) {
+        element.classList.add('icons-footer-in-animation');
+    }
+});
+});
 
 /* NAV BAR */
 
@@ -318,16 +325,35 @@ function soilClickEvent(e) {
                         successMsg.style.setProperty('--email-success-icon', 'email-success-icon-out');
                     }, 500);
                 });
+                myEmail.style.setProperty('--email-out', 'email-out');
+                myEmail.addEventListener('animationend', () => {
+                    // setTimeout( () => {
+                        myEmail.style.setProperty('--email-out', 'waiting-js');
+                    // }, 500);
+                });
                 console.log('copied successfully!');
         },
             () => {
                 console.log('copy not successful');
             }
         )
+    } else if (e.target.closest('.icon-linkedin')) {
+        // console.log('linkedin');
     } else {
-        console.log('nope');
+        // console.log('nope');
+        // console.log(e.target.getAttribute('class'));
     };
 };
+
+const iconLinkedin = footerSoil.querySelector('.icon-linkedin');
+iconLinkedin.addEventListener('load', () => {
+    console.log('rdy');
+    const grabDoc = test.contentDocument;
+    const test1 = grabDoc.querySelector('.icon-linkedin-svg');
+    test1.addEventListener('mouseenter', () => {  
+        console.log('gol');
+    });
+});
 
 const runOnce = (function() {
     // grabbed from https://www.geeksforgeeks.org/function-that-can-be-called-only-once-in-javascript/
