@@ -5,7 +5,7 @@
         font-variant: normal;
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
-    }
+    };
     &-mail-copy::after {
         position: absolute;
         background-color: #c0c19a;
@@ -17,8 +17,26 @@
         font-weight: 900;
         content: "\f0c5";
         cursor: pointer;
-    }
-}
+    };
+    &-mail-copy::before {
+        content: "Email copied!";
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        padding: .1em .5em;
+        background-color: #a3db75;
+        font-family: 'Kadwa', serif;
+        font-size: .6rem;
+        white-space: nowrap;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        border-bottom-left-radius: 3em;
+        border-bottom-right-radius: 3em;
+        transform: scale(0);
+        opacity: 0;
+    };
+};
 
 .footer-soil {
     opacity: 0;
@@ -26,22 +44,21 @@
     background-image: linear-gradient(to top, #5e5634, #c0c19a);
     height: 80px;
     background-size: 200% 200%;
-}
+};
 .icon-mail {
-    // transform: translate(5.15em, 1.2em);
     opacity: 0;
     &:hover {
         ~ .email {
             transform: scale(1);
-        }
-    }
+        };
+    };
     &:active,
     &:focus,
     &:target {
         ~ .email {
             transform: scale(1);
-        }
-    }
+        };
+    };
     &-g {
         transform: translate(-10.25em, -16em) scale(0.6);
         &:hover,
@@ -53,23 +70,23 @@
             }
             .icon-mail-ellipse {
                 fill:#5e56347c;
-            }
-        }
-    }
+            };
+        };
+    };
     &-ellipse {
         fill: transparent;
         transition: fill .5s linear;
         transform: translate(6em, 8.5em) scale(0.75);
-    }
+    };
     &-path {
         fill:#c1c19a;
         transition: fill .5s linear;
         transform: translate(-560.2px, 271.9px);
-    }
-}
+    };
+};
 .relative {
     position: relative;
-}
+};
 .email {
     position: absolute;
     bottom: 4.3em;
@@ -90,27 +107,13 @@
     &:focus,
     &:target {
         transform: scale(1);
-    }
+    };
     &:active {
         transform: scale(1);
-    }
-    &-success {
-        position: absolute;
-        display: block;
-        padding: .1em .5em;
-        background-color: #c1c19a;
-        font-family: 'Kadwa', serif;
-        font-size: .6rem;
-        white-space: nowrap;
-        border-top-left-radius: 1em;
-        border-top-right-radius: 1em;
-        border-bottom-left-radius: 3em;
-        border-bottom-right-radius: 3em;
-        transform: scale(0);
-    }
-}
+    };
+};
 .icon-linkedin {
-    transform: scale(0.8); //translate(9.3em, -1.28em)
+    transform: scale(0.8);
     opacity: 0;
     &-path {
         fill:#c1c19a;
@@ -123,12 +126,12 @@
         &:target {
             .icon-linkedin-path {
                 fill: #a6a66d;
-            }
-        }
-    }
-}
+            };
+        };
+    };
+};
 .icon-cv {
-    transform: scale(0.9); //translate(13.3em, -4.23em)
+    transform: scale(0.9);
     opacity: 0;
     &-path {
         fill:#c1c19a;
@@ -141,7 +144,7 @@
         &:target {
             .icon-cv-path {
                 fill: #FFF;
-            }
-        }
-    }
-}
+            };
+        };
+    };
+};

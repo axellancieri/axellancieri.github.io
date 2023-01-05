@@ -314,6 +314,33 @@ footerSoil.addEventListener('click', soilClickEvent);
 
 function soilClickEvent(e) {
     if (e.target.closest('.ff-mail-copy')) {
+
+        navigator.clipboard.writeText(myEmail.textContent)
+
+        .then(function() {
+                // runOnce();
+                const successMsg = footerSoil.querySelector('.ff-mail-copy');
+                // footerSoil.removeEventListener('click', soilClickEvent);
+                successMsg.style.setProperty('--email-success-icon-in', 'email-success-icon-in');
+                successMsg.style.setProperty('--email-success-icon-back', 'email-success-icon-back');
+                successMsg.style.setProperty('--email-success-icon-out', 'email-success-icon-out');
+                Promise.all(
+                    successMsg.getAnimations({ subtree: true })
+                      .map((animation) => animation.finished)
+                  ).then(() => {
+                    successMsg.style.setProperty('--email-success-icon-in', 'waiting-js');
+                    successMsg.style.setProperty('--email-success-icon-back', 'waiting-js');
+                    successMsg.style.setProperty('--email-success-icon-out', 'waiting-js')
+                  })
+                  .catch(error => console.log(`couldnt load back copy email confirmation, ${error}`));
+                console.log('copied successfully!');
+            })
+        .catch(error => console.log(`couldnt get copy to clipboard. ${error}`));
+    };
+};
+/*
+function soilClickEvent(e) {
+    if (e.target.closest('.ff-mail-copy')) {
         navigator.clipboard.writeText(myEmail.textContent).then(
             function() {
                 runOnce();
@@ -340,7 +367,8 @@ function soilClickEvent(e) {
         );
     };
 };
-
+ */
+/* 
 const runOnce = (function() {
     // grabbed from https://www.geeksforgeeks.org/function-that-can-be-called-only-once-in-javascript/
     let done = false;
@@ -351,10 +379,10 @@ const runOnce = (function() {
             createSuccessMsg.textContent = 'Email copied!';
             createSuccessMsg.classList.add('email-success', 'm-0');
             myEmail.insertAdjacentElement('afterend', createSuccessMsg);
-        }
+        };
     };
 })();
-
+*/
 function loadSvg(e) {
     console.log('rdy');
     if(e.target.matches('.icon-linkedin')) {

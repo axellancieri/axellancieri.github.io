@@ -1,6 +1,7 @@
 :root {
-    --email-success-icon: waiting-js;
-    --email-out: waitin-js;
+    --email-success-icon-in: waiting-js;
+    --email-success-icon-back: waiting-js;
+    --email-success-icon-out: waiting-js;
 }
 
 .footer-soil-animation {
@@ -11,11 +12,10 @@
         animation: footer-icon 3s linear forwards;
     }
 }
-.email-success {
-    animation: var(--email-success-icon) .5s ease-in forwards;
-}
-.email {
-    animation: var(--email-out) .5s ease-in 1s forwards;
+.ff-mail-copy::before {
+    animation: var(--email-success-icon-in) .5s ease-in forwards,
+                var(--email-success-icon-back) .5s ease-in 1s forwards,
+                 var(--email-success-icon-out) .5s ease-in 2s forwards;
 }
 @keyframes footer-soil {
     from {
@@ -51,49 +51,38 @@
 
 @keyframes email-success-icon-in {
     0% {
-        opacity: 0;
-        transform: scale(0);
-        bottom: 4.3em;;
-        left: 10em;
+        opacity: 1;
+        transform: scale(1);
 
     }
-    10% {
-        opacity: 1;
-    }
+    // 10% {
+    //     opacity: 1;
+    // }
     100% {
         opacity: 1;
         transform: scale(1);
-        padding-right: 6.5em;
-        bottom: 4.3em;
-        left: 1.5em;
+        padding-right: 7.1em;
+    }
+}
+@keyframes email-success-icon-back {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        padding-right: 7.1em;
+    }
+    100% {
+        padding-right: .5em;
+        transform: scale(1);
+        opacity: 1;
     }
 }
 @keyframes email-success-icon-out {
     0% {
+        padding-right: .5em;
         transform: scale(1);
         opacity: 1;
-        padding-right: 6.5em;
-        bottom: 4.3em;
-        left: 1.5em;
     }
     100% {
-        bottom: 2em;
-        left: 0em;
-        padding-right: 6.5em;
-        opacity: 0;
-    }
-}
-@keyframes email-out {
-    0% {
-        transform: translate(0em, 0em) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(0);
-        opacity: 0;
-    }
-    100% {
-        transform: translate(-2em, 1em) scale(0);
         opacity: 0;
     }
 }
