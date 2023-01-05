@@ -317,10 +317,10 @@ function soilClickEvent(e) {
 
         navigator.clipboard.writeText(myEmail.textContent)
 
-        .then(function() {
+        .then(function(e) {
                 // runOnce();
                 const successMsg = footerSoil.querySelector('.ff-mail-copy');
-                // footerSoil.removeEventListener('click', soilClickEvent);
+                footerSoil.removeEventListener('click', soilClickEvent);
                 successMsg.style.setProperty('--email-success-icon-in', 'email-success-icon-in');
                 successMsg.style.setProperty('--email-success-icon-back', 'email-success-icon-back');
                 successMsg.style.setProperty('--email-success-icon-out', 'email-success-icon-out');
@@ -331,44 +331,17 @@ function soilClickEvent(e) {
                     successMsg.style.setProperty('--email-success-icon-in', 'waiting-js');
                     successMsg.style.setProperty('--email-success-icon-back', 'waiting-js');
                     successMsg.style.setProperty('--email-success-icon-out', 'waiting-js')
+                    footerSoil.addEventListener('click', soilClickEvent);
                   })
                   .catch(error => console.log(`couldnt load back copy email confirmation, ${error}`));
-                console.log('copied successfully!');
+                console.log('copied successfully!');;
             })
         .catch(error => console.log(`couldnt get copy to clipboard. ${error}`));
     };
 };
-/*
-function soilClickEvent(e) {
-    if (e.target.closest('.ff-mail-copy')) {
-        navigator.clipboard.writeText(myEmail.textContent).then(
-            function() {
-                runOnce();
-                const successMsg = footerSoil.querySelector('.email-success');
-                footerSoil.removeEventListener('click', soilClickEvent);
-                successMsg.style.setProperty('--email-success-icon', 'email-success-icon-in');
-                successMsg.addEventListener('animationend', () => {
-                    setTimeout( () => {
-                        successMsg.style.setProperty('--email-success-icon', 'email-success-icon-out');
-                        footerSoil.addEventListener('click', soilClickEvent);
-                    }, 500);
-                });
-                myEmail.style.setProperty('--email-out', 'email-out');
-                myEmail.addEventListener('animationend', () => {
-                    setTimeout( () => {
-                        myEmail.style.setProperty('--email-out', 'waiting-js');
-                    }, 500);
-                });
-                console.log('copied successfully!');
-        },
-            () => {
-                console.log('copy not successful');
-            }
-        );
-    };
-};
- */
-/* 
+
+/* This used to run on soilClickEvent function to create a p element that I ended up using a pseudo element later on. Leaving it here just in case I need this sort of behaviour at a later stage
+
 const runOnce = (function() {
     // grabbed from https://www.geeksforgeeks.org/function-that-can-be-called-only-once-in-javascript/
     let done = false;
@@ -383,16 +356,19 @@ const runOnce = (function() {
     };
 })();
 */
+
+/* This lines below are to target footer svg icons. I ended up doing everything through html using the href and download attribute mostly on the svg files itselves. Leaving this here just in case
+
 function loadSvg(e) {
     console.log('rdy');
-    if(e.target.matches('.icon-linkedin')) {
+    if(e.target.closest('.icon-linkedin')) {
         e.target.removeEventListener('load', loadSvg);
         const grabDoc = e.target.contentDocument;
         const bringDoc = grabDoc.querySelector('.icon-linkedin-svg');
         bringDoc.addEventListener('click', () => {  
             console.log('linkedin');
         });
-    }else if(e.target.matches('.icon-cv')) {
+    }else if(e.target.closest('.icon-cv')) {
         e.target.removeEventListener('load', loadSvg);
         const grabDoc = e.target.contentDocument;
         const bringDoc = grabDoc.querySelector('.icon-cv-svg');
@@ -405,3 +381,4 @@ function loadSvg(e) {
 footerObjects.forEach(element => {
         element.addEventListener('load', loadSvg);
 });
+*/
