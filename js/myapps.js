@@ -13,10 +13,10 @@ const navBarDropdown = document.querySelector('.navbar-dropdown');
 // const hexagonSvg = treeSvg.querySelector('.hexagon');
 // const soilSvg = treeSvg.querySelector('.soil');
 
-// const pillar = document.querySelector('.pillar');
-// const pillarRocks = pillar.querySelector('.pillar-rocks');
-// const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
-// const pillarLeafs = pillar.querySelector('.pillar-leafs');
+const pillar = document.querySelector('.pillar');
+const pillarRocks = pillar.querySelector('.pillar-rocks');
+const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
+const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
 const footerSoil = document.querySelector('.footer-soil');
 const footerObjects = Array.from(footerSoil.querySelectorAll('object'));
@@ -156,13 +156,42 @@ function hoverStateListeners(callback) {
         // pillarIn(),
         // rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
 //     };
-footerSoil.classList.add('footer-soil-animation');
-footerObjects.filter(element => {
-    element.getAttribute('class').includes('icon');
-    if (element) {
-        element.classList.add('icons-footer-in-animation');
-    }
+bannerAll.forEach((element, index) => {
+
+    element.classList.contains('pillar-banner') ? 
+      element.classList.add('pillar-banner-animation') : 
+
+    element.classList.contains('pillar-holder-1') ? 
+        element.classList.add('pillar-holder-1-animation') : 
+
+    element.classList.contains('pillar-holder-2') ? 
+        element.classList.add('pillar-holder-2-animation') : 
+
+    element.classList.contains('pillar-scroll-about-me') ? 
+        element.classList.add('pillar-scroll-about-me-animation') : 
+
+      element.classList.contains('pillar-scroll-projects') ? 
+        element.classList.add('pillar-scroll-projects-animation') : 
+
+    element.classList.contains('pillar-scroll-get-in-touch') ? 
+        element.classList.add('pillar-scroll-get-in-touch-animation') : 
+
+    element.classList.contains('pillar-text') && element.innerHTML.includes('ABOUT') ? 
+     element.classList.add('pillar-text-about-me') : 
+
+    element.classList.contains('pillar-text') && element.innerHTML.includes('PROJECTS') ? 
+      element.classList.add('pillar-text-projects') : 
+
+    element.classList.contains('pillar-text') && element.innerHTML.includes('GET') ? 
+      element.classList.add('pillar-text-get-in-touch') : 
+        console.log(`${index} was not found`);
 });
+scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-about-me'));
+scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch'));  
+scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-projects'));
+
+scrollsInteract('mouseover');
+scrollsInteract('click');
 });
 
 /* NAV BAR */
@@ -223,8 +252,10 @@ function addInteract(e) {
              });
     } else if (e.type === 'click' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
         pillar.classList.add('pillar-out-animation');
-        pillar.addEventListener('animationend', () => {
-            scrollsAll.scrollAboutMe.filter(element => {
+        pillar.removeEventListener('mouseover', addInteract);
+        pillar.removeEventListener('click', addInteract);
+        // pillar.addEventListener('animationend', () => {
+            scrollsAll.scrollAboutMe.map(element => {
                 if (element.classList.contains('pillar-scroll')) { 
                   element.style.setProperty('--about-me-back-in-animation', ' flip-right-scroll-about-me');
                   element.style.setProperty('--about-me-after-flip-grow', ' scroll-after-right-about-me');
@@ -232,10 +263,16 @@ function addInteract(e) {
                     element.style.setProperty('--about-me-back-in-animation', ' flip-right-text-about-me');
                     element.style.setProperty('--about-me-after-flip-grow', ' text-after-right-about-me');
                 }
+                return element;
             });
             bgColor.classList.replace('index-color', 'index-color-about-me');
-            pillar.removeEventListener('mouseover', addInteract);
-        });
+        // });
+            Promise.all(
+                bgColor.getAnimations()
+            .map((animation) => animation.finished))
+            .then(() => {
+                window.location.assign("http://127.0.0.1:5500/about.html")})
+            .catch(error => console.log(`problem taking you to about page, ${error}`));
     };
     
     if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
@@ -284,6 +321,7 @@ function addInteract(e) {
             });
             bgColor.classList.replace('index-color', 'index-color-get-in-touch');
             pillar.removeEventListener('mouseover', addInteract);
+            
         });
     };
 };
