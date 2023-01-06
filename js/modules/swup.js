@@ -1,0 +1,1 @@
+export const swup = new Swup();

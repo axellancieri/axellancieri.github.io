@@ -15,7 +15,8 @@
     "@fortawesome/fontawesome-free": "6.2.0",
     "@popperjs/core": "2.11.6",
     "bootstrap": "5.2.2",
-    "sass": "1.56.0"
+    "sass": "1.56.0",
+    "swup": "^2.0.19"
   },
   "author": "",
   "license": "ISC",

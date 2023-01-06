@@ -12,19 +12,6 @@
     --get-in-touch-after-flip-grow: waiting-js;
 }
 
-.index {
-    &-color {
-        &-about-me {
-            animation: bg-color-about-me 2s ease-in both;
-        }
-        &-projects {
-            animation: bg-color-projects 2s ease-in 1s both;
-        }
-        &-get-in-touch {
-            animation: bg-color-get-in-touch 2s ease-in 1s both;
-        }
-    }
-}
 .pillar {
     &-banner-animation {
         animation: banner-drop 1.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s both;
@@ -88,32 +75,6 @@
         animation: flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
     };
 }
-
-@keyframes bg-color-about-me {
-    from {
-        background-color: #a6a66db0;
-    }
-    to {
-        background-color: rgb(130, 142, 71);
-    }
-}
-@keyframes bg-color-projects {
-    from {
-        background-color: #a6a66db0;
-    }
-    to {
-        background-color: rgb(130, 142, 71);
-    }
-}
-@keyframes bg-color-get-in-touch {
-    from {
-        background-color: #a6a66db0;
-    }
-    to {
-        background-color: rgba(166, 166, 109, 0.9);
-    }
-}
-
 
 @keyframes banner-drop {
     0% {
