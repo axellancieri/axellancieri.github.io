@@ -1,4 +1,3 @@
-// import {swup} from '/js/modules/swup.js';
 import {navButton, navBar, navDropDownClick} from '/js/modules/navbar.js';
 
 /* Variables */
