@@ -1,26 +1,29 @@
 :root {
+
     --bg-color-home: #a6a66db0;
-    --bg-color-about-me: rgb(130, 142, 71);
+    --bg-color-about-me: #5f5141;
     --bg-color-projects: rgb(130, 142, 71);
     --bg-color-get-in-touch: rgb(130, 142, 71);
+
+    --scroll-text-bg: #D9D3A3;
+    --scroll-text-color: #595743;
 }
 
 .bg-color {
     transition: background-color 2s ease-in;
     &-home {
         background-color: var(--bg-color-home);
-    }
+    };
     &-about-me {
         background-color: var(--bg-color-about-me);
-    }
+    };
     &-projects {
         background-color: var(--bg-color-projects);
-    }
+    };
     &-get-in-touch {
         background-color: var(--bg-color-get-in-touch);
-    }
-}
-//rgb(130, 142, 71)
+    };
+};
 .tree {
     width: 100%;
     display: block;
@@ -152,7 +155,7 @@
                 };
             };
             &-main {
-                fill: #c1c19a;
+                fill: var(--scroll-text-bg);
                 stroke: #000;
                 stroke-width: 4;
             };
@@ -181,7 +184,7 @@
                 fill: #7fbeb9;
             };
             &-main {
-                fill: #c1c19a;
+                fill: var(--scroll-text-bg);
             };
         };
         &-about-me {
@@ -191,4 +194,10 @@
             opacity: 0;
         };
     };
+    &-text {
+        fill: var(--scroll-text-color);
+        &-projects {
+        --scroll-text-color: #584D8C;
+        }
+    }
 };

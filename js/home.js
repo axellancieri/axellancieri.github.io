@@ -226,7 +226,6 @@ function addInteract(e) {
               return element;
           });
           bgColor.classList.replace('bg-color-home', 'bg-color-about-me');
-      // });
           Promise.all(
               bgColor.getAnimations()
           .map((animation) => animation.finished))
