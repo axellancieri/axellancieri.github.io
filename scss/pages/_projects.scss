@@ -1,0 +1,9 @@
+:root {
+    --bg-color-projects: rgb(130, 142, 71);
+}
+
+.projects {
+    &-bg {
+        background-color: var(--bg-color-projects);
+    };
+}

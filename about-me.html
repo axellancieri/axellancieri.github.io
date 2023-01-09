@@ -9,7 +9,7 @@
     <title>About_me</title>
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
-  <body class="bg-color bg-color-about-me">
+  <body class="bg-color about-me-bg">
      <header>
         <nav class="navbar navbar-dark">
           <div class="container-fluid justify-content-end">
@@ -19,7 +19,7 @@
           </div>
         </nav>
         <div class="collapse justify-content-center row navbar-dropdown" id="navbarToggleExternalContent">
-          <div class="p-4 text-center col navbar-content" >
+          <div class="p-4 text-center col navbar-content navbar-about" >
             <h5 class="text-white h6 pb-2 border-style">Home</h5>
             <h5 class="text-white h6 pb-2 border-style">Projects</h5>
             <h5 class="text-white h6">Get in touch!</h5>
@@ -27,9 +27,37 @@
         </div>
      </header>
     <main class="container">
-      <div class="row justify-content-center m-0 about-me-card about-me-svg mt-3">
-        <p class="about-me-svg-text">About me</p>
-        <p class="about-me-comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at eleifend tortor. Nulla ultricies lectus et erat porta facilisis. Curabitur sagittis fringilla dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras diam magna, finibus at cursus eget, cursus non dolor. In hac habitasse platea.</p>
+      <div class="row justify-content-center mx-0 about-me-card about-me-bg-svg mt-3">
+        <h5 class="about-me-bg-svg-title">About me</h5>
+        <p class="about-me-bg-svg-margin about-me-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at eleifend tortor. Nulla ultricies lectus et erat porta facilisis. Curabitur sagittis fringilla dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras diam magna, finibus at cursus eget, cursus non dolor. In hac habitasse platea.</p>
+    </div>
+    <div class="row justify-content-center mx-0 about-me-card">
+      <p class="about-me-text mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at eleifend tortor. Nulla ultricies lectus et erat porta facilisis. Curabitur sagittis fringilla dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras diam magna, finibus at cursus eget, cursus non dolor. In hac habitasse platea.</p>
+    </div>
+    <div class="row row-cols-4 justify-content-center mx-0 about-me-card">
+      <h5 class="about-me-text col-12 my-3">Skills:</h5>
+      <div class="col relative">
+        <object data="svg/icons/js.svg" type="image/svg+xml" class=""></object>
+      </div>
+      <div class="col relative">
+        <object data="svg/icons/html5.svg" type="image/svg+xml" class=""></object>
+      </div>
+      <div class="col relative">
+        <object data="svg/icons/css.svg" type="image/svg+xml" class=""></object>
+      </div>
+      <div class="col relative">
+        <object data="svg/icons/sass.svg" type="image/svg+xml" class=""></object>
+      </div>
+      <div class="col-6 relative my-3">
+        <object data="svg/icons/bootstrap.svg" type="image/svg+xml" class=""></object>
+      </div>
+      <div class="col-6 relative my-3">
+        <object data="svg/icons/git.svg" type="image/svg+xml" class=""></object>
+      </div>
+      <p class="about-me-text col-12 mb-3">Currently working on:</p>
+      <div class="col relative col-12 mb-3">
+        <object data="svg/icons/react.svg" type="image/svg+xml" class=""></object>
+      </div>
     </div>
     </main>
      <footer></footer>

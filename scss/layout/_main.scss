@@ -1,9 +1,6 @@
 :root {
 
     --bg-color-home: #a6a66db0;
-    --bg-color-about-me: #5f5141;
-    --bg-color-projects: rgb(130, 142, 71);
-    --bg-color-get-in-touch: rgb(130, 142, 71);
 
     --scroll-text-bg: #D9D3A3;
     --scroll-text-color: #595743;
@@ -13,15 +10,6 @@
     transition: background-color 2s ease-in;
     &-home {
         background-color: var(--bg-color-home);
-    };
-    &-about-me {
-        background-color: var(--bg-color-about-me);
-    };
-    &-projects {
-        background-color: var(--bg-color-projects);
-    };
-    &-get-in-touch {
-        background-color: var(--bg-color-get-in-touch);
     };
 };
 .tree {

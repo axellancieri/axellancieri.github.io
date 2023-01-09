@@ -1,7 +1,7 @@
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Tools -->
 <?xml-stylesheet type="text/css" href="../../assets/css/style.css"?>
-<svg width="800px" height="800px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <title>file_type_css</title>
+<svg width="40px" height="40px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<g class="about-me-icon-svg">
   <path style="fill:#1572b6" d="M5.9 27.2 3.7 2 28.3 2 26.1 27.2 16 30 5.9 27.2z"/>
   <path style="fill:#33a9dc" d="M16 27.9 24.2 25.6 26.1 4.1 16 4.1 16 27.9z"/>
   <path style="fill:#fff" d="M16 13.2 20.1 13.2 20.4 10 16 10 16 6.9 16 6.9 23.8 6.9 23.7 7.8 22.9 16.3 16 16.3 16 13.2z"/>
@@ -9,4 +9,5 @@
   <path style="fill:#fff" d="M19.8 16.2 19.5 20.3 16 21.2 16 24.4 22.3 22.7 22.4 22.2 22.9 16.2 19.8 16.2z"/>
   <path style="fill:#ebebeb" d="M16 6.9 16 8.9 16 10 16 10 8.6 10 8.6 10 8.5 10 8.5 9.3 8.3 7.8 8.3 6.9 16 6.9z"/>
   <path style="fill:#ebebeb" d="M16 13.2 16 15.1 16 16.3 16 16.3 12.6 16.3 12.6 16.3 12.6 16.3 12.5 15.6 12.4 14 12.3 13.2 16 13.2z"/>
+  </g>
 </svg>

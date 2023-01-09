@@ -1,4 +1,7 @@
 :root {
+--navBar-home: #a6a66d;
+--navBar-about: #594C3D;
+
 --appear-wait: 2s;
 }
 .navbar {
@@ -6,17 +9,23 @@
     padding-top: 1em;
     padding-bottom: 0;
     z-index: 110;
-    &-content {
-    background-color: #a6a66d;
-    border-radius: 1em;
-    border: 1px solid #ffffff7d;;
-    }
+    &-dropdown div {
+        border-radius: 1em;
+    };
+    &-home {
+        background-color: var(--navBar-home);
+        border: 1px solid #ffffff7d;
+    };
+    &-about {
+        background-color: var(--navBar-about);
+        border: 1px solid #b7b0a9;
+    };
     &-dropdown {
         position: absolute;
         right: 5em;
         top: 3.5em;
         z-index: 300;
-    }
+    };
 }
 .navbar,
 .navbar-dark {
