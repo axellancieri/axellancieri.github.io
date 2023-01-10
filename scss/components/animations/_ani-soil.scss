@@ -47,23 +47,19 @@
     to {
         opacity: 1;
     }
-}
+};
 
 @keyframes email-success-icon-in {
     0% {
         opacity: 1;
         transform: scale(1);
-
     }
-    // 10% {
-    //     opacity: 1;
-    // }
     100% {
         opacity: 1;
         transform: scale(1);
         padding-right: 7.1em;
     }
-}
+};
 @keyframes email-success-icon-back {
     0% {
         transform: scale(1);
@@ -75,7 +71,7 @@
         transform: scale(1);
         opacity: 1;
     }
-}
+};
 @keyframes email-success-icon-out {
     0% {
         padding-right: .5em;
@@ -85,4 +81,4 @@
     100% {
         opacity: 0;
     }
-}
+};

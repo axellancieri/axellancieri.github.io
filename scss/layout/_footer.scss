@@ -14,12 +14,18 @@
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
     };
+    &-main-footer::after {
+        top: 2em;
+        right: 5.5em;
+    }
+    &-get-in-touch::after {
+        top: 2.23em;
+        right: 9em;
+    }
     &-mail-copy::after {
         position: absolute;
         background-color: #c0c19a;
         border-radius: 3em;
-        top: 2.2em;
-        right: 5em;
         padding: .1em .5em;
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
@@ -35,7 +41,7 @@
         padding: .1em .5em;
         background-color: #a3db75;
         font-family: 'Kadwa', serif;
-        font-size: .6rem;
+        font-size: .8rem;
         white-space: nowrap;
         border-top-left-radius: 1em;
         border-top-right-radius: 1em;
@@ -89,13 +95,13 @@
 };
 .email {
     position: absolute;
-    bottom: 4.3em;
+    bottom: 3.4em;
     left: 1em;
     display: block;
     padding: .1em .5em;
     background-color: #c1c19a;
     font-family: 'Kadwa', serif;
-    font-size: .6rem;
+    font-size: .8rem;
     white-space: nowrap;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;

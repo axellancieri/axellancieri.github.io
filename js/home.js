@@ -1,4 +1,5 @@
 import {navButton, navBar, navDropDownClick} from '/js/modules/navbar.js';
+import {emailCopied} from '/js/modules/emailCopy.js';
 
 /* Variables */
 
@@ -16,9 +17,9 @@ const pillarRocks = pillar.querySelector('.pillar-rocks');
 const bannerAll = Array.from(pillar.querySelectorAll('use, text'));
 const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
-// const footerSoil = document.querySelector('.footer-soil');
-// const footerObjects = Array.from(footerSoil.querySelectorAll('object'));
-// const myEmail = footerSoil.querySelector('.email');
+const footerSoil = document.querySelector('.footer-soil');
+const footerObjects = Array.from(footerSoil.querySelectorAll('object'));
+const myEmail = footerSoil.querySelector('.email');
 
 const scrollsAll = [
     // scrolls once loaded will go here
@@ -174,6 +175,14 @@ scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-
 scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch'));  
 scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-projects'));
 
+footerSoil.classList.add('footer-soil-animation');
+footerObjects.filter(element => {
+    element.getAttribute('class').includes('icon');
+    if (element) {
+        element.classList.add('icons-footer-in-animation');
+    };
+});
+
 scrollsInteract('mouseover');
 scrollsInteract('click');
 navBar.classList.add('appear');
@@ -225,7 +234,7 @@ function addInteract(e) {
               }
               return element;
           });
-          bgColor.classList.replace('bg-color-home', 'bg-color-about-me');
+          bgColor.classList.replace('bg-color-home', 'about-me-bg');
           Promise.all(
               bgColor.getAnimations()
           .map((animation) => animation.finished))
@@ -309,37 +318,11 @@ function addAnimationHoverScr(target, propertyName) {
 
 /* Footer */
 
-// footerSoil.addEventListener('click', soilClickEvent);
+footerSoil.addEventListener('click', (e) => {
+    emailCopied(e, '.ff-mail-copy', myEmail, footerSoil);
+});
 
-function soilClickEvent(e) {
-  if (e.target.closest('.ff-mail-copy')) {
-
-      navigator.clipboard.writeText(myEmail.textContent)
-
-      .then(function(e) {
-              // runOnce();
-              const successMsg = footerSoil.querySelector('.ff-mail-copy');
-              footerSoil.removeEventListener('click', soilClickEvent);
-              successMsg.style.setProperty('--email-success-icon-in', 'email-success-icon-in');
-              successMsg.style.setProperty('--email-success-icon-back', 'email-success-icon-back');
-              successMsg.style.setProperty('--email-success-icon-out', 'email-success-icon-out');
-              Promise.all(
-                  successMsg.getAnimations({ subtree: true })
-                    .map((animation) => animation.finished)
-                ).then(() => {
-                  successMsg.style.setProperty('--email-success-icon-in', 'waiting-js');
-                  successMsg.style.setProperty('--email-success-icon-back', 'waiting-js');
-                  successMsg.style.setProperty('--email-success-icon-out', 'waiting-js')
-                  footerSoil.addEventListener('click', soilClickEvent);
-                })
-                .catch(error => console.log(`couldnt load back copy email confirmation, ${error}`));
-              console.log('copied successfully!');;
-          })
-      .catch(error => console.log(`couldnt get copy to clipboard. ${error}`));
-  };
-};
-
-/* This used to run on soilClickEvent function to create a p element that I ended up using a pseudo element later on. Leaving it here just in case I need this sort of behaviour at a later stage
+/* This used to run on emailCopied function to create a p element that I ended up using a pseudo element later on. Leaving it here just in case I need this sort of behaviour at a later stage
 
 const runOnce = (function() {
   // grabbed from https://www.geeksforgeeks.org/function-that-can-be-called-only-once-in-javascript/
