@@ -1,11 +1,29 @@
 :root {
     --about-me-main-color: #D9D3A3;
     --bg-color-about-me: #5f5141;
-}
+    --icons-transition-time: 1s;
+};
+
+$icon-css:(
+    "1": #1572b6,
+    "2": #33a9dc,
+    "3": #fff,
+    "4" : #ebebeb,
+    "5" : #fff,
+    "6" : #ebebeb,
+    "7": #ebebeb
+);
+
+$icon-html:(
+    "1": #e34f26,
+    "2": #ef652a,
+    "3": #fff
+);
+
 .about-me {
     &-bg {
         background-color: var(--bg-color-about-me);
-    }
+    };
     &-card {
         border-radius: 2em;
         text-align: center;
@@ -13,7 +31,7 @@
         background-color: #594C3D;
         + .about-me-card {
             margin-block: 3em;
-        }
+        };
     };
     &-text {
         font-family: 'Martel', serif;
@@ -41,18 +59,89 @@
         };
     };
     &-icon-svg {
+        path,
+        rect {
+            transition: fill .5s linear;
+        }
         fill: #D9D3A3;
     };
 };
+.icon-js {
+    path:nth-child(2) {
+        fill: var(--bg-color-about-me);
+    };
+    &:hover,
+    &:active,
+    &:target {
+        --icons-transition-time: .3s;
+        fill: #f5de19;
+    };
+};
+.icon-bootstrap {
+    &:hover,
+    &:active,
+    &:target { 
+        fill: #8375C8;
+    };
+}
+.icon-html {
+    path:nth-child(3) {
+        fill: var(--bg-color-about-me);
+   };
+        &:hover,
+        &:active,
+        &:target {
+            @each $path, $color in $icon-html {
+                path:nth-child(#{$path}) {
+                 fill: $color;
+            };
+        };
+    };
+};
+.icon-css {
+    @for $i from 3 through 7 {
+        path:nth-child(#{$i}) {
+            fill: var(--bg-color-about-me);
+        };
+    };
+    &:hover,
+    &:active,
+    &:target {
+        @each $path, $color in $icon-css {
+            path:nth-child(#{$path}) {
+                fill: $color;
+            };
+        };
+    };
+};
+.icon-git {
+    &:hover,
+    &:active,
+    &:target { 
+        fill: #e94e31;
+    };
+}
 .icon-sass {
-    path {
-        fill: #D9D3A3;
-        position: relative;
-        z-index: 10;
-    }
     rect {
-        fill: white;
-        position: relative;
-        z-index: 1;
-    }
+        fill: transparent;
+    };
+    &:hover,
+    &:active,
+    &:target { 
+        path {
+            fill: pink;
+        }
+        rect {
+            fill: #FFF;
+        }
+    };
+};
+.icon-react {
+    &:hover,
+    &:active,
+    &:target { 
+        path {
+            fill: #5ed3f3;
+        }
+    };
 }
