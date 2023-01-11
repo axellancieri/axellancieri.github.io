@@ -23,6 +23,7 @@ check myappsjs line 126 note once finished project
 - change mouseover on scrolls for css transitions grabbing an element that tags the entire scroll
 - and/or scrolls themselves. Not maatching simplistic approach of general site.
 
+- once I get onto bootsraps variables to do some edits. Make sure to add a margin-top and then delete/change the class I had to make on _shared.scss
 
 
 
