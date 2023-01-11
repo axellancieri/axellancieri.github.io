@@ -6,17 +6,8 @@
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
     };
-    &-home::after {
-        top: 2em;
-        right: 5.5em;
-    }
-    &-get-in-touch::after {
-        top: 2.23em;
-        right: 9em;
-    }
     &-mail-copy::after {
         position: absolute;
-        background-color: #c0c19a;
         border-radius: 3em;
         padding: .1em .5em;
         font-family: "Font Awesome 5 Free";
@@ -24,14 +15,21 @@
         content: "\f0c5";
         cursor: pointer;
     };
+    &-home::after {
+        top: 2em;
+        right: 5.5em;
+        background-color: #c0c19a;
+    }
+    &-get-in-touch::after {
+        top: 0;
+        right: 3em;
+        transition: background-color .3s linear;
+    }
     &-mail-copy::before {
         content: "Email copied!";
         position: absolute;
-        top: 0;
-        right: 0;
         display: block;
         padding: .1em .5em;
-        background-color: #a3db75;
         font-family: 'Kadwa', serif;
         font-size: .8rem;
         white-space: nowrap;
@@ -42,4 +40,14 @@
         transform: scale(0);
         opacity: 0;
     };
+    &-home::before {
+        top: 0;
+        right: 0;
+        background-color: #a3db75;
+    }
+    &-get-in-touch::before {
+        bottom: .4em;
+        right: 0;
+        background-color: #63734c;
+    }
 };

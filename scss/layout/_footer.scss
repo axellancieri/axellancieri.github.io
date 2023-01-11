@@ -66,9 +66,7 @@
     border-bottom-right-radius: 3em;
     &:hover,
     &:focus,
-    &:target {
-        transform: scale(1);
-    };
+    &:target,
     &:active {
         transform: scale(1);
     };

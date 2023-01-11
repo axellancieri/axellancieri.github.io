@@ -223,7 +223,6 @@ function addInteract(e) {
       pillar.classList.add('pillar-out-animation');
       pillar.removeEventListener('mouseover', addInteract);
       pillar.removeEventListener('click', addInteract);
-      // pillar.addEventListener('animationend', () => {
           scrollsAll.scrollAboutMe.map(element => {
               if (element.classList.contains('pillar-scroll')) { 
                 element.style.setProperty('--about-me-back-in-animation', ' flip-right-scroll-about-me');
@@ -232,7 +231,6 @@ function addInteract(e) {
                   element.style.setProperty('--about-me-back-in-animation', ' flip-right-text-about-me');
                   element.style.setProperty('--about-me-after-flip-grow', ' text-after-right-about-me');
               }
-              return element;
           });
           bgColor.classList.replace('bg-color-home', 'about-me-bg');
           Promise.all(
@@ -252,7 +250,8 @@ function addInteract(e) {
       });
   } else if (e.type === 'click' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
       pillar.classList.add('pillar-out-animation');
-      pillar.addEventListener('animationend', () => {
+      pillar.removeEventListener('mouseover', addInteract);
+      pillar.removeEventListener('click', addInteract);
           scrollsAll.scrollProjects.filter(element => {
               if (element.classList.contains('pillar-scroll')) { 
                 element.style.setProperty('--projects-back-in-animation', ' flip-right-scroll');
@@ -263,9 +262,13 @@ function addInteract(e) {
                   element.style.setProperty('--projects-after-flip-grow', ' text-after-right-projects');
               }
           });
-          bgColor.style.setProperty('--bg-color', ' rgb(130, 142, 71)');
-          pillar.removeEventListener('mouseover', addInteract);
-      });
+          bgColor.classList.replace('bg-color-home', 'about-me-bg');
+          Promise.all(
+              bgColor.getAnimations()
+          .map((animation) => animation.finished))
+          .then(() => {
+              window.location.assign("http://127.0.0.1:5500/about-me.html")})
+          .catch(error => console.log(`problem taking you to about page, ${error}`));
   };
   
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
@@ -277,8 +280,9 @@ function addInteract(e) {
   });
   } else if (e.type === 'click' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
       pillar.classList.add('pillar-out-animation');
-      pillar.addEventListener('animationend', () => {
-          scrollsAll.scrollGetInTouch.filter(element => {
+      pillar.removeEventListener('mouseover', addInteract);
+      pillar.removeEventListener('click', addInteract);
+          scrollsAll.scrollGetInTouch.map(element => {
               if (element.classList.contains('pillar-scroll')) {
                 element.style.setProperty('--get-in-touch-back-in-animation', ' flip-right-scroll');
                 element.style.setProperty('--get-in-touch-after-flip-grow', ' scroll-after-right-get-in-touch');
@@ -287,10 +291,14 @@ function addInteract(e) {
                   element.style.setProperty('--get-in-touch-after-flip-grow', ' text-after-right-get-in-touch');
               }
           });
-          bgColor.style.setProperty('--bg-color', ' rgb(130, 142, 71)');
-          pillar.removeEventListener('mouseover', addInteract);
+          bgColor.classList.replace('bg-color-home', 'about-me-bg');
+          Promise.all(
+              bgColor.getAnimations()
+          .map((animation) => animation.finished))
+          .then(() => {
+              window.location.assign("http://127.0.0.1:5500/get-in-touch.html")})
+          .catch(error => console.log(`problem taking you to about page, ${error}`));
           
-      });
   };
 };
 

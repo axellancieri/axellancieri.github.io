@@ -2,13 +2,12 @@
     --bg-color-get-in-touch: rgb(130, 142, 71);
 };
 .get-in-touch {
-        &-bg {
-            background-color: var(--bg-color-projects);
-        };
+    &-bg {
+        background-color: var(--bg-color-projects);
+    };
     &-email {
         position: relative;
         display: block;
-        color: black;
         font-family: 'Martel', serif;
         font-weight: bold;
         font-size: 1rem;
@@ -20,7 +19,34 @@
         &:active,
         &:focus,
         &:target {
-            background-color: rgb(166, 166, 109);
+            .ff-get-in-touch::after {
+                background-color: #ffffff29;
+            }
         };
     };
+    &-linkedin {
+        &:hover,
+        &:active,
+        &:focus,
+        &:target {
+            #link-linkedin {
+                color: black;
+                background-color: #D9D3A3;
+                border: 1px solid black;
+            }
+        };
+    }
 };
+#link-linkedin {
+    text-decoration: underline;
+    border-radius: 2em;
+    padding-inline: .5em;
+    transition: color, background-color, border;
+    transition-duration: .2s;
+    transition-timing-function: linear;
+    // &:hover {
+    //     color: black;
+    //     background-color: #D9D3A3;
+    //     border: 1px solid black;
+    // }
+}
