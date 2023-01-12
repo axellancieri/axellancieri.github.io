@@ -7,8 +7,6 @@ const cvText = main.querySelector('.get-in-touch-cv');
 const cvIcon = main.querySelector('object');
 
 
-// const emailFunct = emailCopied(e.target, '.ff-mail-copy', myEmail, main);
-
 /* Navbar */
 
 navBar.classList.add('appear-about', 'appear');

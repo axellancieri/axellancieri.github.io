@@ -1,6 +1,6 @@
 :root {
 --navBar-home: #a6a66d;
---navBar-about: #594C3D;
+--navBar-pages: #594C3D;
 
 --appear-wait: 2s;
 }
@@ -16,8 +16,8 @@
         background-color: var(--navBar-home);
         border: 1px solid #ffffff7d;
     };
-    &-about {
-        background-color: var(--navBar-about);
+    &-pages {
+        background-color: var(--navBar-pages);
         border: 1px solid #b7b0a9;
     };
     &-dropdown {

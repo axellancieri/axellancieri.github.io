@@ -267,7 +267,7 @@ function addInteract(e) {
               bgColor.getAnimations()
           .map((animation) => animation.finished))
           .then(() => {
-              window.location.assign("http://127.0.0.1:5500/about-me.html")})
+              window.location.assign("http://127.0.0.1:5500/projects.html")})
           .catch(error => console.log(`problem taking you to about page, ${error}`));
   };
   
