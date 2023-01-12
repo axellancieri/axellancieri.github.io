@@ -347,28 +347,28 @@ const runOnce = (function() {
 })();
 */
 
-/* This lines below are to target footer svg icons. I ended up doing everything through html using the href and download attribute mostly on the svg files itselves. Leaving this here just in case
-
-function loadSvg(e) {
-  console.log('rdy');
-  if(e.target.closest('.icon-linkedin')) {
-      e.target.removeEventListener('load', loadSvg);
-      const grabDoc = e.target.contentDocument;
-      const bringDoc = grabDoc.querySelector('.icon-linkedin-svg');
-      bringDoc.addEventListener('click', () => {  
-          console.log('linkedin');
-      });
-  }else if(e.target.closest('.icon-cv')) {
-      e.target.removeEventListener('load', loadSvg);
-      const grabDoc = e.target.contentDocument;
-      const bringDoc = grabDoc.querySelector('.icon-cv-svg');
-      bringDoc.addEventListener('click', () => {  
-          console.log('cv');
-      });
-  };;
-};
-
-footerObjects.forEach(element => {
-      element.addEventListener('load', loadSvg);
+/* This lines below are to target footer svg icons. I ended up doing everything through html using the href and download attribute mostly on the svg files itselfs. Leaving this here just in case
 });
 */
+// function loadSvg(e) {
+//   console.log('rdy');
+//   if(e.target.closest('.icon-linkedin')) {
+//       e.target.removeEventListener('load', loadSvg);
+//       const grabDoc = e.target.contentDocument;
+//       const bringDoc = grabDoc.querySelector('.icon-linkedin-svg');
+//       bringDoc.addEventListener('click', () => {  
+//           console.log('linkedin');
+//       });
+//   }else if(e.target.closest('.icon-cv')) {
+//       e.target.removeEventListener('load', loadSvg);
+//       const grabDoc = e.target.contentDocument;
+//       const bringDoc = grabDoc.querySelector('.icon-cv-svg');
+//       bringDoc.addEventListener('click', () => {  
+//           console.log('cv');
+//       });
+//   };
+// };
+
+// footerObjects.forEach(element => {
+//       element.addEventListener('load', loadSvg);
+//       });

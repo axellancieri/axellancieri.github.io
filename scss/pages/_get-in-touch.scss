@@ -8,13 +8,14 @@
     &-email {
         position: relative;
         display: block;
-        font-family: 'Martel', serif;
-        font-weight: bold;
-        font-size: 1rem;
         letter-spacing: .5px;
         border-radius: 1em;
         padding: .3em;
         transition: background-color .5s linear;
+        margin-top: .5em;
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        };
         &:hover,
         &:active,
         &:focus,
@@ -25,6 +26,10 @@
         };
     };
     &-linkedin {
+        margin-top: .5em;
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        };
         &:hover,
         &:active,
         &:focus,
@@ -33,20 +38,19 @@
                 color: black;
                 background-color: #D9D3A3;
                 border: 1px solid black;
+                text-decoration: underline;
             }
         };
-    }
+    };
+    &-cv-hovered {
+        fill: #FFF;
+    };
 };
 #link-linkedin {
-    text-decoration: underline;
+    text-decoration: none;
     border-radius: 2em;
     padding-inline: .5em;
-    transition: color, background-color, border;
-    transition-duration: .2s;
+    transition: color, background-color, border, text-decoration;
+    transition-duration: 1s;
     transition-timing-function: linear;
-    // &:hover {
-    //     color: black;
-    //     background-color: #D9D3A3;
-    //     border: 1px solid black;
-    // }
 }

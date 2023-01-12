@@ -41,4 +41,7 @@ then adds some different contrats */
 Goes to boostrap icons to grab some or fontawesome if needs something a 
 bit more specific */
 
-
+.list-group {
+    --bs-list-group-bg: transparent;
+    --bs-list-group-border-color: transparent;
+};

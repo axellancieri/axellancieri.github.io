@@ -25,6 +25,14 @@ check myappsjs line 126 note once finished project
 
 - once I get onto bootsraps variables to do some edits. Make sure to add a margin-top and then delete/change the class I had to make on _shared.scss
 
+NACHO
+
+- check on why cv svg is not consistant on get-in-touch (hover efect through js)
+
+
+
+
+
 
 
 
