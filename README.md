@@ -6,6 +6,8 @@ If once everything is done the click on scrolls is not consistant. Might want to
 
 check myappsjs line 126 note once finished project
 
+add jquery to set of skills
+
 --not something to do rn
 
 - not happy about cv download approach. Works fine on firefox but on all other browsers just opens on a new tab.

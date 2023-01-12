@@ -11,6 +11,12 @@
     right: 0;
     left: 0;
     }
+    &-linkedin {
+        background: url("../../svg/icons/linkedin.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
 }
 .svg-img-projects {
         background-blend-mode: luminosity;
