@@ -1,7 +1,11 @@
-.pages-border {
-    border-radius: 2em;
-    border: 1px solid #b7b0a9;
-    background-color: var(--bg-color-cards);
+.pages {
+    &-border {
+        border-radius: 2em;
+        border: 1px solid #b7b0a9; 
+    };
+    &-bg {
+        background-color: var(--bg-color-cards);
+    };  
 };
 
 .bg-svg {
@@ -19,7 +23,9 @@
         font-family: "Cormorant", serif;
         font-weight: bold;
         font-size: 1.4rem;
-        top: 2.8em;
+        &-about-and-get-in {
+            top: 2.8em;
+        }
     };
 };
 .pages-text {

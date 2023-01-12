@@ -24,6 +24,7 @@ cvIcon.addEventListener('load', loadSvg);
 
 function loadSvg(e) {
     console.log('rdy');
+    e.target.removeEventListener('load', loadSvg);
     const grabDoc = e.target.contentDocument;
     const bringDocSvg = grabDoc.querySelector('.icon-cv-svg');
     const bringDocSvgPath = bringDocSvg.querySelector('.icon-cv-path');
@@ -33,7 +34,6 @@ function loadSvg(e) {
     cvText.addEventListener('mouseleave', () => {
         bringDocSvgPath.classList.remove('get-in-touch-cv-hovered');
     })
-    e.target.removeEventListener('load', loadSvg);
   };
 
   

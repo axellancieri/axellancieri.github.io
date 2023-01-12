@@ -6,6 +6,11 @@
     &-bg {
         background-color: var(--bg-color-projects);
     };
+    &-svg-title {
+    top: 2.9em;
+    right: 0;
+    left: 0;
+    }
 }
 .svg-img-projects {
         background-blend-mode: luminosity;
