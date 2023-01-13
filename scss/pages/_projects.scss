@@ -19,56 +19,61 @@
         height: 10em;
         background-blend-mode: luminosity;
         background-color: #5f5141;
+        transition: background-color 1s linear;
+        &:hover {
+                background-color: transparent;
+            .projects-card-title {
+                background-color: transparent;
+                border-color: transparent;
+                color: transparent;
+            }
+        }
         &-1 {
-            background-image: url("../../project-img/p1-img-phone.png");
+            background-image: url("../../img-projects/p1-img-phone.png");
         }
         &-2 {
-            background-image: url("../../project-img/p2-img-phone.png");
+            background-image: url("../../img-projects/p2-img-phone.png");
         }
         &-3 {
-            background-image: url("../../project-img/p3-img-phone.png");
+            background-image: url("../../img-projects/p3-img-phone.png");
         }
         &-4 {
-            background-image: url("../../project-img/p4-img-phone.png");
+            background-image: url("../../img-projects/p4-img-phone.png");
         }
         &-5 {
-            background-image: url("../../project-img/p5-img-phone.png");
+            background-image: url("../../img-projects/p5-img-phone.png");
         }
         &-6 {
-            background-image: url("../../project-img/p6-img-phone.png");
+            background-image: url("../../img-projects/p6-img-phone.png");
         }
         &-7 {
-            background-image: url("../../project-img/p7-img-phone.png");
+            background-image: url("../../img-projects/p7-img-phone.png");
         }
         &-8 {
-            background-image: url("../../project-img/p8-img-phone.png");
+            background-image: url("../../img-projects/p8-img-phone.png");
         }
         &-9 {
-            background-image: url("../../project-img/p9-img-phone.png");
+            background-image: url("../../img-projects/p9-img-phone.png");
         }
     };
     &-margin-top {
         margin-top: 13em;
     }
-    &-text {
-    font-family: "Martel", serif;
-    font-weight: bold;
-    font-size: 0.9rem;
-    color: var(--projects-text-color);
-    }
     &-card-title {
     background-color: #8F7F6DCF;
-    color: var(--projects-text-color);
     border-radius: .375em;
     border: 1px solid var(--projects-text-color);
+    transition-property: background-color, border-color, color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
     };
 }
 .card {
     margin-top: 2em;
-    &-body {
-        background-color: #8F7F6D;
-    }
     &-text {
+        font-family: "Martel", serif;
+        font-weight: bold;
+        font-size: 0.9rem;
         color: var(--projects-text-color);
     }
 }

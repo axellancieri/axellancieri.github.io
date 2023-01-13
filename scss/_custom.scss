@@ -46,8 +46,11 @@ bit more specific */
     --bs-list-group-border-color: transparent;
 };
 .card {
-    --bs-card-bg: #dbcdbd;
+    --bs-card-bg: #8F7F6D;
     --bs-card-border-color: #dbcdbd;
+};
+.card-body {
+    --bs-card-color: #FFFAF5;
 };
 .btn-primary {
     --bs-btn-bg: #5C4933;
