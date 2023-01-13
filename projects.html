@@ -11,7 +11,7 @@
   </head>
   <body class="bg-color projects-bg">
     <header>
-      <nav class="navbar navbar-dark">
+      <nav class="navbar navbar-dark" id="top">
         <div class="container-fluid justify-content-end">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -122,7 +122,7 @@
         </div>
         <div class="col-sm-6 mb-3 mb-sm-0">
           <div class="card">
-            <div class="d-flex align-items-center card-body projects-p projects-p-9">
+            <div class="d-flex align-items-center card-body projects-p projects-p-8">
               <h5 class="card-title projects-card-title">Project 9: My personal Portfolio</h5>
             </div>
             <div class="card-body">
@@ -133,8 +133,18 @@
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer class="content">
+      <div class="row py-3 justify-content-end">
+        <div class="col-6 text-center">
+          <a href="http://127.0.0.1:5500/index.html" class="card-text projects-home">Home</a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="#top" class="card-text top">Top</a>
+        </div>
+      </div>
+    </footer>
       <script type="module" src="js/pages/projects.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/f686b5e7e8.js" crossorigin="anonymous"></script>
   </body>
 </html>

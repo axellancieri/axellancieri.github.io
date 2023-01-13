@@ -138,8 +138,8 @@ function pillarLeafsIn() {
     //     treeIn(),
     //     treeOut(),   
     //     treeBackIn(pillarIn),
-        // pillarIn(),
-        rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
+        pillarIn(),
+        // rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
     // };
 bannerAll.forEach((element, index) => {
 
