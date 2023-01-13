@@ -13,9 +13,9 @@
             transform: scale(1);
         };
     };
-    &:active,
     &:focus,
-    &:target {
+    &:target,
+    &:active {
         ~ .email {
             transform: scale(1);
         };
@@ -23,9 +23,9 @@
     &-g {
         transform: translate(-10.25em, -16em) scale(0.6);
         &:hover,
-        &:active,
         &:focus,
-        &:target {
+        &:target,
+        &:active {
             .icon-mail-path {
                 fill:#a6a66d;
             }

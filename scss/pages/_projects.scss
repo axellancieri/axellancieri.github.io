@@ -20,7 +20,10 @@
         background-blend-mode: luminosity;
         background-color: #5f5141;
         transition: background-color 1s linear;
-        &:hover {
+        &:hover,
+        &:target,
+        &:focus,
+        &:active {
                 background-color: transparent;
             .projects-card-title {
                 background-color: transparent;
