@@ -18,6 +18,8 @@ add jquery to set of skills
 
 - once I get onto bootsraps variables to do some edits. Make sure to add a margin-top and then delete/change the class I had to make on _shared.scss
 
+- do searchbar on projects page
+
 NACHO
 
 - why cv svg is not consistant on get-in-touch (hover efect through js).
