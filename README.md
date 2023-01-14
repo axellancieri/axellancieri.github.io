@@ -1,12 +1,12 @@
 Notes
 
-goign to do something like treeAllButTextSvg[3].style.animationPlayState = 'paused';
-
 If once everything is done the click on scrolls is not consistant. Might want to consider having like a transparent square on top of each scroll with the event listener on it.
 
 check myappsjs line 126 note once finished project
 
 add jquery to set of skills
+
+clear up on goals like what was already given to us done and what was the obstacle ahead
 
 --not something to do rn
 
@@ -19,6 +19,8 @@ add jquery to set of skills
 - once I get onto bootsraps variables to do some edits. Make sure to add a margin-top and then delete/change the class I had to make on _shared.scss
 
 - do searchbar on projects page
+
+- check if accidentally you can click on footer linkedin or cv and do something while they are invisible on main page
 
 NACHO
 
