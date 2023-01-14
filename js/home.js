@@ -297,8 +297,7 @@ function addInteract(e) {
           .map((animation) => animation.finished))
           .then(() => {
               window.location.assign("http://127.0.0.1:5500/get-in-touch.html")})
-          .catch(error => console.log(`problem taking you to about page, ${error}`));
-          
+          .catch(error => console.log(`problem taking you to about page, ${error}`));   
   };
 };
 
