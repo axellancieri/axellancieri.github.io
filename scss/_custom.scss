@@ -46,7 +46,8 @@ bit more specific */
     --bs-list-group-border-color: transparent;
 };
 .card {
-    --bs-card-bg: #8F7F6D;
+    --bs-card-bg: transparent;
+    background: linear-gradient(to bottom, #FFFAF5 0%, #8f7f6d 50%);
     --bs-card-border-color: #dbcdbd;
 };
 .card-body {
@@ -57,4 +58,14 @@ bit more specific */
     --bs-btn-border-color: #dbcdbd;
     --bs-btn-hover-bg: #A89D91;
     --bs-btn-hover-border-color: #A89D91;
+};
+.accordion {
+    --bs-accordion-color: #FFFAF5;
+    --bs-accordion-bg: #8f7f6d;
+    --bs-accordion-border-color: #FFFAF5;
+    --bs-accordion-btn-color: #FFFAF5;
+    --bs-accordion-active-color: #8f7f6d;
+    --bs-accordion-active-bg: #FFFAF5;
+    --bs-accordion-btn-focus-border-color: #FFFAF5;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2em rgba(255, 250, 245, 0.25);
 };

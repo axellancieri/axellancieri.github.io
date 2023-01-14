@@ -11,7 +11,14 @@
     top: 2.9em;
     right: 0;
     left: 0;
-    }
+    };
+    &-intro {
+        font-family: "Martel", serif;
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: var(--projects-text-color);
+        margin-top: 13em;
+    };
     &-p {
         background-repeat: no-repeat;
         background-position: center;
@@ -29,39 +36,36 @@
                 background-color: transparent;
                 border-color: transparent;
                 color: transparent;
-            }
-        }
+            };
+        };
         &-1 {
             background-image: url("../../img-projects/p1-img-phone.png");
-        }
+        };
         &-2 {
             background-image: url("../../img-projects/p2-img-phone.png");
-        }
+        };
         &-3 {
             background-image: url("../../img-projects/p3-img-phone.png");
-        }
+        };
         &-4 {
             background-image: url("../../img-projects/p4-img-phone.png");
-        }
+        };
         &-5 {
             background-image: url("../../img-projects/p5-img-phone.png");
-        }
+        };
         &-6 {
             background-image: url("../../img-projects/p6-img-phone.png");
-        }
+        };
         &-7 {
             background-image: url("../../img-projects/p7-img-phone.png");
-        }
+        };
         &-8 {
             background-image: url("../../img-projects/p8-img-phone.png");
-        }
+        };
         &-9 {
             background-image: url("../../img-projects/p9-img-phone.png");
-        }
+        };
     };
-    &-margin-top {
-        margin-top: 13em;
-    }
     &-card-title {
     background-color: #8F7F6DCF;
     border-radius: .375em;
@@ -70,6 +74,12 @@
     transition-duration: 1s;
     transition-timing-function: linear;
     };
+    &-footer {
+        font-family: "Martel", serif;
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: var(--projects-text-color);
+    };
 }
 .card {
     margin-top: 2em;
@@ -77,15 +87,10 @@
         font-family: "Martel", serif;
         font-weight: bold;
         font-size: 0.9rem;
-        color: var(--projects-text-color);
-    }
-    &-site {
-        margin-left: 3em;
-    }
-    &-git {
-        margin-right: 3em;
-    }
-}
+        mix-blend-mode: difference;
+        color: dimgray;
+      };
+};
 .svg-img-projects {
         background-color: var(--bg-color-projects);
         background-blend-mode: luminosity;
@@ -130,4 +135,7 @@
     &:target {
         color: white;
     };
+};
+.accordion-button::after {
+    mix-blend-mode: luminosity;
 };

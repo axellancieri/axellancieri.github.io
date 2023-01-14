@@ -30,7 +30,7 @@
       <div class="row text-center mx-0 mt-3">
         <div class="col-12 bg-svg svg-img-projects">
         <h5 class="bg-svg-title projects-svg-title">Projects</h5>
-        <p class="projects-margin-top card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at eleifend tortor. Nulla ultricies lectus et erat porta facilisis. Curabitur sagittis fringilla dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras diam magna, finibus at cursus eget, cursus non dolor. In hac habitasse platea.</p>
+        <p class="projects-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at eleifend tortor. Nulla ultricies lectus et erat porta facilisis. Curabitur sagittis fringilla dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras diam magna, finibus at cursus eget, cursus non dolor. In hac habitasse platea.</p>
         </div>
         <div class="col-sm-6 mb-3 mb-sm-0">
           <div class="card">
@@ -38,9 +38,33 @@
               <h5 class="card-title projects-card-title">Project 1: My personal Portfolio</h5>
             </div>
             <div class="card-body">
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="card-git btn btn-primary">Git</a>
-              <a href="#" class="card-site btn btn-primary">Site</a>
+              <p class="card-text">First step to become who I am today. Simple project content wise however it was my first real peak into coding and a very challenging but pleasant experience once warapped up. I then knew that I had it.</p>
+              <div class="accordion" id="p1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p1-flush-collapseOne" aria-expanded="false" aria-controls="p1-flush-collapseOne">
+                      Project goals
+                    </button>
+                  </h2>
+                  <div id="p1-flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#p1">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the class. This is the first item's accordion body.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="p1-flush-headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p1-flush-collapseTwo" aria-expanded="false" aria-controls="p1-flush-collapseTwo">
+                      Challenges
+                    </button>
+                  </h2>
+                  <div id="p1-flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="p1-flush-headingTwo" data-bs-parent="#p1">
+                    <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row pt-3 justify-content-evenly">
+                <a href="#" class="col-4 btn btn-primary">Git</a>
+                <a href="#" class="col-4 btn btn-primary">Site</a>
+              </div>
             </div>
           </div>
         </div>
@@ -145,10 +169,10 @@
     <footer class="content">
       <div class="row py-3 justify-content-end">
         <div class="col-6 text-center">
-          <a href="http://127.0.0.1:5500/index.html" class="card-text projects-home">Home</a>
+          <a href="http://127.0.0.1:5500/index.html" class="projects-footer projects-home">Home</a>
         </div>
         <div class="col-6 text-center">
-          <a href="#top" class="card-text top">Top</a>
+          <a href="#top" class="projects-footer top">Top</a>
         </div>
       </div>
     </footer>
