@@ -4,7 +4,7 @@ If once everything is done the click on scrolls is not consistant. Might want to
 
 check myappsjs line 126 note once finished project
 
-add jquery to set of skills
+add jquery and gitHub to set of skills
 
 clear up on goals like what was already given to us done and what was the obstacle ahead
 
