@@ -36,7 +36,7 @@ $icon-html:(
 };
 .icon-js {
     path:nth-child(2) {
-        fill: var(--bg-color-about-me);
+        fill: var(--bg-color-pages);
     };
     &:hover,
     &:active,
@@ -54,7 +54,7 @@ $icon-html:(
 };
 .icon-html {
     path:nth-child(3) {
-        fill: var(--bg-color-about-me);
+        fill: var(--bg-color-pages);
    };
         &:hover,
         &:active,
@@ -69,7 +69,7 @@ $icon-html:(
 .icon-css {
     @for $i from 3 through 7 {
         path:nth-child(#{$i}) {
-            fill: var(--bg-color-about-me);
+            fill: var(--bg-color-pages);
         };
     };
     &:hover,

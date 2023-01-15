@@ -5,12 +5,12 @@ import {emailCopied} from '/js/modules/emailCopy.js';
 
 const bgColor = document.querySelector('.bg-color');
 
-// const treeSvg = document.querySelector('.tree');
-// const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
-// const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
-// const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
-// const hexagonSvg = treeSvg.querySelector('.hexagon');
-// const soilSvg = treeSvg.querySelector('.soil');
+const treeSvg = document.querySelector('.tree');
+const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
+const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
+const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
+const hexagonSvg = treeSvg.querySelector('.hexagon');
+const soilSvg = treeSvg.querySelector('.soil');
 
 const pillar = document.querySelector('.pillar');
 const pillarRocks = pillar.querySelector('.pillar-rocks');
@@ -132,60 +132,60 @@ function pillarLeafsIn() {
   });
 };
 
-// treeSvg.addEventListener('click', () => {
-    window.addEventListener('click', () => {    
-    // if (treeSvg.classList.contains("tree-in")) {
-    //     treeIn(),
-    //     treeOut(),   
-    //     treeBackIn(pillarIn),
-        pillarIn(),
-        // rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
-    // };
-bannerAll.forEach((element, index) => {
-
-    element.classList.contains('pillar-banner') ? 
-      element.classList.add('pillar-banner-animation') : 
-
-    element.classList.contains('pillar-holder-1') ? 
-        element.classList.add('pillar-holder-1-animation') : 
-
-    element.classList.contains('pillar-holder-2') ? 
-        element.classList.add('pillar-holder-2-animation') : 
-
-    element.classList.contains('pillar-scroll-about-me') ? 
-        element.classList.add('pillar-scroll-about-me-animation') : 
-
-      element.classList.contains('pillar-scroll-projects') ? 
-        element.classList.add('pillar-scroll-projects-animation') : 
-
-    element.classList.contains('pillar-scroll-get-in-touch') ? 
-        element.classList.add('pillar-scroll-get-in-touch-animation') : 
-
-    element.classList.contains('pillar-text') && element.innerHTML.includes('ABOUT') ? 
-     element.classList.add('pillar-text-about-me') : 
-
-    element.classList.contains('pillar-text') && element.innerHTML.includes('PROJECTS') ? 
-      element.classList.add('pillar-text-projects') : 
-
-    element.classList.contains('pillar-text') && element.innerHTML.includes('GET') ? 
-      element.classList.add('pillar-text-get-in-touch') : 
-        console.log(`${index} was not found`);
-});
-scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-about-me'));
-scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch'));  
-scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-projects'));
-
-footerSoil.classList.add('footer-soil-animation');
-footerObjects.filter(element => {
-    element.getAttribute('class').includes('icon');
-    if (element) {
-        element.classList.add('icons-footer-in-animation');
+treeSvg.addEventListener('click', () => {
+    // window.addEventListener('click', () => {    
+    if (treeSvg.classList.contains("tree-in")) {
+        treeIn(),
+        treeOut(),   
+        treeBackIn(pillarIn),
+        // pillarIn(),
+        rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
     };
-});
+// bannerAll.forEach((element, index) => {
 
-scrollsInteract('mouseover');
-scrollsInteract('click');
-navBar.classList.add('appear');
+//     element.classList.contains('pillar-banner') ? 
+//       element.classList.add('pillar-banner-animation') : 
+
+//     element.classList.contains('pillar-holder-1') ? 
+//         element.classList.add('pillar-holder-1-animation') : 
+
+//     element.classList.contains('pillar-holder-2') ? 
+//         element.classList.add('pillar-holder-2-animation') : 
+
+//     element.classList.contains('pillar-scroll-about-me') ? 
+//         element.classList.add('pillar-scroll-about-me-animation') : 
+
+//       element.classList.contains('pillar-scroll-projects') ? 
+//         element.classList.add('pillar-scroll-projects-animation') : 
+
+//     element.classList.contains('pillar-scroll-get-in-touch') ? 
+//         element.classList.add('pillar-scroll-get-in-touch-animation') : 
+
+//     element.classList.contains('pillar-text') && element.innerHTML.includes('ABOUT') ? 
+//      element.classList.add('pillar-text-about-me') : 
+
+//     element.classList.contains('pillar-text') && element.innerHTML.includes('PROJECTS') ? 
+//       element.classList.add('pillar-text-projects') : 
+
+//     element.classList.contains('pillar-text') && element.innerHTML.includes('GET') ? 
+//       element.classList.add('pillar-text-get-in-touch') : 
+//         console.log(`${index} was not found`);
+// });
+// scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-about-me'));
+// scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch'));  
+// scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-projects'));
+
+// footerSoil.classList.add('footer-soil-animation');
+// footerObjects.filter(element => {
+//     element.getAttribute('class').includes('icon');
+//     if (element) {
+//         element.classList.add('icons-footer-in-animation');
+//     };
+// });
+
+// scrollsInteract('mouseover');
+// scrollsInteract('click');
+// navBar.classList.add('appear');
 });
 
 /* Scrolls */

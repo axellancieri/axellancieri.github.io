@@ -1,5 +1,7 @@
 Notes
 
+Make animation faster on page load and also make js function so it wont load
+
 If once everything is done the click on scrolls is not consistant. Might want to consider having like a transparent square on top of each scroll with the event listener on it.
 
 check myappsjs line 126 note once finished project
@@ -8,9 +10,7 @@ add jquery and gitHub to set of skills
 
 clear up on goals like what was already given to us done and what was the obstacle ahead
 
-fix project name on index scroll + transition out to another page positioning
-
---not something to do rn
+* not something to do rn
 
 - on clicking a link that'll take u out of the site get there like a small popup stating 'View Link'
 
@@ -18,6 +18,7 @@ fix project name on index scroll + transition out to another page positioning
 - email tooltip and copy buttons work and behave fine although sometimes they dont perform as expected.
 
 - change mouseover on scrolls for css transitions grabbing an element that tags the entire scroll
+
 - change scrolls themselves. Not maatching simplistic approach of general site.
 
 - once I get onto bootsraps variables to do some edits. Make sure to add a margin-top and then delete/change the class I had to make on _shared.scss
@@ -28,6 +29,7 @@ fix project name on index scroll + transition out to another page positioning
 
 NACHO
 
+- si vale la pena tener el js de mousever para mostrar o mejor meter transition nomas y que quede mas claro
 - why cv svg is not consistant on get-in-touch (hover efect through js).
 - using objects instead of inline
 - <a> usage on objects.
