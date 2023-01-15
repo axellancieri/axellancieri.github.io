@@ -8,6 +8,8 @@ add jquery to set of skills
 
 clear up on goals like what was already given to us done and what was the obstacle ahead
 
+fix project name on index scroll + transition out to another page positioning
+
 --not something to do rn
 
 - not happy about cv download approach. Works fine on firefox but on all other browsers just opens on a new tab.

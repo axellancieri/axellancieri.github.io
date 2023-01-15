@@ -18,37 +18,10 @@ export function navDropDownClick(e) {
 function navDropdownClose(e) {
     if (e.target.closest("h5")) {
         const text = e.target.innerHTML;
-        if (text.includes('Projects')) {
-            document.removeEventListener('click', navDropdownClose);
-            console.log('projects')
-            navButton.click();
-            navButton.addEventListener('click', navDropDownClick);
-        } else if (text.includes('About')) {
-            document.removeEventListener('click', navDropdownClose);
-            console.log('about');
-            navWindow.querySelectorAll('h5').forEach(element => element.style.setProperty('border-color', 'transparent'));
-            navWindow.style.setProperty('color', 'transparent');
-            navWindow.classList.replace('navbar-home', 'navbar-pages');
-            // navButton.click();
-            Promise.all(
-                navWindow.getAnimations()
-            .map((animation) => animation.finished))
-            .then(() => {
-                window.location.assign("http://127.0.0.1:5500/about-me.html")})
-            .catch(error => console.log(`problem taking you to about page, ${error}`));
-            navButton.addEventListener('click', navDropDownClick);
-        } else if (text.includes('Get in')) {
-            document.removeEventListener('click', navDropdownClose);
-            console.log('get in touch')
-            navButton.click();
-            navButton.addEventListener('click', navDropDownClick);
-        }
-        else if (text.includes('Home')) {
-            document.removeEventListener('click', navDropdownClose);
-            console.log('Home')
-            navButton.click();
-            navButton.addEventListener('click', navDropDownClick);
-        }
+        text.includes('Projects') ? navChangePage('navbar-home', 'navbar-pages', 'projects') :
+        text.includes('About') ? navChangePage('navbar-home', 'navbar-pages', 'about-me') :
+        text.includes('Get in') ? navChangePage('navbar-home', 'navbar-pages', 'get-in-touch') :
+        text.includes('Home') ? navChangePage('navbar-pages', 'navbar-home', 'index') : console.log('goto closing');
     } else if (e.target.closest(":not(h5)")) {
         document.removeEventListener('click', navDropdownClose);
         console.log('closing');
@@ -56,3 +29,19 @@ function navDropdownClose(e) {
         navButton.addEventListener('click', navDropDownClick); 
     };
 }; 
+
+function navChangePage(class1, class2, pageToGo) {
+    document.removeEventListener('click', navDropdownClose);
+    navWindow.querySelectorAll('h5').forEach(element => element.style.setProperty('border-color', 'transparent'));
+    navWindow.style.setProperty('color', 'transparent');
+    navWindow.classList.contains(class1) ?
+     navWindow.classList.replace(class1, class2) :
+      console.log('no need for bg change animation');
+    Promise.all(
+        navWindow.getAnimations()
+    .map((animation) => animation.finished))
+    .then(() => {
+        window.location.assign(`http://127.0.0.1:5500/${pageToGo}.html`)})
+    .catch(error => console.log(`problem taking you to about page, ${error}`));
+    navButton.addEventListener('click', navDropDownClick);
+}
