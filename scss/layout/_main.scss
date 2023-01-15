@@ -1,7 +1,6 @@
 :root {
-
     --bg-color-home: #a6a66db0;
-
+    --bg-color-pages: #5f5141;
     --scroll-text-bg: #D9D3A3;
     --scroll-text-color: #595743;
 }
@@ -10,6 +9,9 @@
     transition: background-color 2s ease-in;
     &-home {
         background-color: var(--bg-color-home);
+    };
+    &-pages {
+        background-color: var(--bg-color-pages);
     };
 };
 .tree {

@@ -220,25 +220,7 @@ function addInteract(e) {
               addAnimationHoverScr(element, '--about-me-animation');
            });
   } else if (e.type === 'click' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
-      pillar.classList.add('pillar-out-animation');
-      pillar.removeEventListener('mouseover', addInteract);
-      pillar.removeEventListener('click', addInteract);
-          scrollsAll.scrollAboutMe.map(element => {
-              if (element.classList.contains('pillar-scroll')) { 
-                element.style.setProperty('--about-me-back-in-animation', ' flip-right-scroll-about-me');
-                element.style.setProperty('--about-me-after-flip-grow', ' scroll-after-right-about-me');
-              } else {
-                  element.style.setProperty('--about-me-back-in-animation', ' flip-right-text-about-me');
-                  element.style.setProperty('--about-me-after-flip-grow', ' text-after-right-about-me');
-              }
-          });
-          bgColor.classList.replace('bg-color-home', 'about-me-bg');
-          Promise.all(
-              bgColor.getAnimations()
-          .map((animation) => animation.finished))
-          .then(() => {
-              window.location.assign("http://127.0.0.1:5500/about-me.html")})
-          .catch(error => console.log(`problem taking you to about page, ${error}`));
+    scrollClickInteraction(scrollsAll.scrollAboutMe, '--about-me-back-in-animation', '--about-me-after-flip-grow', 'about-me');
   };
   
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
@@ -249,26 +231,7 @@ function addInteract(e) {
                       console.log('not loaded yet');            
       });
   } else if (e.type === 'click' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
-      pillar.classList.add('pillar-out-animation');
-      pillar.removeEventListener('mouseover', addInteract);
-      pillar.removeEventListener('click', addInteract);
-          scrollsAll.scrollProjects.filter(element => {
-              if (element.classList.contains('pillar-scroll')) { 
-                element.style.setProperty('--projects-back-in-animation', ' flip-right-scroll');
-                element.style.setProperty('--projects-after-flip-grow', ' scroll-after-right-projects');
-                  
-              } else {
-                  element.style.setProperty('--projects-back-in-animation', ' flip-right-text-projects');
-                  element.style.setProperty('--projects-after-flip-grow', ' text-after-right-projects');
-              }
-          });
-          bgColor.classList.replace('bg-color-home', 'about-me-bg');
-          Promise.all(
-              bgColor.getAnimations()
-          .map((animation) => animation.finished))
-          .then(() => {
-              window.location.assign("http://127.0.0.1:5500/projects.html")})
-          .catch(error => console.log(`problem taking you to about page, ${error}`));
+    scrollClickInteraction(scrollsAll.scrollProjects, '--projects-back-in-animation', '--projects-after-flip-grow', 'projects');
   };
   
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
@@ -279,27 +242,31 @@ function addInteract(e) {
                   console.log('not loaded yet');            
   });
   } else if (e.type === 'click' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
-      pillar.classList.add('pillar-out-animation');
-      pillar.removeEventListener('mouseover', addInteract);
-      pillar.removeEventListener('click', addInteract);
-          scrollsAll.scrollGetInTouch.map(element => {
-              if (element.classList.contains('pillar-scroll')) {
-                element.style.setProperty('--get-in-touch-back-in-animation', ' flip-right-scroll');
-                element.style.setProperty('--get-in-touch-after-flip-grow', ' scroll-after-right-get-in-touch');
-              } else {
-                  element.style.setProperty('--get-in-touch-back-in-animation', ' flip-right-text-get-in-touch');
-                  element.style.setProperty('--get-in-touch-after-flip-grow', ' text-after-right-get-in-touch');
-              }
-          });
-          bgColor.classList.replace('bg-color-home', 'about-me-bg');
-          Promise.all(
-              bgColor.getAnimations()
-          .map((animation) => animation.finished))
-          .then(() => {
-              window.location.assign("http://127.0.0.1:5500/get-in-touch.html")})
-          .catch(error => console.log(`problem taking you to about page, ${error}`));   
+    scrollClickInteraction(scrollsAll.scrollGetInTouch, '--get-in-touch-back-in-animation', '--get-in-touch-after-flip-grow', 'get-in-touch');
   };
 };
+
+function scrollClickInteraction(scrollName, class1, class2, site) {
+    pillar.classList.add('pillar-out-animation');
+    pillar.removeEventListener('mouseover', addInteract);
+    pillar.removeEventListener('click', addInteract);
+        scrollName.map(element => {
+            if (element.classList.contains('pillar-scroll')) {
+              element.style.setProperty(`${class1}`, ' flip-right-scroll');
+              element.style.setProperty(`${class2}`, ' scroll-after-right-get-in-touch');
+            } else {
+                element.style.setProperty(`${class1}`, ' flip-right-text-get-in-touch');
+                element.style.setProperty(`${class2}`, ' text-after-right-get-in-touch');
+            }
+        });
+        bgColor.classList.replace('bg-color-home', 'bg-color-pages');
+        Promise.all(
+            bgColor.getAnimations()
+        .map((animation) => animation.finished))
+        .then(() => {
+            window.location.assign(`http://127.0.0.1:5500/${site}.html`)})
+        .catch(error => console.log(`problem taking you to about page, ${error}`)); 
+}
 
 function addAnimationHoverScr(target, propertyName) {
       const currentAnimation = getComputedStyle(target).getPropertyValue(propertyName);

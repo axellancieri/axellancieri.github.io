@@ -1,6 +1,5 @@
 :root {
     --about-me-main-color: #D9D3A3;
-    --bg-color-about-me: #5f5141;
     --bg-color-cards: #594C3D;
     --icons-transition-time: 1s;
 };
@@ -22,9 +21,6 @@ $icon-html:(
 );
 
 .about-me {
-    &-bg {
-        background-color: var(--bg-color-about-me);
-    };
     &-card {
         + .about-me-card {
             margin-block: 3em;

@@ -1,12 +1,8 @@
 :root {
-    --bg-color-projects: #5f5141;
     --projects-text-color: #FFFAF5;
 }
 
 .projects {
-    &-bg {
-        background-color: var(--bg-color-projects);
-    };
     &-svg-title {
     top: 2.9em;
     right: 0;

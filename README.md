@@ -12,6 +12,8 @@ fix project name on index scroll + transition out to another page positioning
 
 --not something to do rn
 
+- on clicking a link that'll take u out of the site get there like a small popup stating 'View Link'
+
 - not happy about cv download approach. Works fine on firefox but on all other browsers just opens on a new tab.
 - email tooltip and copy buttons work and behave fine although sometimes they dont perform as expected.
 

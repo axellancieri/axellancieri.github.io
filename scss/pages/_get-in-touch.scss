@@ -1,10 +1,4 @@
-:root {
-    --bg-color-get-in-touch: rgb(130, 142, 71);
-};
 .get-in-touch {
-    &-bg {
-        background-color: var(--bg-color-projects);
-    };
     &-email {
         position: relative;
         display: block;
