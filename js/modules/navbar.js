@@ -21,7 +21,7 @@ function navDropdownClose(e) {
         text.includes('Projects') ? navChangePage('navbar-home', 'navbar-pages', 'projects') :
         text.includes('About') ? navChangePage('navbar-home', 'navbar-pages', 'about-me') :
         text.includes('Get in') ? navChangePage('navbar-home', 'navbar-pages', 'get-in-touch') :
-        text.includes('Home') ? navChangePage('navbar-pages', 'navbar-home', 'index') : console.log('goto closing');
+        text.includes('Home') ? navChangePage('navbar-pages', 'bg-color-home', 'index') : console.log('goto closing');
     } else if (e.target.closest(":not(h5)")) {
         document.removeEventListener('click', navDropdownClose);
         console.log('closing');

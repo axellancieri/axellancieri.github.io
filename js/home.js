@@ -246,17 +246,17 @@ function addInteract(e) {
   };
 };
 
-function scrollClickInteraction(scrollName, class1, class2, site) {
+function scrollClickInteraction(scrollName, var1, var2, target) {
     pillar.classList.add('pillar-out-animation');
     pillar.removeEventListener('mouseover', addInteract);
     pillar.removeEventListener('click', addInteract);
         scrollName.map(element => {
             if (element.classList.contains('pillar-scroll')) {
-              element.style.setProperty(`${class1}`, ' flip-right-scroll');
-              element.style.setProperty(`${class2}`, ' scroll-after-right-get-in-touch');
+              element.style.setProperty(`${var1}`, ` flip-right-scroll-${target}`);
+              element.style.setProperty(`${var2}`, ` scroll-after-right-${target}`);
             } else {
-                element.style.setProperty(`${class1}`, ' flip-right-text-get-in-touch');
-                element.style.setProperty(`${class2}`, ' text-after-right-get-in-touch');
+                element.style.setProperty(`${var1}`, ` flip-right-text-${target}`);
+                element.style.setProperty(`${var2}`, ` text-after-right-${target}`);
             }
         });
         bgColor.classList.replace('bg-color-home', 'bg-color-pages');
@@ -264,7 +264,7 @@ function scrollClickInteraction(scrollName, class1, class2, site) {
             bgColor.getAnimations()
         .map((animation) => animation.finished))
         .then(() => {
-            window.location.assign(`http://127.0.0.1:5500/${site}.html`)})
+            window.location.assign(`http://127.0.0.1:5500/${target}.html`)})
         .catch(error => console.log(`problem taking you to about page, ${error}`)); 
 }
 
