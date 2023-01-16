@@ -5,7 +5,7 @@
         letter-spacing: .5px;
         border-radius: 1em;
         padding: .3em;
-        transition: background-color .5s linear;
+        transition: background-color .3s linear;
         margin-top: .5em;
         @include media-breakpoint-up(md) {
             margin-top: 0;
@@ -45,6 +45,6 @@
     border-radius: 2em;
     padding-inline: .5em;
     transition: color, background-color, border, text-decoration;
-    transition-duration: 1s;
+    transition-duration: .3s;
     transition-timing-function: linear;
 }

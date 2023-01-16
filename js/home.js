@@ -172,7 +172,7 @@ function hoverStateListeners(callback) {
           scrollsAll.scrollProjects = bannerAll.filter(element => element.matches('.pillar-text-projects, .pillar-scroll-projects'));
 
       scrollsInteract('mouseover');
-      scrollsInteract('click');
+      scrollsInteract('mousedown');
       callback();
   });
 }
@@ -189,7 +189,7 @@ function addInteract(e) {
       scrollsAll.scrollAboutMe.forEach(element => {
               addAnimationHoverScr(element, '--about-me-animation');
            });
-  } else if (e.type === 'click' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
+  } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
     scrollClickInteraction(scrollsAll.scrollAboutMe, '--about-me-back-in-animation', '--about-me-after-flip-grow', 'about-me');
   };
   
@@ -200,7 +200,7 @@ function addInteract(e) {
                   addAnimationHoverScr(element, '--projects-animation') :
                       console.log('not loaded yet');            
       });
-  } else if (e.type === 'click' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
+  } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
     scrollClickInteraction(scrollsAll.scrollProjects, '--projects-back-in-animation', '--projects-after-flip-grow', 'projects');
   };
   
@@ -211,7 +211,7 @@ function addInteract(e) {
               addAnimationHoverScr(element, '--get-in-touch-animation') :
                   console.log('not loaded yet');            
   });
-  } else if (e.type === 'click' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
+  } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
     scrollClickInteraction(scrollsAll.scrollGetInTouch, '--get-in-touch-back-in-animation', '--get-in-touch-after-flip-grow', 'get-in-touch');
   };
 };
@@ -219,7 +219,7 @@ function addInteract(e) {
 function scrollClickInteraction(scrollName, var1, var2, target) {
     pillar.classList.add('pillar-out-animation');
     pillar.removeEventListener('mouseover', addInteract);
-    pillar.removeEventListener('click', addInteract);
+    pillar.removeEventListener('mousedown', addInteract);
         scrollName.map(element => {
             if (element.classList.contains('pillar-scroll')) {
               element.style.setProperty(`${var1}`, ` flip-right-scroll-${target}`);

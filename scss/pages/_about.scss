@@ -1,7 +1,6 @@
 :root {
     --about-me-main-color: #D9D3A3;
     --bg-color-cards: #594C3D;
-    --icons-transition-time: 1s;
 };
 
 $icon-css:(
@@ -29,7 +28,7 @@ $icon-html:(
     &-icon-svg {
         path,
         rect {
-            transition: fill .5s linear;
+            transition: fill .2s linear;
         }
         fill: #D9D3A3;
     };
@@ -41,7 +40,6 @@ $icon-html:(
     &:hover,
     &:active,
     &:target {
-        --icons-transition-time: .3s;
         fill: #f5de19;
     };
 };
@@ -90,8 +88,11 @@ $icon-html:(
     };
 };
 .icon-sass {
+    path {
+        fill: var(--bg-color-pages);
+    }
     rect {
-        fill: transparent;
+        fill: #D9D3A3;
     };
     &:hover,
     &:active,

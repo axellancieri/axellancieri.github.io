@@ -41,7 +41,7 @@
     };
     &-path {
         fill:#c1c19a;
-        transition: fill .5s linear;
+        transition: fill .2s linear;
         transform: translate(-560.2px, 271.9px);
     };
 };
@@ -76,7 +76,7 @@
     opacity: 0;
     &-path {
         fill:#c1c19a;
-        transition: fill .5s linear;
+        transition: fill .2s linear;
     }
     &-svg {
         &:hover,
@@ -94,7 +94,7 @@
     opacity: 0;
     &-path {
         fill:#c1c19a;
-        transition: fill 1s linear;
+        transition: fill .2s linear;
     }
     &-svg {
         &:hover,

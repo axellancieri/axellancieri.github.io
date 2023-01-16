@@ -2,13 +2,7 @@ Notes
 
 rearrange portfolios from last to first
 
-Make animation faster 5s at best
-
-auto scrolling so user gets attention on scrolls
-
 explain github project 'how tree was made' (creative process)
-
-go from scrolls animation hover to css transitions hover
 
 icons animations more like 180ms
 
@@ -35,6 +29,8 @@ clear up on goals like what was already given to us done and what was the obstac
 - do searchbar on projects page
 
 - check if accidentally you can click on footer linkedin or cv and do something while they are invisible on main page
+
+- about me do something hover skills or currently al icons will change color (cannot be css will have to be js approached)
 
 
 
