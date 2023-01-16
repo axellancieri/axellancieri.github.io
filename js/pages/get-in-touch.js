@@ -20,12 +20,12 @@ main.addEventListener('click', (e) => {
 
 /* cv icon white color */
 
-cvIcon.addEventListener('load', loadSvg);
+window.addEventListener('load', loadSvg);
 
 function loadSvg(e) {
     console.log('rdy');
     e.target.removeEventListener('load', loadSvg);
-    const grabDoc = e.target.contentDocument;
+    const grabDoc = cvIcon.contentDocument;
     const bringDocSvg = grabDoc.querySelector('.icon-cv-svg');
     const bringDocSvgPath = bringDocSvg.querySelector('.icon-cv-path');
     cvText.addEventListener('mouseenter', () => {  

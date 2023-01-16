@@ -1,8 +1,14 @@
 Notes
 
-Make animation faster on page load and also make js function so it wont load
+Make animation faster 5s at best
 
-If once everything is done the click on scrolls is not consistant. Might want to consider having like a transparent square on top of each scroll with the event listener on it.
+auto scrolling so user gets attention on scrolls
+
+explain github project 'how tree was made' (creative process)
+
+go from scrolls animation hover to css transitions hover
+
+icons animations more like 180ms
 
 check myappsjs line 126 note once finished project
 
@@ -10,14 +16,15 @@ add jquery and gitHub to set of skills
 
 clear up on goals like what was already given to us done and what was the obstacle ahead
 
+<a> usage on objects themselves not on svgs
+
 * not something to do rn
 
 - on clicking a link that'll take u out of the site get there like a small popup stating 'View Link'
 
 - not happy about cv download approach. Works fine on firefox but on all other browsers just opens on a new tab.
-- email tooltip and copy buttons work and behave fine although sometimes they dont perform as expected.
 
-- change mouseover on scrolls for css transitions grabbing an element that tags the entire scroll
+- email tooltip and copy buttons work and behave fine although sometimes they dont perform as expected.
 
 - change scrolls themselves. Not maatching simplistic approach of general site.
 
@@ -26,23 +33,6 @@ clear up on goals like what was already given to us done and what was the obstac
 - do searchbar on projects page
 
 - check if accidentally you can click on footer linkedin or cv and do something while they are invisible on main page
-
-NACHO
-
-- si vale la pena tener el js de mousever para mostrar o mejor meter transition nomas y que quede mas claro
-- why cv svg is not consistant on get-in-touch (hover efect through js).
-- using objects instead of inline
-- <a> usage on objects.
-
-
-
-
-
-
-
-
-
-
 
 
 
