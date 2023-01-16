@@ -19,7 +19,7 @@
     display: block;
     position: relative;
     z-index: 100;
-    transform: translateY(10em);
+    transform: translateY(3em);
     .tree-bushes {
         path {
             transform-origin: 30px 25px;
@@ -29,6 +29,7 @@
 };
 .position {
     fill: #a6a66d;
+    transition: fill 1s linear;
     &-name {
         transform: translate(1em, 10.8em);
     };

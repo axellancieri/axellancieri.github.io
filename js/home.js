@@ -6,11 +6,9 @@ import {emailCopied} from '/js/modules/emailCopy.js';
 const bgColor = document.querySelector('.bg-color');
 
 const treeSvg = document.querySelector('.tree');
-const treeAllButTextSvg = Array.from(treeSvg.querySelectorAll('use, g, #leafs, #squirrel-right, #squirrel-left')); // Need to target infinite animations individually so they'll stop during .tree-up animation
-const treeInfiniteAnimations = Array.from(treeSvg.querySelectorAll('.tree-bushes path, .leafs, .squirrel-right, .squirrel-left')); //treeInfiniteAnimations.forEach(element => element.style.animationPlayState = 'paused')
 const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
-const hexagonSvg = treeSvg.querySelector('.hexagon');
 const soilSvg = treeSvg.querySelector('.soil');
+const portfolioText = treeSvg.querySelector('.position-portfolio');
 
 const pillar = document.querySelector('.pillar');
 const pillarRocks = pillar.querySelector('.pillar-rocks');
@@ -31,60 +29,35 @@ navButton.addEventListener('click', navDropDownClick);
 
 /* Tree Animation */
 
-function treeIn() {
-  treeSvg.classList.remove('tree-in');
-
-  treeAllButTextSvg.forEach((element) => {
-      if (element.hasAttribute('class') && element.classList.contains('soil')) {
-          element.classList.add('soil-animation-fade');
-      } else {
-          element.classList.add('tree-out');
-      }
-  });
+function treeIn(callback) {
+    treeSvg.classList.add('tree-up');
+    portfolioText.addEventListener('animationend', () => {
+        soilSvg.classList.add('soil-animation-change-soil-color');
+        textSvg.forEach((text) => {
+            text.classList.add('animation-names-color-change');
+        });
+    callback();
+    });
 };
-function treeOut() {
-  treeSvg.classList.add('tree-up');
-
-  textSvg.forEach((text) => {
-      text.classList.remove('animation-name-in', 'animation-lastName-in', 'animation-portfolio-in');
-      text.classList.add('animation-name-up-js');
-  });
-};
-function treeBackIn(callback) {
-  navBar.classList.add('appear');
-  hexagonSvg.classList.add('hexagon-animation');
-  hexagonSvg.addEventListener('animationend', () => {
-      treeAllButTextSvg.forEach((element) => {
-          if (element.hasAttribute('class') && element.classList.contains('soil')) {
-              element.classList.replace('soil-animation-fade', 'soil-animation-back-in')
-          } else {
-              element.classList.replace('tree-out', 'tree-back-in');
-          }
-      });
-      callback();
-  });
-};
-
 /* Pillar-banner animation */
-
 
 function pillarIn() {
   pillarRocks.classList.add('pillar-animation-in');
+  footerSoil.classList.add('footer-soil-animation');
 };
 
 function rocksAlign(callback, callback1, callback2) {
-  pillarRocks.children[6].addEventListener('animationend', () => {
-      footerSoil.classList.add('footer-soil-animation');
-
-  });
   pillarRocks.children[12].addEventListener('animationend', () => {
+    window.scrollTo({
+        top: 100,
+        behavior: 'smooth'
+      });
       pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
       callback(callback1, callback2);
   });
 };
 
 function bannerIn(callback, callback1) {
-  pillarRocks.children[9].addEventListener(('animationend'), ()  => {
           bannerAll.forEach((element, index) => {
 
               element.classList.contains('pillar-banner') ? 
@@ -116,7 +89,6 @@ function bannerIn(callback, callback1) {
                   console.log(`${index} was not found`);
       });
       callback(callback1);
-  });
 };
 
 function pillarLeafsIn() {
@@ -132,12 +104,10 @@ function pillarLeafsIn() {
   });
 };
 
-treeSvg.addEventListener('click', () => {
+// treeSvg.addEventListener('click', () => {
     // window.addEventListener('click', () => {    
     if (treeSvg.classList.contains("tree-in")) {
-        treeIn(),
-        treeOut(),   
-        treeBackIn(pillarIn),
+        treeIn(pillarIn),   
         // pillarIn(),
         rocksAlign(bannerIn, hoverStateListeners, pillarLeafsIn);   
     };
@@ -186,7 +156,7 @@ treeSvg.addEventListener('click', () => {
 // scrollsInteract('mouseover');
 // scrollsInteract('click');
 // navBar.classList.add('appear');
-});
+// });
 
 /* Scrolls */
 

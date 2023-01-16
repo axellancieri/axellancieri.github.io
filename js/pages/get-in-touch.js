@@ -9,7 +9,6 @@ const cvIcon = main.querySelector('object');
 
 /* Navbar */
 
-navBar.classList.add('appear-about', 'appear');
 navButton.addEventListener('click', navDropDownClick); 
 
 /* email-copy */

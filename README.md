@@ -1,5 +1,7 @@
 Notes
 
+rearrange portfolios from last to first
+
 Make animation faster 5s at best
 
 auto scrolling so user gets attention on scrolls

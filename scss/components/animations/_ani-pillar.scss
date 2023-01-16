@@ -1,17 +1,17 @@
 $pillar-rocks: (
-    "1": 2s,
-    "2": 2.5s,
-    "3": 3s,
-    "4" : 5s,
-    "5" : 5.3s,
-    "6" : 5.6s,
-    "7" : 5.9s,
-    "8" : 6.1s,
-    "9" : 6.4s,
-    "10" : 6.8s,
-    "11" : 7.5s,
-    "12" : 8s,
-    "13" : 9s
+    "1": 0s,
+    "2": 0.2s,
+    "3": 0.4s,
+    "4" : 1s,
+    "5" : 1.1s,
+    "6" : 1.2s,
+    "7" : 1.3s,
+    "8" : 1.4s,
+    "9" : 1.5s,
+    "10" : 1.6s,
+    "11" : 1.8s,
+    "12" : 2s,
+    "13" : 2.2s
 );
 $align-rocks: (
     "4" : -258px,
@@ -96,14 +96,14 @@ $pillar-leafs-delay: (
             };
             @each $rock, $translateY in $align-rocks {
                 path:nth-child(#{$rock}) {
-                    animation: rotate-flat-#{$rock} 2s steps(10) 1.5s forwards;
+                    animation: rotate-flat-#{$rock} 1s steps(3) forwards;
                 };
             };
             path:nth-child(3) {
-                animation: rock-up 4s steps(10) 2.5s forwards;
+                animation: rock-up 4s steps(10) .5s forwards;
             }
             path:nth-child(11) {
-                animation: rock-down 4s steps(10) 2.5s forwards;
+                animation: rock-down 4s steps(10) .5s forwards;
             };
         };
     };
