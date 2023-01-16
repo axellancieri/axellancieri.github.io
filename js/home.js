@@ -242,14 +242,7 @@ function addAnimationHoverScr(target, propertyName) {
       const currentAnimation = getComputedStyle(target).getPropertyValue(propertyName);
 
       if (currentAnimation.trim() === 'waiting-js') {
- 
           target.style.setProperty(propertyName, ' grow-hover');
-          pillar.removeEventListener('mouseover', addInteract);
-/*moving from animationend event to setTimeout so its more dynamic when switching between scrolls hover and also giving time for else if
-   statement to dislay. Might be good for troubleshooting aswell.*/
-              setTimeout(() => { 
-                  pillar.addEventListener('mouseover', addInteract);
-              }, 1000);
           target.addEventListener('animationend', () => {
               target.style.setProperty(propertyName, ' waiting-js');
           });
