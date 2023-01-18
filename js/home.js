@@ -139,8 +139,11 @@ function addInteract(e) {
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
 
       scrollsAll.scrollAboutMe.forEach(element => {
-              addAnimationHoverScr(element, '--about-me-animation');
+        getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
+              addAnimationHoverScr(element, '--about-me-animation') :
+              console.log('not loaded yet');   
            });
+
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
     scrollClickInteraction(scrollsAll.scrollAboutMe, '--about-me-back-in-animation', '--about-me-after-flip-grow', 'about-me');
   };
@@ -152,6 +155,7 @@ function addInteract(e) {
                   addAnimationHoverScr(element, '--projects-animation') :
                       console.log('not loaded yet');            
       });
+
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
     scrollClickInteraction(scrollsAll.scrollProjects, '--projects-back-in-animation', '--projects-after-flip-grow', 'projects');
   };
@@ -163,32 +167,11 @@ function addInteract(e) {
               addAnimationHoverScr(element, '--get-in-touch-animation') :
                   console.log('not loaded yet');            
   });
+
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
     scrollClickInteraction(scrollsAll.scrollGetInTouch, '--get-in-touch-back-in-animation', '--get-in-touch-after-flip-grow', 'get-in-touch');
   };
 };
-
-function scrollClickInteraction(scrollName, var1, var2, target) {
-    pillar.classList.add('pillar-out-animation');
-    pillar.removeEventListener('mouseover', addInteract);
-    pillar.removeEventListener('mousedown', addInteract);
-        scrollName.map(element => {
-            if (element.classList.contains('pillar-scroll')) {
-              element.style.setProperty(`${var1}`, ` flip-right-scroll-${target}`);
-              element.style.setProperty(`${var2}`, ` scroll-after-right-${target}`);
-            } else {
-                element.style.setProperty(`${var1}`, ` flip-right-text-${target}`);
-                element.style.setProperty(`${var2}`, ` text-after-right-${target}`);
-            }
-        });
-        bgColor.classList.replace('bg-color-home', 'bg-color-pages');
-        Promise.all(
-            bgColor.getAnimations()
-        .map((animation) => animation.finished))
-        .then(() => {
-            window.location.assign(`http://127.0.0.1:5500/${target}.html`)})
-        .catch(error => console.log(`problem taking you to about page, ${error}`)); 
-}
 
 function addAnimationHoverScr(target, propertyName) {
       const currentAnimation = getComputedStyle(target).getPropertyValue(propertyName);
@@ -203,7 +186,27 @@ function addAnimationHoverScr(target, propertyName) {
       };
 };
 
-/* FOOTER */
+function scrollClickInteraction(scrollName, var1, var2, target) {
+  pillar.classList.add('pillar-out-animation');
+  pillar.removeEventListener('mouseover', addInteract);
+  pillar.removeEventListener('mousedown', addInteract);
+      scrollName.map(element => {
+          if (element.classList.contains('pillar-scroll')) {
+            element.style.setProperty(`${var1}`, ` flip-right-scroll-${target}`);
+            element.style.setProperty(`${var2}`, ` scroll-after-right-${target}`);
+          } else {
+              element.style.setProperty(`${var1}`, ` flip-right-text-${target}`);
+              element.style.setProperty(`${var2}`, ` text-after-right-${target}`);
+          }
+      });
+      bgColor.classList.replace('bg-color-home', 'bg-color-pages');
+      Promise.all(
+          bgColor.getAnimations()
+      .map((animation) => animation.finished))
+      .then(() => {
+          window.location.assign(`http://127.0.0.1:5500/${target}.html`)})
+      .catch(error => console.log(`problem taking you to about page, ${error}`)); 
+}
 
 /* Footer */
 
