@@ -32,7 +32,10 @@ function navDropdownClose(e) {
 
 function navChangePage(class1, class2, pageToGo) {
     document.removeEventListener('click', navDropdownClose);
-    navWindow.querySelectorAll('h5').forEach(element => element.style.setProperty('border-color', 'transparent'));
+    navWindow.querySelectorAll('h5').forEach(element => {
+        element.style.setProperty('border-color', 'transparent')
+        element.style.setProperty('background-color', 'transparent')
+    });
     navWindow.style.setProperty('color', 'transparent');
     navWindow.classList.contains(class1) ?
      navWindow.classList.replace(class1, class2) :
