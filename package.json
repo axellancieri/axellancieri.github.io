@@ -1,7 +1,7 @@
 {
   "name": "p9",
   "version": "1.0.0",
-  "description": "- got an idea to use an img background on tree/title area with a big width border on it\r - leafs to symbol and inside tree so it looks betta",
+  "description": "capstone portfolio",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
