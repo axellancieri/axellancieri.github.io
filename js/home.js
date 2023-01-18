@@ -1,6 +1,5 @@
 import {navButton, navBar, navDropDownClick} from '/js/modules/navbar.js';
 import {emailCopied} from '/js/modules/emailCopy.js';
-
 /* Variables */
 
 const bgColor = document.querySelector('.bg-color');
