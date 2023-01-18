@@ -1,3 +1,17 @@
+p1 gela
+
+This project was my first real peek into coding but most importantly it was my first step into becoming who I am today.
+It was a simple proposal content wise however it really opened the doors to a journey full of challenges, adventures and rewards.
+
+For this assignment I was given a site that was previously semi built with CSS and HTML and the goal was to improve and customize the site, to really make it our own while using Vanilla HTML as well as CSS. 
+Another key objective was to submit the project successfully using GitHub, since it was at this point that we were taught to use the platform.
+
+At first everything was new to me, even a simple “div” felt pretty foreign and baffling. This assignment was key to getting down the basics of coding and playing around with HTML and CSS to get a grasp of the capabilities they offer. 
+
+What I recall the most about this project is being slightly confused and also overwhelmed about how everything worked. 
+I didn't feel like I was dealing with any big obstacles, my main intent was to push myself, keeping up the momentum to move forward toward the finish line. 
+Today I'm glad to say it worked!
+
 p3
 
 - intro

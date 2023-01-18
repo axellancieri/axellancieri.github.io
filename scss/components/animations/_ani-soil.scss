@@ -4,6 +4,11 @@
     --email-success-icon-out: waiting-js;
 }
 
+.soil {
+    &-animation-change-soil-color {
+        animation: js-change-soil-color 1s linear forwards;
+    }
+}
 .footer-soil-animation {
     animation: footer-soil 4s linear forwards;
 };
@@ -40,6 +45,14 @@
         opacity: 1;
     };
 };
+@keyframes js-change-soil-color {
+    from {
+        fill: #47352b;
+    }
+    to {
+        fill: #4c575b;
+    }
+}
 @keyframes footer-icon {
     from {
         opacity: 0;

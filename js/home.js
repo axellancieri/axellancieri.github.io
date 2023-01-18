@@ -4,6 +4,8 @@ import {emailCopied} from '/js/modules/emailCopy.js';
 /* Variables */
 
 const bgColor = document.querySelector('.bg-color');
+const gotMain = document.querySelector('main');
+// const getAll = document.querySelectorAll('.tree');
 
 const treeSvg = document.querySelector('.tree');
 const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
@@ -182,7 +184,9 @@ function scrollHoverInteraction(target, propertyName) {
 
 
 function scrollClickInteraction(scrollName, var1, var2, target) {
-  pillar.classList.add('pillar-out-animation');
+  pillar.classList.add('out-animation');
+  treeSvg.classList.add('out-animation');
+  footerSoil.classList.add('out-animation');
   pillar.removeEventListener('mouseover', addInteract);
   pillar.removeEventListener('mousedown', addInteract);
       scrollName.map(element => {
@@ -201,7 +205,7 @@ function scrollClickInteraction(scrollName, var1, var2, target) {
       .then(() => {
           window.location.assign(`http://127.0.0.1:5500/${target}.html`)})
       .catch(error => console.log(`problem taking you to about page, ${error}`)); 
-}
+};
 
 /* Footer */
 

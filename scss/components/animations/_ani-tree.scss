@@ -20,15 +20,9 @@ $animation-bushes-delays: (
     &-in {
         animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
     }
-    // &-out {
-    //     animation: tree-out 1.5s ease both;
-    // }
     &-up {
         animation: tree-up 1s ease-out both;
     }
-    // &-back-in {
-    //     animation: tree-back-in 1s ease-in forwards;
-    // }
     .tree-bushes {     
         @each $path, $delay in $animation-bushes-delays {
             path:nth-child(#{$path}) {
@@ -64,9 +58,6 @@ $animation-bushes-delays: (
     &-portfolio-in {
         animation: show-portfolio-name .8s cubic-bezier(0.215, 0.610, 0.355, 1.000) .8s both;
     }
-    // &-name-up-js {
-    //     animation: js-name-up 2s ease-out both;
-    // }
     &-names-color-change {
         animation: js-names-color-change 1s linear both;
     };
@@ -88,14 +79,6 @@ $animation-bushes-delays: (
         animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
     }
 }
-.soil {
-    // &-animation-fade {
-    //     animation: js-soil-fade 2s linear forwards;
-    // }
-    &-animation-change-soil-color {
-        animation: js-change-soil-color 1s linear forwards;
-    }
-}
 
 @keyframes tree-in {
     0% {
@@ -104,17 +87,7 @@ $animation-bushes-delays: (
     100% {
       opacity: 1;
     }
-  }
-
-// @keyframes tree-out {
-//     0% {
-//         opacity: 1;
-//     }
-//     60%,
-//     100% {
-//         opacity: 0;
-//     }    
-// }
+};
 @keyframes tree-up {
     0% {
         transform: translateY(3em);
@@ -125,7 +98,7 @@ $animation-bushes-delays: (
         opacity: 1;
 
     }     
-}
+};
 @keyframes tree-back-in {
     0% {
         opacity: 0;
@@ -133,7 +106,7 @@ $animation-bushes-delays: (
     100% {
         opacity: 1;
     }      
-}
+};
 
 @keyframes tree-flip-left {
     0% {
@@ -146,7 +119,7 @@ $animation-bushes-delays: (
               transform: rotateY(-70deg);
       opacity: 0;
     }
-}
+};
   
 
 @keyframes tree-bushes-motion {
@@ -187,7 +160,7 @@ $animation-bushes-delays: (
     -webkit-transform-origin: 50% 100%;
         transform-origin: 50% 100%;
     }
-}
+};
 
 @keyframes leaf-motion {
     0% {
@@ -202,7 +175,7 @@ $animation-bushes-delays: (
     80% {
         transform: rotate(-10deg);
     }
-}
+};
 
 @keyframes leaf-falling {
     0%,
@@ -219,7 +192,7 @@ $animation-bushes-delays: (
         transform: translate(5vw, 10vw) scale(.6);
         opacity:0;
     }
-}
+};
 
 @keyframes dash-offset {
     from {
@@ -229,13 +202,13 @@ $animation-bushes-delays: (
         stroke-dashoffset: 0;
         opacity: 1;
     }
-}
+};
 @keyframes fill-hexagon {
     to {
         fill: #a6a66dbf;
     }
     
-}
+};
 
 @keyframes right-squirrel-goes-up {
     10.5% {
@@ -265,7 +238,7 @@ $animation-bushes-delays: (
     100% {
         opacity: 0;
     }
-}
+};
 
 @keyframes right-squirrel-show {
     0% {
@@ -321,7 +294,7 @@ $animation-bushes-delays: (
         transform: translate(5.5em, 7.7em) scale(0.8);
         animation-timing-function: ease-out;
     }   
-}
+};
 
 @keyframes left-squirrel-goes-up {
     17.5% {
@@ -336,7 +309,7 @@ $animation-bushes-delays: (
       transform: translate(3.5em, 6.3em) scale(.7) rotate(10deg);
       opacity: 0;
     }
-  }
+  };
 
 @keyframes left-squirrel-show {
     0% {
@@ -374,7 +347,7 @@ $animation-bushes-delays: (
                 transform: translate(3em, 8em) scale(.8);
                 animation-timing-function: ease-out;
     }      
-}
+};
 
 @keyframes show-name {
     0% {
@@ -388,7 +361,7 @@ $animation-bushes-delays: (
               filter: blur(0px);
       opacity: 1;
     }
-}  
+};
 @keyframes show-last-name {
     0% {
         letter-spacing: -0.5em;
@@ -401,7 +374,7 @@ $animation-bushes-delays: (
                 filter: blur(0px);
         opacity: 1;
     }
-}  
+};
 
 @keyframes show-portfolio-name {
     0% {
@@ -414,42 +387,11 @@ $animation-bushes-delays: (
     100% {
         opacity: 1;
     }
-}
+};
 @keyframes js-names-color-change {
     0% {
         fill: #a6a66d;
     } to {
         fill: white;
     }
-}
-// @keyframes js-name-up {
-//     5%,
-//     15% {
-//         scale: 1.01;
-//         fill: white;
-        
-//     }
-//     95% {
-//         scale: 1.01;
-//     }
-//     to {
-//         fill: white;
-//     }
-// }
-// @keyframes js-soil-fade {
-//     0%,
-//     95% {
-//         fill: #47352b;
-//     }
-//     to {
-//         fill: #2b2c3c;
-//     }
-// }
-@keyframes js-change-soil-color {
-    from {
-        fill: #47352b;
-    }
-    to {
-        fill: #4c575b;
-    }
-}
+};
