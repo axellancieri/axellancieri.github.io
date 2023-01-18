@@ -1,16 +1,42 @@
 p1 gela
 
+intro-
+
 This project was my first real peek into coding but most importantly it was my first step into becoming who I am today.
 It was a simple proposal content wise however it really opened the doors to a journey full of challenges, adventures and rewards.
 
-For this assignment I was given a site that was previously semi built with CSS and HTML and the goal was to improve and customize the site, to really make it our own while using Vanilla HTML as well as CSS. 
-Another key objective was to submit the project successfully using GitHub, since it was at this point that we were taught to use the platform.
+goals-
+
+For this assignment I was given a site that was previously semi built with CSS and HTML and the goal was to improve and customize the site, to really make it our own while using vanilla HTML as well as CSS. 
+Another key objective was to submit the project successfully using GitHub, since it was at this point that I was taught to use the platform.
+
+challenges-
 
 At first everything was new to me, even a simple “div” felt pretty foreign and baffling. This assignment was key to getting down the basics of coding and playing around with HTML and CSS to get a grasp of the capabilities they offer. 
 
-What I recall the most about this project is being slightly confused and also overwhelmed about how everything worked. 
-I didn't feel like I was dealing with any big obstacles, my main intent was to push myself, keeping up the momentum to move forward toward the finish line. 
+For me the most challenging part was not the project in itself yet getting used to writing code, starting to figure out what is it really that I need to do in order to get the right code behavour.
+
+I didn't feel like I was dealing with any big obstacles, my main intent was to push myself, keeping up the momentum to move toward the finish line. 
 Today I'm glad to say it worked!
+
+
+p2 gela
+
+intro-
+
+First project that I have to build up from scratch.<br>
+              Implementing concepts that were hard to grasp during the theoric lessons so I can understand them better.
+              There's a lot of new tools to play with and have the chance to put them to good use and this project was the perfect opportunity.
+
+goals-
+
+We were given a mockup on how it should look  like on 320, 768 and 1024 pixels. This project starts to ramp up the level of both html and css, concepts such as html semantics, css box model, media queries, css selectors, units and positioning elements.<br>
+                  Implementing as much new knowdledge and ideas from the course to the project was a challenging process and my main goal which was to replicate as close as possible the mockup was met.
+
+challenges-
+
+Picking the right units and semantic elements, or what it felt right at the time was a challenging task as there were so many options.<br>
+                    Used the flex-basis property having as value 'calc' method as a gutter between articles, that was breakthrough moment to me as I felt that was out of my reach and was very happy to see it doing a good job keeping the articles apart going along the responsive design of the project.
 
 p3
 

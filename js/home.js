@@ -50,10 +50,7 @@ function pillarIn() {
 
 function rocksAlign(callback, callback1, callback2) {
   pillarRocks.children[12].addEventListener('animationend', () => {
-    window.scrollTo({
-        top: 100,
-        behavior: 'smooth'
-      });
+    pillar.scrollIntoView();
       pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
       callback(callback1, callback2);
   });
