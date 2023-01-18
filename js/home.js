@@ -138,53 +138,48 @@ function addInteract(e) {
 
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
 
-      scrollsAll.scrollAboutMe.forEach(element => {
-        getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
-              addAnimationHoverScr(element, '--about-me-animation') :
-              console.log('not loaded yet');   
-           });
+    scrollHoverInteraction(scrollsAll.scrollAboutMe, '--about-me-animation');    
 
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
+
     scrollClickInteraction(scrollsAll.scrollAboutMe, '--about-me-back-in-animation', '--about-me-after-flip-grow', 'about-me');
   };
   
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
 
-      scrollsAll.scrollProjects.forEach(element => {
-              getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
-                  addAnimationHoverScr(element, '--projects-animation') :
-                      console.log('not loaded yet');            
-      });
+    scrollHoverInteraction(scrollsAll.scrollProjects, '--projects-animation');
 
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
+
     scrollClickInteraction(scrollsAll.scrollProjects, '--projects-back-in-animation', '--projects-after-flip-grow', 'projects');
   };
   
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
 
-      scrollsAll.scrollGetInTouch.forEach(element => {
-          getComputedStyle(element).getPropertyValue('opacity') === '1' ? 
-              addAnimationHoverScr(element, '--get-in-touch-animation') :
-                  console.log('not loaded yet');            
-  });
+  scrollHoverInteraction(scrollsAll.scrollGetInTouch, '--get-in-touch-animation');
 
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
+    
     scrollClickInteraction(scrollsAll.scrollGetInTouch, '--get-in-touch-back-in-animation', '--get-in-touch-after-flip-grow', 'get-in-touch');
   };
 };
 
-function addAnimationHoverScr(target, propertyName) {
-      const currentAnimation = getComputedStyle(target).getPropertyValue(propertyName);
-
-      if (currentAnimation.trim() === 'waiting-js') {
-          target.style.setProperty(propertyName, ' grow-hover');
-          target.addEventListener('animationend', () => {
-              target.style.setProperty(propertyName, ' waiting-js');
-          });
-      } else if(currentAnimation.trim() === 'grow-hover') {
-          console.log('gotta wait for animataion to finish')
-      };
+function scrollHoverInteraction(target, propertyName) {
+  target.forEach(element => {
+    const currentAnimation = getComputedStyle(element).getPropertyValue(propertyName);
+    if (getComputedStyle(element).getPropertyValue('opacity') === '1' && currentAnimation.trim() === 'waiting-js') {
+      element.style.setProperty(propertyName, ' grow-hover');
+      element.addEventListener('animationend', () => {
+        element.style.setProperty(propertyName, ' waiting-js');
+        element.addEventListener('mouseover', scrollsInteract);
+        });
+    } else if(currentAnimation.trim() === 'grow-hover') {
+        element.removeEventListener('mouseover', scrollsInteract);
+        console.log('gotta wait for animataion to finish');         
+    }
+  });
 };
+
 
 function scrollClickInteraction(scrollName, var1, var2, target) {
   pillar.classList.add('pillar-out-animation');
