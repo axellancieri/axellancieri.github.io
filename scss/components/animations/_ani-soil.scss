@@ -1,0 +1,97 @@
+:root {
+    --email-success-icon-in: waiting-js;
+    --email-success-icon-back: waiting-js;
+    --email-success-icon-out: waiting-js;
+}
+
+.soil {
+    &-animation-change-soil-color {
+        animation: js-change-soil-color 1s linear forwards;
+    }
+}
+.footer-soil-animation {
+    animation: footer-soil 4s linear forwards;
+};
+.icons-footer-in {
+    &-animation {
+        animation: footer-icon 3s linear forwards;
+    }
+}
+.ff-mail-copy::before {
+    animation: var(--email-success-icon-in) .5s ease-in forwards,
+                var(--email-success-icon-back) .5s ease-in 1s forwards,
+                 var(--email-success-icon-out) .5s ease-in 2s forwards;
+}
+@keyframes footer-soil {
+    from {
+        background-position: 1% 0%;
+        opacity: 0;
+    };
+    80% {
+        background-position: 80% 100%;
+    };
+    90% {
+        background-position: 80% 100%;
+        border-top: 8px double #acac78;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+    };
+    to {
+        background-position: 100% 100%;
+        border-top: 8px double #acac78;
+        border-top-left-radius: 30%;
+        border-top-right-radius: 30%;
+        background-size: 200% 250%;
+        opacity: 1;
+    };
+};
+@keyframes js-change-soil-color {
+    from {
+        fill: #47352b;
+    }
+    to {
+        fill: #4c575b;
+    }
+}
+@keyframes footer-icon {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+};
+
+@keyframes email-success-icon-in {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        padding-right: 7.1em;
+    }
+};
+@keyframes email-success-icon-back {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        padding-right: 7.1em;
+    }
+    100% {
+        padding-right: .5em;
+        transform: scale(1);
+        opacity: 1;
+    }
+};
+@keyframes email-success-icon-out {
+    0% {
+        padding-right: .5em;
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+};

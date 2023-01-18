@@ -1,0 +1,73 @@
+// IMPORT BOOTSTRAP 5
+// @import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* COLORS I'LL USE - he picks 2 and calls this THEME COLORS
+then adds some different contrats */
+
+// he modified variables over here
+
+// $primary:       $blue;
+// $secondary:     $gray-600;
+// $success:       $green;
+// $info:          $cyan;
+// $warning:       $yellow;
+// $danger:        $red;
+// $light:         $gray-100;
+// $dark:          $gray-900;
+
+// @import "../node_modules/bootstrap/scss/variables";
+// 5. Include remainder of required parts
+// @import "../node_modules/bootstrap/scss/maps";
+// @import "../node_modules/bootstrap/scss/mixins";
+// @import "../node_modules/bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+// @import "../node_modules/bootstrap/scss/utilities";
+// @import "../node_modules/bootstrap/scss/reboot";
+// @import "../node_modules/bootstrap/scss/type";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/containers";
+// @import "../node_modules/bootstrap/scss/grid";
+// @import "../node_modules/bootstrap/scss/helpers";
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+// @import "../node_modules/bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+
+// COMMENTS
+
+/* He takes mostly from variables here so he only has what he's gonna use. (accordion stuff, nav, etc)
+Goes to boostrap icons to grab some or fontawesome if needs something a 
+bit more specific */
+
+.list-group {
+    --bs-list-group-bg: transparent;
+    --bs-list-group-border-color: transparent;
+};
+.card {
+    --bs-card-bg: transparent;
+    background: linear-gradient(to bottom, #FFFAF5 0%, #8f7f6d 50%);
+    --bs-card-border-color: #dbcdbd;
+};
+.card-body {
+    --bs-card-color: #FFFAF5;
+};
+.btn-primary {
+    --bs-btn-bg: #5C4933;
+    --bs-btn-border-color: #dbcdbd;
+    --bs-btn-hover-bg: #A89D91;
+    --bs-btn-hover-border-color: #A89D91;
+    --bs-btn-active-bg: #A89D91;
+    --bs-btn-active-border-color: #A89D91;
+};
+.accordion {
+    --bs-accordion-color: #FFFAF5;
+    --bs-accordion-bg: #8f7f6d;
+    --bs-accordion-border-color: #FFFAF5;
+    --bs-accordion-btn-color: #FFFAF5;
+    --bs-accordion-active-color: #8f7f6d;
+    --bs-accordion-active-bg: #FFFAF5;
+    --bs-accordion-btn-focus-border-color: #FFFAF5;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2em rgba(255, 250, 245, 0.25);
+};

@@ -1,0 +1,194 @@
+:root {
+    --bg-color-home: #b9b982; // #a6a66db0
+    --bg-color-pages: #5f5141;
+    --scroll-text-bg: #D9D3A3;
+    --scroll-text-color: #595743;
+}
+
+.bg-color {
+    transition: background-color 2s ease-in;
+    &-home {
+        background-color: var(--bg-color-home);
+    };
+    &-pages {
+        background-color: var(--bg-color-pages);
+    };
+};
+.tree {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 100;
+    transform: translateY(3em);
+    .tree-bushes {
+        path {
+            transform-origin: 30px 25px;
+            transform-box: fill-box;
+        };
+    };
+};
+.position {
+    fill: #a6a66d;
+    transition: fill 1s linear;
+    &-name {
+        transform: translate(1em, 10.8em);
+    };
+    &-lastName {
+        transform: translate(3.6em, 10.8em);
+    };
+    &-portfolio {
+        transform: translate(2.5em, 12em);
+    };
+};
+.hexagon {
+    opacity: 1;
+    transform: translate(0.35em, 2.5em) scale(1);
+    fill: transparent;
+    stroke: white;
+    stroke-width: 2;
+    stroke-dasharray: 1371.8;
+    stroke-dashoffset: 1371.8;
+};
+.leafs {
+    width: 100%;
+    display: block;
+    opacity: 0; 
+    &-1 {
+        x: 2em;
+        y: 15em;
+    };
+    &-2 {
+        x: 5em;
+        y: 16em;
+    };
+};
+.grass {
+    width: 100%;
+    display: block;
+    &-r {
+        transform: translate(5.3em, 11.7em) scale(0.15);
+    };
+    &-l {
+        transform: translate(3.9em, 11.7em) scale(0.15);
+    };
+};
+.squirrel-left,
+.squirrel-right {
+    opacity: 0;
+    transform-origin: 2em 2em;
+    transform-box: fill-box;
+};
+.soil {
+    width: 100%;
+    display: block;
+    transform: translateY(7.5em);
+    fill: #47352b;
+};
+.pillar {
+    position: relative;
+    z-index: 10;
+    display: block;
+    fill: #4c575b;
+    stroke: transparent;
+    &-leafs {
+        path {
+            opacity: 0;
+        };
+        &-animation {
+            stroke: #4f3636;
+            stroke-width: 0.7;
+            fill: #588a41;
+            path {
+                transform-origin: 10px 10px;
+                transform-box: fill-box;
+            };
+        };
+    };
+    &-banner {
+        display: block;
+        x: -4.25em;
+        y: -5.1em;
+        opacity: 0;
+    };
+    &-holder {
+        display: block;
+        width: 100%;
+        fill: var(--color-fill);
+        stroke: black;
+        stroke-width: 20;
+        opacity: 0;
+        &-1 {
+            x: 3.9em;
+            y: -0.5em;
+            --color-fill: #598a42;
+        };
+        &-2 {
+            x: -9.2em;
+            y: -18.7em;
+            rotate: 181deg;
+            --color-fill: #598a42;
+        };
+    };
+    &-scroll {
+        &-get-in-touch {
+            display: block;
+            x: 4.2em;
+            y: 12em;
+            stroke-width: 1.9;
+            --color-plants: #598a42; //71c486
+            opacity: 0;
+            &-plants {
+                fill: var(--color-plants);
+                stroke-width: 2;
+                stroke: black;
+                &-spots {
+                    fill: transparent;
+                };
+            };
+            &-main {
+                fill: var(--scroll-text-bg);
+                stroke: #000;
+                stroke-width: 4;
+            };
+            &-right-dots {
+                fill: #d7d2c2;
+            };
+            &-sides {
+                fill: #c1c19a;
+                stroke: black;
+                stroke-width: 1;
+            };
+        };
+        &-projects {
+            display: block;
+            x: 4.55em;
+            y: 7.7em;
+            opacity: 0;
+            &-all {
+                fill: #0d1046;
+                stroke: black;
+            };
+            &-spaces {
+                fill: transparent;
+            };
+            &-blooms {
+                fill: #7fbeb9;
+            };
+            &-main {
+                fill: var(--scroll-text-bg);
+            };
+        };
+        &-about-me {
+            x: 4.3em;
+            y: 2.25em;
+            --color-plants: #598a42;
+            opacity: 0;
+        };
+    };
+    &-text {
+        fill: var(--scroll-text-color);
+        &-projects {
+        --scroll-text-color: #584D8C;
+        }
+    }
+};

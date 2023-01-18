@@ -1,0 +1,20 @@
+
+@import 'custom';
+
+//Import components
+@import 'base/typography';
+@import 'base/normalize';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/footer';
+@import 'components/carrusel';
+@import 'components/email-copy';
+@import 'components/animations/ani-tree';
+@import 'components/animations/ani-pillar';
+@import 'components/animations/ani-banner';
+@import 'components/animations/ani-soil';
+@import 'components/animations/ani-general';
+@import 'pages/shared';
+@import 'pages/about';
+@import 'pages/projects';
+@import 'pages/get-in-touch';

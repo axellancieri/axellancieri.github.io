@@ -1,0 +1,50 @@
+.get-in-touch {
+    &-email {
+        position: relative;
+        display: block;
+        letter-spacing: .5px;
+        border-radius: 1em;
+        padding: .3em;
+        transition: background-color .3s linear;
+        margin-top: .5em;
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        };
+        &:hover,
+        &:active,
+        &:focus,
+        &:target {
+            .ff-get-in-touch::after {
+                background-color: #ffffff29;
+            }
+        };
+    };
+    &-linkedin {
+        margin-top: .5em;
+        @include media-breakpoint-up(md) {
+            margin-top: 0;
+        };
+        &:hover,
+        &:active,
+        &:focus,
+        &:target {
+            #link-linkedin {
+                color: black;
+                background-color: #D9D3A3;
+                border: 1px solid black;
+                text-decoration: underline;
+            }
+        };
+    };
+    &-cv-hovered {
+        fill: #FFF;
+    };
+};
+#link-linkedin {
+    text-decoration: none;
+    border-radius: 2em;
+    padding-inline: .5em;
+    transition: color, background-color, border, text-decoration;
+    transition-duration: .3s;
+    transition-timing-function: linear;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "p9",
+  "version": "1.0.0",
+  "description": "- got an idea to use an img background on tree/title area with a big width border on it\r - leafs to symbol and inside tree so it looks betta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch scss:assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azpers/azpers.github.io.git"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "6.2.0",
+    "@popperjs/core": "2.11.6",
+    "bootstrap": "5.2.2",
+    "sass": "1.56.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azpers/azpers.github.io/issues"
+  },
+  "homepage": "https://github.com/Azpers/azpers.github.io#readme"
+}

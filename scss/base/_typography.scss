@@ -1,0 +1,23 @@
+// font-family: 'Cormorant', serif;
+// font-family: 'Kadwa', serif;
+// font-family: 'Martel', serif;
+.position {
+    font-family: 'Kadwa', serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    &-portfolio {
+        font-family: 'Cormorant', serif;
+    }
+}
+.pillar-text {
+    font-family: 'Cormorant', serif;
+    font-weight: bold;
+    font-size: .6rem;
+}
+#get-in-touch-font {
+    font-size: .5rem;
+}
+
+nav > h5 {
+    font-family: 'Cormorant', serif;
+}

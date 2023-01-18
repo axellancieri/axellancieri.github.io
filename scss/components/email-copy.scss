@@ -1,0 +1,53 @@
+.ff {
+    &-icon::after {
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    };
+    &-mail-copy::after {
+        position: absolute;
+        border-radius: 3em;
+        padding: .1em .5em;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f0c5";
+        cursor: pointer;
+    };
+    &-home::after {
+        top: 2em;
+        right: 5.5em;
+        background-color: #c0c19a;
+    }
+    &-get-in-touch::after {
+        top: 0;
+        right: 3em;
+        transition: background-color .3s linear;
+    }
+    &-mail-copy::before {
+        content: "Email copied!";
+        position: absolute;
+        display: block;
+        padding: .1em .5em;
+        font-family: 'Kadwa', serif;
+        font-size: .8rem;
+        white-space: nowrap;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        border-bottom-left-radius: 3em;
+        border-bottom-right-radius: 3em;
+        transform: scale(0);
+        opacity: 0;
+    };
+    &-home::before {
+        top: 0;
+        right: 0;
+        background-color: #a3db75;
+    }
+    &-get-in-touch::before {
+        bottom: .4em;
+        right: 0;
+        background-color: #63734c;
+    }
+};

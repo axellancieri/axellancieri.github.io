@@ -1,0 +1,397 @@
+$animation-bushes-delays: (
+    "4" : 3s,
+    "5" : 4s,
+    "6" : 5s,
+    "7" : 6s,
+    "8" : 7s,
+    "9" : 8s,
+    "10" : 9s,
+    "11" : 10s,
+    "12" : 11s,
+    "13" : 12s,
+    "14" : 13s,
+    "15" : 14s,
+    "16" : 15s,
+    "17" : 16s,
+    "18" : 17s
+);
+
+.tree {
+    &-in {
+        animation: tree-in 3s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards;
+    }
+    &-up {
+        animation: tree-up 1s ease-out both;
+    }
+    .tree-bushes {     
+        @each $path, $delay in $animation-bushes-delays {
+            path:nth-child(#{$path}) {
+                animation-delay: $delay;
+            } 
+        }
+        path {
+            animation: tree-bushes-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
+        }
+    }
+    &-flip-left {
+        animation: tree-flip-left 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+}
+.hexagon-animation {
+        animation: dash-offset 2.8s ease-in forwards, fill-hexagon 1s 2.8s linear forwards;
+    }
+.leafs {
+    &-1 {
+        animation: leaf-falling 8s linear 5s infinite;
+    }
+    &-2 {
+        animation: leaf-falling 8s linear 5s infinite;
+    }
+}
+.animation {
+    &-name-in {
+        animation: show-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    &-lastName-in {
+        animation: show-last-name 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    &-portfolio-in {
+        animation: show-portfolio-name .8s cubic-bezier(0.215, 0.610, 0.355, 1.000) .8s both;
+    }
+    &-names-color-change {
+        animation: js-names-color-change 1s linear both;
+    };
+};
+.squirrel {
+    &-right {
+        animation-name: right-squirrel-show, right-squirrel-goes-up;   // initial animation is 1s duration plus 1.5s stand by then goes pause. second is .6s animation kicks in at 2.5s then pauses.
+        animation-delay: 8s;
+    }
+    &-left {
+        animation-name: left-squirrel-show, left-squirrel-goes-up; //Initial animataion is 1.5s then stands by 2.5s then pauses, second animation is .5s.
+        animation-delay: 11s;
+    }
+    &-left,
+    &-right {
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards; 
+        animation-timing-function: linear, cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    }
+}
+
+@keyframes tree-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+};
+@keyframes tree-up {
+    0% {
+        transform: translateY(3em);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+
+    }     
+};
+@keyframes tree-back-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }      
+};
+
+@keyframes tree-flip-left {
+    0% {
+      -webkit-transform: rotateY(0);
+              transform: rotateY(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotateY(-70deg);
+              transform: rotateY(-70deg);
+      opacity: 0;
+    }
+};
+  
+
+@keyframes tree-bushes-motion {
+    0%,
+    10% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+    }
+    1% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    2%,
+    4%,
+    6% {
+        -webkit-transform: rotate(-4deg);
+                transform: rotate(-4deg);
+    }
+    3%,
+    5%,
+    7% {
+        -webkit-transform: rotate(4deg);
+                transform: rotate(4deg);
+    }
+    8% {
+        -webkit-transform: rotate(-2deg);
+                transform: rotate(-2deg);
+    }
+    9% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    100% {
+    -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+    }
+};
+
+@keyframes leaf-motion {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(10deg);
+    }
+    40% {
+        transform: rotate(0deg); 
+    }
+    80% {
+        transform: rotate(-10deg);
+    }
+};
+
+@keyframes leaf-falling {
+    0%,
+    100% {
+        transform: scale(.6);
+    }
+    40% {
+        opacity: 0.5;
+    }
+    60% {
+        opacity: 1;
+    }
+    80% {
+        transform: translate(5vw, 10vw) scale(.6);
+        opacity:0;
+    }
+};
+
+@keyframes dash-offset {
+    from {
+        opacity: 1;
+    }
+    to {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+};
+@keyframes fill-hexagon {
+    to {
+        fill: #a6a66dbf;
+    }
+    
+};
+
+@keyframes right-squirrel-goes-up {
+    10.5% {
+        transform: translate(5.5em, 7.7em) scale(0.8);
+        opacity: 1;
+    }
+    10.95% {
+        transform: translate(5.5em, 7.3em) scale(0.8);
+        animation-timing-function: ease-in;
+    }
+    11.4% {
+        transform: translate(5.5em, 7.7em) scale(0.8);
+        animation-timing-function: ease-out;
+    }
+    12.3% {
+        transform: translate(4em, 7em) scale(0.8) rotate(-13deg);
+        opacity: 1;
+    }
+    12.9% {
+        opacity: .4;
+    }
+    13.5% {
+        transform: translate(2.5em, 6em) scale(0.6) rotate(-13deg);
+        opacity: 0;
+    }
+    13.5%,
+    100% {
+        opacity: 0;
+    }
+};
+
+@keyframes right-squirrel-show {
+    0% {
+        transform: translate(7em, 5em) scale(0.8);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    0.25% {
+        translate: (5.5em, 6.8em) scale(0.8);
+        animation-timing-function: ease-out;
+        opacity: 0;
+    }
+    2.35% {
+        translate: (5.5em, 6.6em) scale(0.8);
+        animation-timing-function: ease-in;
+        opacity: .5;
+    }
+    2.45% {
+        translate: (5.5em, 6.8em) scale(0.8);
+        animation-timing-function: ease-in;
+        opacity: 1;
+    }
+    2.65% {
+        translate: (5.5em, 6.7em) scale(0.8);
+        animation-timing-function: ease-out;
+    }
+    2.85% {
+        transform: translate(5.5em, 7.7em) scale(.8);
+        animation-timing-function: ease-out;
+    }
+    2.75% {
+        transform: translate(5.5em, 7.3em) scale(.8);
+        animation-timing-function: ease-in;
+    }
+    3.6% {
+        transform: translate(5.5em, 7.7em) scale(.8);
+        animation-timing-function: ease-out;
+    }
+    4.05% {
+        transform: translate(5.5em, 7.4em) scale(.8);
+        animation-timing-function: ease-in;
+    }
+    4.5% {
+        transform: translate(5.5em, 7.7em) scale(.8);
+        animation-timing-function: ease-out;
+    }
+    4.75% {
+        transform: translate(5.5em, 7.6em) scale(.8);
+        animation-timing-function: ease-in;
+    }
+    5%,
+    10.5% {
+        transform: translate(5.5em, 7.7em) scale(0.8);
+        animation-timing-function: ease-out;
+    }   
+};
+
+@keyframes left-squirrel-goes-up {
+    17.5% {
+      transform: translate(3em, 8em) scale(.8);
+      opacity: 1;
+    }
+    19.25% {
+      opacity: .4;
+    }
+    20%,
+    100% {
+      transform: translate(3.5em, 6.3em) scale(.7) rotate(10deg);
+      opacity: 0;
+    }
+  };
+
+@keyframes left-squirrel-show {
+    0% {
+                transform: translate(3em, 6.3em) scale(.8);
+                animation-timing-function: ease-in;
+                opacity: 0;
+    }
+    2.85% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+        opacity: 1;
+    }
+    4.12% {
+                transform: translate(3em, 7.6em) scale(.8);
+                animation-timing-function: ease-in;
+    }
+    5.4% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+    }
+    6.08% {
+                transform: translate(3em, 7.7em) scale(.8);
+                animation-timing-function: ease-in;
+    }
+    6.75% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+    }
+    7.13% {
+                transform: translate(3em, 7.9em) scale(.8);
+                animation-timing-function: ease-in;
+    }
+    7.5%,
+    17.5% {
+                transform: translate(3em, 8em) scale(.8);
+                animation-timing-function: ease-out;
+    }      
+};
+
+@keyframes show-name {
+    0% {
+      letter-spacing: -0.5em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+};
+@keyframes show-last-name {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+};
+
+@keyframes show-portfolio-name {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+};
+@keyframes js-names-color-change {
+    0% {
+        fill: #a6a66d;
+    } to {
+        fill: white;
+    }
+};
