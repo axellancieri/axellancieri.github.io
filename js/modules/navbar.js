@@ -13,9 +13,9 @@ export function navDropDownClick(e) {
         }, 300);
         return (console.log('passing through'));
     } else if (e.target.closest('button').getAttribute('aria-expanded') === 'false') {
-        console.log('closing dropdown');
-    } else {
-        console.log('clicked between events')
+        setTimeout(() => { 
+            console.log('closing dropdown');
+        }, 300);
     };
 };
 function navDropdownClose(e) {
