@@ -46,14 +46,6 @@ function navChangePage(class1, class2, pageToGo) {
     .map((animation) => animation.finished))
     .then(() => {
         window.location.assign(`https://azpers.github.io/${pageToGo}`)})
-    .then(() => {
-        navBarDropdown.classList.remove('show');
-        navWindow.querySelectorAll('h5').forEach(element => {
-            element.style.setProperty('border-color', 'white')
-            // element.style.setProperty('background-color', 'white')
-        });
-        navWindow.style.setProperty('color', 'white');
-    })
     .catch(error => console.log(`problem taking you to about page, ${error}`));
     navButton.addEventListener('click', navDropDownClick);
 }
