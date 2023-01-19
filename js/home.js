@@ -1,4 +1,4 @@
-import {navButton, navBar, navDropDownClick} from '/js/modules/navbar.js';
+import {navButton, navDropDownClick} from '/js/modules/navbar.js';
 import {emailCopied} from '/js/modules/emailCopy.js';
 /* Variables */
 
