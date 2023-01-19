@@ -51,8 +51,8 @@ function navChangePage(class1, class2, pageToGo) {
         navWindow.getAnimations()
     .map((animation) => animation.finished))
     .then(() => {
-        window.location.assign(`http://127.0.0.1:5500/${pageToGo}.html`);
-        navButton.addEventListener('click', navDropDownClick);}) //https://azpers.github.io/
+        window.location.assign(`https://azpers.github.io/${pageToGo}`);
+        navButton.addEventListener('click', navDropDownClick);}) // http://127.0.0.1:5500/ .. .html
     .catch(() => {
         error => console.log(`problem taking you to about page, ${error}`)
         navButton.addEventListener('click', navDropDownClick);
