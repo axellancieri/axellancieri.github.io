@@ -30,6 +30,8 @@ $animation-bushes-delays: (
             } 
         }
         path {
+            -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
             animation: tree-bushes-motion 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both infinite;
         }
     }
@@ -127,8 +129,6 @@ $animation-bushes-delays: (
     10% {
         -webkit-transform: rotate(0deg);
                 transform: rotate(0deg);
-        -webkit-transform-origin: 50% 100%;
-                transform-origin: 50% 100%;
     }
     1% {
         -webkit-transform: rotate(2deg);
@@ -157,8 +157,6 @@ $animation-bushes-delays: (
     100% {
     -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
-    -webkit-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
     }
 };
 
@@ -357,6 +355,7 @@ $animation-bushes-delays: (
       opacity: 0;
     }
     100% {
+        letter-spacing: 0em;
       -webkit-filter: blur(0px);
               filter: blur(0px);
       opacity: 1;
@@ -370,6 +369,7 @@ $animation-bushes-delays: (
         opacity: 0;
     }
     100% {
+        letter-spacing: 0em;
         -webkit-filter: blur(0px);
                 filter: blur(0px);
         opacity: 1;
@@ -385,6 +385,7 @@ $animation-bushes-delays: (
         opacity: 0.6;
     }
     100% {
+        letter-spacing: 0em;
         opacity: 1;
     }
 };
