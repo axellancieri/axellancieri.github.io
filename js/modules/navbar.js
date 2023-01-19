@@ -8,14 +8,18 @@ const navWindow = navBar.nextElementSibling.querySelector('.navbar-content');
 export function navDropDownClick(e) {
     if (e.target.closest('button').getAttribute('aria-expanded') === 'true') {
         navButton.removeEventListener('click', navDropDownClick);
-        setTimeout(() => { 
-            document.addEventListener('click', navDropdownClose);
-        }, 300);
+            Promise.all(
+                navBarDropdown .getAnimations()
+            .map((animation) => animation.finished))
+            .then(() => {
+                navBarDropdown.addEventListener('click', navDropdownClose)})
+            .catch(error => {
+                console.log(`problem with nav dropdown, ${error}`);
+                navBarDropdown.addEventListener('click', navDropdownClose);
+            });
         return (console.log('passing through'));
     } else if (e.target.closest('button').getAttribute('aria-expanded') === 'false') {
-        setTimeout(() => { 
             console.log('closing dropdown');
-        }, 300);
     };
 };
 function navDropdownClose(e) {
@@ -26,7 +30,7 @@ function navDropdownClose(e) {
         text.includes('Get in') ? navChangePage('navbar-home', 'navbar-pages', 'get-in-touch') :
         text.includes('Home') ? navChangePage('navbar-pages', 'bg-color-home', 'index') : console.log('goto closing');
     } else if (e.target.closest(":not(h5)")) {
-        document.removeEventListener('click', navDropdownClose);
+        navBarDropdown.removeEventListener('click', navDropdownClose);
         console.log('closing');
         navButton.click();
         navButton.addEventListener('click', navDropDownClick); 
