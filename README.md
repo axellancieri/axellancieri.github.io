@@ -40,18 +40,21 @@ Picking the right units and semantic elements, or what it felt right at the time
 
 p3
 
-- intro
+-intro
 
-Dived into html forms on this project, got more onto css selectors and started thinking about accessibility.<br>
-Worked very hard to replicate the given mockup and to get all transitions and placeholders just right. Learned a lot also about css transitions, selectors and pseudo classes. Tried my best to start making classes names be clear and state what they do as a way to get into a good habit/practice.
+In Project 3 I embarked on HTML Forms, got into CSS selectors and started to think about accessibility. 
+For this assignment I was given a mockup and was very diligent to replicate it and get all the placeholders and transitions just right. Moreover, I learned about css transitions, selectors and pseudo classes.
+It was important for me to start making a habit of having my class names properly labeled, stating their purpose.
 
 - goals
 
-The objective is to get a working form (no backend tech), and the usage of the different types of inputs following a responsive design that has to replicate the mockup given on both mobile phone version and desktop.
+The main objective was to get a working form without the use of backend tech, as well as the utilization of various types of inputs, all following a responsive design that's functional both on desktop and mobile phone.
 
 - challenges 
 
-This project had many challenges but the one that almost had me was the placeholder inside the 'select' element, it was just not behaving as intended no matter how many approaches I took or things I tried. Luckily for me my googling skills helped me big time and I managed to find a place where they showcased an example that helped me just get the right tweak on my code to make things work. Left a comment on the css to that link as a little gesture of appretiation on my behalf.
+In this project I faced many challenges, however the one that nearly drove me up the wall was the placeholder inside the 'select' element. 
+It wasn't behaving as intended no matter the approach or the various things I tried, nonetheless, my googling skills came in handy and I managed to find an example that helped me to modify my code in just the right way to make things work.
+I made sure to leave a comment to that link on the CSS just as a gesture of my appreciation.
 
 p4
 
