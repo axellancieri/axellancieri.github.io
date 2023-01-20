@@ -52,19 +52,19 @@
   };
   &-text {
       &-about-me {
-          animation: text-about-me-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s both,
+          animation: text-about-me-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1s forwards,
           var(--about-me-animation) 2s ease-in-out both,
           var(--about-me-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s forwards,
           var(--about-me-after-flip-grow) 2s linear 1s forwards;
       };
       &-projects {
-          animation: text-projects-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1.2s both,
+          animation: text-projects-in 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1.2s forwards,
           var(--projects-animation) 2s ease-in-out both,
           var(--projects-back-in-animation) 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) .5s forwards,
           var(--projects-after-flip-grow) 1.2s linear 1.5s forwards;
       };
       &-get-in-touch {
-          animation: text-get-in-touch-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1.5s both,
+          animation: text-get-in-touch-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) 1.5s forwards,
           var(--get-in-touch-animation) 2s ease-in-out both,
           var(--get-in-touch-back-in-animation) 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s forwards,
           var(--get-in-touch-after-flip-grow) 3s linear 1s forwards;
