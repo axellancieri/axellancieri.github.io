@@ -8885,14 +8885,14 @@ ul {
 @keyframes text-about-me-in {
   0% {
     transform-origin: center center;
-    -webkit-transform: translate(6.6em, 6.05em) scale(0.8) translateZ(-80px);
-    transform: translate(6.6em, 6.05em) scale(0.8) translateZ(-80px);
+    -webkit-transform: scale(0.8) translateZ(-80px);
+    transform: scale(0.8) translateZ(-80px);
     opacity: 0;
   }
   100% {
     transform-origin: center center;
-    -webkit-transform: translate(6.6em, 6.05em) scale(0.8) translateZ(0);
-    transform: translate(6.6em, 6.05em) scale(0.8) translateZ(0);
+    -webkit-transform: scale(0.8) translateZ(0);
+    transform: scale(0.8) translateZ(0);
     opacity: 1;
     cursor: pointer;
   }
