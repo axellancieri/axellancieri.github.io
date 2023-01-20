@@ -186,17 +186,17 @@
         };
     };
     &-text {
-        transform: translate(6.6em, 6.05em) scale(0.8);
+        // transform: translate(6.6em, 6.05em) scale(0.8);
         fill: var(--scroll-text-color);
-        &-about-me {
-            transform: translate(6.6em, 6.05em) scale(0.8);
-        }
+        // &-about-me {
+        //     transform: translate(6.6em, 6.05em) scale(0.8);
+        // }
         &-projects {
-            transform: translate(7.3em, 14.8em) scale(0.9);
+            // transform: translate(7.3em, 14.8em) scale(0.9);
         --scroll-text-color: #584D8C;
         }
-        &-get-in-touch {
-            transform: translate(9.1em, 28.5em);
-        }
+        // &-get-in-touch {
+        //     transform: translate(9.1em, 28.5em);
+        // }
     }
 };
