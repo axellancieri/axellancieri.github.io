@@ -186,6 +186,7 @@
         };
     };
     &-text {
+        transform: translate(6.6em, 6.05em) scale(0.8);
         fill: var(--scroll-text-color);
         &-about-me {
             transform: translate(6.6em, 6.05em) scale(0.8);

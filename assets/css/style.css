@@ -7555,6 +7555,7 @@ ul {
   opacity: 0;
 }
 .pillar-text {
+  transform: translate(6.6em, 6.05em) scale(0.8);
   fill: var(--scroll-text-color);
 }
 .pillar-text-about-me {
