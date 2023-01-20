@@ -7557,8 +7557,15 @@ ul {
 .pillar-text {
   fill: var(--scroll-text-color);
 }
+.pillar-text-about-me {
+  transform: translate(6.6em, 6.05em) scale(0.8);
+}
 .pillar-text-projects {
+  transform: translate(7.3em, 14.8em) scale(0.9);
   --scroll-text-color: #584D8C;
+}
+.pillar-text-get-in-touch {
+  transform: translate(9.1em, 28.5em);
 }
 
 .footer-soil {
