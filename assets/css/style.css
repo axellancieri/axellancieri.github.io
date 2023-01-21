@@ -9255,6 +9255,39 @@ ul {
 .pages-bg {
   background-color: var(--bg-color-cards);
 }
+.pages-footer {
+  font-family: "Martel", serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--projects-text-color);
+}
+.pages-home:hover, .pages-home:active, .pages-home:target {
+  color: white;
+}
+
+.top {
+  position: relative;
+}
+.top:hover, .top:active, .top:target {
+  color: white;
+}
+.top::before {
+  position: absolute;
+  left: 2em;
+  bottom: 0.5em;
+  border-radius: 3em;
+  padding: 0.1em 0.5em;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f062";
+  cursor: pointer;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  background-color: #8f7f6d;
+}
 
 .bg-svg {
   position: relative;
@@ -9462,12 +9495,6 @@ ul {
   transition-duration: 1s;
   transition-timing-function: linear;
 }
-.projects-footer {
-  font-family: "Martel", serif;
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: var(--projects-text-color);
-}
 
 .card {
   margin-top: 2em;
@@ -9490,34 +9517,6 @@ ul {
   background-color: transparent;
 }
 .svg-img-projects:hover ~ .card-text, .svg-img-projects:active ~ .card-text {
-  color: white;
-}
-
-.top {
-  position: relative;
-}
-.top:hover, .top:active, .top:target {
-  color: white;
-}
-.top::before {
-  position: absolute;
-  left: 2em;
-  bottom: 0.5em;
-  border-radius: 3em;
-  padding: 0.1em 0.5em;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: "\f062";
-  cursor: pointer;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  background-color: #8f7f6d;
-}
-
-.projects-home:hover, .projects-home:active, .projects-home:target {
   color: white;
 }
 

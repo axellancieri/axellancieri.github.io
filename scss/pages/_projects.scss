@@ -70,12 +70,6 @@
     transition-duration: 1s;
     transition-timing-function: linear;
     };
-    &-footer {
-        font-family: "Martel", serif;
-        font-weight: bold;
-        font-size: 0.9rem;
-        color: var(--projects-text-color);
-    };
 }
 .card {
     margin-top: 2em;
@@ -99,38 +93,6 @@
                 color: white;
             }
         }
-};
-.top {
-    position: relative;
-    &:hover,
-    &:active,
-    &:target {
-        color: white;
-    }
-    &::before {
-        position: absolute;
-        left: 2em;
-        bottom: 0.5em;
-        border-radius: 3em;
-        padding: .1em .5em;
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f062";
-        cursor: pointer;
-        display: inline-block;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        background-color: #8f7f6d;
-    };
-};
-.projects-home {
-    &:hover,
-    &:active,
-    &:target {
-        color: white;
-    };
 };
 .accordion-button::after {
     mix-blend-mode: luminosity;
