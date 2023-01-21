@@ -23,6 +23,10 @@
         background-blend-mode: luminosity;
         background-color: #5f5141;
         transition: background-color 1s linear;
+        @include media-breakpoint-up(sm) {
+            background-size: contain;
+            height: 15em;
+            };
         &:hover,
         &:target,
         &:focus,

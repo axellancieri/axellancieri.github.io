@@ -7290,6 +7290,17 @@ ul {
   padding-right: 0;
 }
 
+h5 {
+  font-family: "Cormorant", serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+@media (min-width: 576px) {
+  h5 {
+    font-size: 2rem;
+  }
+}
+
 :root {
   --navBar-home: #a6a66d;
   --navBar-pages: #594C3D;
@@ -9518,6 +9529,12 @@ ul {
   background-blend-mode: luminosity;
   background-color: #5f5141;
   transition: background-color 1s linear;
+}
+@media (min-width: 576px) {
+  .projects-p {
+    background-size: contain;
+    height: 15em;
+  }
 }
 .projects-p:hover, .projects-p:target, .projects-p:focus, .projects-p:active {
   background-color: transparent;
