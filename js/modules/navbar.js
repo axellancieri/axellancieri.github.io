@@ -58,3 +58,14 @@ function navChangePage(class1, class2, pageToGo) {
         navButton.addEventListener('click', navDropDownClick);
     });
 };
+
+/*Site reload*/
+
+if (document.addEventListener) {
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted || performance.getEntriesByType("navigation")[0].type === 'back_forward') {
+            location.reload();  
+        }
+    },
+    false);
+  }
