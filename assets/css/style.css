@@ -7382,7 +7382,7 @@ h5 {
 }
 @media (min-width: 576px) {
   .navbar-content h5 {
-    margin-inline: 6em;
+    margin-inline: 4em;
   }
 }
 .navbar-content h5:hover {
@@ -7660,7 +7660,7 @@ h5 {
   display: block;
   position: absolute;
   bottom: 3.4em;
-  left: 1em;
+  left: 8.3333333333vw;
   font-size: 0.8rem;
   transform: scale(0);
   transition: transform 0.2s linear 0.2s;
@@ -7676,7 +7676,19 @@ h5 {
 @media (min-width: 576px) {
   .email {
     bottom: 5.3em;
-    left: 5.7em;
+    left: 14.2857142857vw;
+  }
+}
+@media (min-width: 768px) {
+  .email {
+    bottom: 5.3em;
+    left: 15.3846153846vw;
+  }
+}
+@media (min-width: 992px) {
+  .email {
+    bottom: 5.3em;
+    left: 14.7058823529vw;
   }
 }
 .email:hover, .email:focus, .email:target, .email:active {

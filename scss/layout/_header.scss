@@ -68,7 +68,7 @@
             transition: background-color .2s linear;
             margin-inline: 2em;
             @include media-breakpoint-up(sm) {
-                margin-inline: 6em;
+                margin-inline: 4em;
             };
             &:hover {
                 background-color: #594c3d;

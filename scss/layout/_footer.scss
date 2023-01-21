@@ -66,7 +66,7 @@
     display: block;
     position: absolute;
     bottom: 3.4em;
-    left: 1em;
+    left: calc(100vw / 12);
     font-size: .8rem;
     transform: scale(0);
     transition: transform .2s linear .2s;
@@ -80,7 +80,15 @@
     border-bottom-right-radius: 3em;
     @include media-breakpoint-up(sm) {
     bottom: 5.3em;
-    left: 5.7em;
+    left: calc(100vw / 7);
+    };
+    @include media-breakpoint-up(md) {
+        bottom: 5.3em;
+        left: calc(100vw / 6.5);
+    };
+    @include media-breakpoint-up(lg) {
+        bottom: 5.3em;
+        left: calc(100vw / 6.8);
     };
     &:hover,
     &:focus,
