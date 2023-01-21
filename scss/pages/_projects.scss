@@ -35,31 +35,31 @@
             };
         };
         &-1 {
-            background-image: url("../../img-projects/p1-img-phone.png");
+            background-image: url("../../img-and-cv/p1-img-phone.png");
         };
         &-2 {
-            background-image: url("../../img-projects/p2-img-phone.png");
+            background-image: url("../../img-and-cv/p2-img-phone.png");
         };
         &-3 {
-            background-image: url("../../img-projects/p3-img-phone.png");
+            background-image: url("../../img-and-cv/p3-img-phone.png");
         };
         &-4 {
-            background-image: url("../../img-projects/p4-img-phone.png");
+            background-image: url("../../img-and-cv/p4-img-phone.png");
         };
         &-5 {
-            background-image: url("../../img-projects/p5-img-phone.png");
+            background-image: url("../../img-and-cv/p5-img-phone.png");
         };
         &-6 {
-            background-image: url("../../img-projects/p6-img-phone.png");
+            background-image: url("../../img-and-cv/p6-img-phone.png");
         };
         &-7 {
-            background-image: url("../../img-projects/p7-img-phone.png");
+            background-image: url("../../img-and-cv/p7-img-phone.png");
         };
         &-8 {
-            background-image: url("../../img-projects/p8-img-phone.png");
+            background-image: url("../../img-and-cv/p8-img-phone.png");
         };
         &-9 {
-            background-image: url("../../img-projects/p9-img-phone.png");
+            background-image: url("../../img-and-cv/p9-img-phone.png");
         };
     };
     &-card-title {
@@ -69,12 +69,6 @@
     transition-property: background-color, border-color, color;
     transition-duration: 1s;
     transition-timing-function: linear;
-    };
-    &-footer {
-        font-family: "Martel", serif;
-        font-weight: bold;
-        font-size: 0.9rem;
-        color: var(--projects-text-color);
     };
 }
 .card {
@@ -99,38 +93,6 @@
                 color: white;
             }
         }
-};
-.top {
-    position: relative;
-    &:hover,
-    &:active,
-    &:target {
-        color: white;
-    }
-    &::before {
-        position: absolute;
-        left: 2em;
-        bottom: 0.5em;
-        border-radius: 3em;
-        padding: .1em .5em;
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f062";
-        cursor: pointer;
-        display: inline-block;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        background-color: #8f7f6d;
-    };
-};
-.projects-home {
-    &:hover,
-    &:active,
-    &:target {
-        color: white;
-    };
 };
 .accordion-button::after {
     mix-blend-mode: luminosity;

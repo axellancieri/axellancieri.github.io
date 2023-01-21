@@ -1,7 +1,7 @@
 import {navButton, navBar, navDropDownClick} from '/js/modules/navbar.js';
 import {emailCopied} from '/js/modules/emailCopy.js';
 
-const main = document.querySelector('.get-in-touch-card');
+const main = document.querySelector('.get-in-touch-card').nextElementSibling;
 const myEmail = main.querySelector('.get-in-touch-email');
 const cvText = main.querySelector('.get-in-touch-cv');
 const cvIcon = main.querySelector('object');
