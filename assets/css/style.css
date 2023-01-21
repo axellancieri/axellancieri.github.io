@@ -7555,6 +7555,7 @@ ul {
   opacity: 0;
 }
 .pillar-text {
+  transform-origin: center center;
   fill: var(--scroll-text-color);
 }
 .pillar-text-projects {
