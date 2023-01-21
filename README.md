@@ -56,19 +56,17 @@ In this project I faced many challenges, however the one that nearly drove me up
 It wasn't behaving as intended no matter the approach or the various things I tried, nonetheless, my googling skills came in handy and I managed to find an example that helped me to modify my code in just the right way to make things work.
 I made sure to leave a comment to that link on the CSS just as a gesture of my appreciation.
 
-p4
+p4 gela
 
-- intro
-
-This project is really cool, but it doesn't honor how big the course leading to it is, the amount of topics and knowledge that is taught is a codechanger or at least it was for me. Being able to understand the terminal, use a pre-processor such as Sass and learning how to operate git through the command line made a clear before and after effect on me about how I feel and I understand code as a programmer.
-
-- goals
-
-The goal is to utilize Sass to make a site given to us more efficient and easier to read, making usage of Sass imports to store pre-compiled css on different folders and subfolders keeping everything organized. Then using maps, &, @for, @each, @extends and @mixins where we see fit to optimize the current css.
-
-- challenges 
-
-Using or attempting to use every funcitonality Sass has to offer really helped bring down to earth everything taught. I recall specifically on the 'buttons.scss' file there were a set of buttons that I wanted to get a subtle light color change when hovered. And I knew there was a way to do it with a sass property that I eventually figured it's the 'lighten' property. However being inside an @each function complicated things and being able to finally making it work, even if it's not the most 'complex' Sass function or tool I used on this project definitely felt the most rewarding.
+-intro P4
+This project was really captivating for me, however it doesn't do justice to how substantial the course leading up to it was, the amount of topics and the extent of knowledge I was taught was definitely a before and after in the way I code nowadays. 
+Learned things such as being able to understand the terminal, to operate Git through the command line and to use a pre-processor like Sass.
+-goals
+The goal was to improve a site that was provided to me, utilizing Sass and managing to make it more effective and easier to read, making use of Sass imports to store pre-compiled CSS on various folders and subfolders, keeping everything organized.
+Also using maps, &, @for, @each, @extends and @mixins where i saw fit to optimize the current CSS.
+-challenges
+Since I had the opportunity on this project I decided to use all the functionalities that Sass has to offer, this way I was able to solidify my knowledge about the pre-processor.
+I specifically recall in the “buttons.scss” file there were a set of buttons and I wanted them to have a subtle color change when hovering over. I knew there was a specific property in order to do it, eventually I figured out it was the “lighten” property, however since it was nested within an @each function I found it more complex to achieve the result. Despite it not being the most difficult Sass function, once I got the outcome I expected, it was extremely rewarding.
 
 p5
 
