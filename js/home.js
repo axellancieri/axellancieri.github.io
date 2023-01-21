@@ -87,15 +87,16 @@ function bannerIn(callback, callback1) {
 
               element.classList.contains('pillar-scroll-get-in-touch') ? 
                   element.classList.add('pillar-scroll-get-in-touch-animation') : 
-                  console.log(`${index} was not found`);
 
-              if (element.classList.contains('pillar-text-about-me')) {
-                element.style.setProperty('--text-about-me-in', 'text-about-me-in');
-              } else if (element.classList.contains('pillar-text-projects')) {
-                element.style.setProperty('--text-projects-in', 'text-projects-in');
-              } else if (element.classList.contains('pillar-text-get-in-touch')) {
-                element.style.setProperty('--text-get-in-touch-in', 'text-get-in-touch-in');
-              };                  
+              element.classList.contains('pillar-text-about-me') ?
+                element.style.setProperty('--text-about-me-in', 'text-about-me-in') :
+
+              element.classList.contains('pillar-text-projects') ?
+                element.style.setProperty('--text-projects-in', 'text-projects-in') :
+                
+              element.classList.contains('pillar-text-get-in-touch') ?
+                element.style.setProperty('--text-get-in-touch-in', 'text-get-in-touch-in') :    
+              console.log(`${index} was not found`);          
       });
       callback(callback1);
 };
@@ -123,10 +124,7 @@ onPageLoad();
 
 function hoverStateListeners(callback) {
   const scrollsFirstAnimation = bannerAll.find(element => element.classList.contains('pillar-text-about-me'));
-  // scrollsSecondAnimation = bannerAll.find(element => element.classList.contains('pillar-text-projects'));
   scrollsFirstAnimation.addEventListener('animationend', () => {
-
-      //might wanna think if I really need to use an object here once finish
 
           scrollsAll.scrollAboutMe = bannerAll.filter(element => element.matches('.pillar-text-about-me, .pillar-scroll-about-me'));
           scrollsAll.scrollGetInTouch = bannerAll.filter(element => element.matches('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch'));  

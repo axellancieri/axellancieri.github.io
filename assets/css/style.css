@@ -9085,8 +9085,6 @@ ul {
     -webkit-filter: blur(0px);
     filter: blur(0px);
     opacity: 1;
-    x: 4.55em;
-    y: 7.7em;
   }
   50%, 100% {
     transform-origin: center center;
@@ -9094,8 +9092,6 @@ ul {
     -webkit-filter: blur(4px);
     filter: blur(4px);
     opacity: 0;
-    x: 4.55em;
-    y: 7.7em;
   }
 }
 @keyframes text-after-right-projects {
