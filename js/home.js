@@ -208,7 +208,7 @@ function scrollClickInteraction(scrollName, var1, var2, target) {
           bgColor.getAnimations()
       .map((animation) => animation.finished))
       .then(() => {
-          window.location.assign(`http://127.0.0.1:5500/${target}.html`)})
+          window.location.assign(`https://axellancieri.github.io/${target}`)})
       .catch(error => console.log(`problem taking you to about page, ${error}`)); 
 };
 
