@@ -51,8 +51,8 @@ function navChangePage(class1, class2, pageToGo) {
         navWindow.getAnimations()
     .map((animation) => animation.finished))
     .then(() => {
-        window.location.assign(`https://axellancieri.github.io/${pageToGo}`);
-        navButton.addEventListener('click', navDropDownClick);}) // https://azpers.github.io/
+        window.location.assign(`http://127.0.0.1:5500/index.html/${pageToGo}.html`);
+        navButton.addEventListener('click', navDropDownClick);}) // https://axellancieri.github.io/
     .catch(() => {
         error => console.log(`problem taking you to about page, ${error}`)
         navButton.addEventListener('click', navDropDownClick);
