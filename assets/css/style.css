@@ -7278,10 +7278,6 @@ progress {
 .pillar-text {
   font-family: "Cormorant", serif;
   font-weight: bold;
-  font-size: 0.6rem;
-}
-
-#get-in-touch-font {
   font-size: 0.5rem;
 }
 
@@ -8892,14 +8888,14 @@ ul {
 @keyframes text-about-me-in {
   0% {
     transform-origin: center center;
-    -webkit-transform: scale(0.8) translateZ(-80px);
-    transform: scale(0.8) translateZ(-80px);
+    -webkit-transform: translateZ(-80px);
+    transform: translateZ(-80px);
     opacity: 0;
   }
   100% {
     transform-origin: center center;
-    -webkit-transform: scale(0.8) translateZ(0);
-    transform: scale(0.8) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     opacity: 1;
     cursor: pointer;
   }
@@ -8907,14 +8903,14 @@ ul {
 @keyframes text-projects-in {
   0% {
     transform-origin: center center;
-    -webkit-transform: scale(0.9) translateZ(-80px);
-    transform: scale(0.9) translateZ(-80px);
+    -webkit-transform: translateZ(-80px);
+    transform: translateZ(-80px);
     opacity: 0;
   }
   100% {
     transform-origin: center center;
-    -webkit-transform: scale(0.9) translateZ(0);
-    transform: scale(0.9) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     opacity: 1;
     cursor: pointer;
   }
@@ -9015,13 +9011,13 @@ ul {
 @keyframes flip-right-text-about-me {
   0% {
     transform-origin: center center;
-    -webkit-transform: translate(6.6em, 6.05em) scale(0.8) translateZ(0);
-    transform: translate(6.6em, 6.05em) scale(0.8) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
   100% {
     transform-origin: center center;
-    -webkit-transform: translate(6.6em, 6.05em) scale(0.8) translateZ(0);
-    transform: translate(6.6em, 6.05em) scale(0.8) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     visibility: visible;
     cursor: default;
   }
@@ -9029,13 +9025,13 @@ ul {
 @keyframes flip-right-text-projects {
   0% {
     transform-origin: center center;
-    -webkit-transform: translate(7.3em, 14.8em) scale(0.9) translateZ(0);
-    transform: translate(7.3em, 14.8em) scale(0.9) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
   100% {
     transform-origin: center center;
-    -webkit-transform: translate(7.3em, 14.8em) scale(0.9) translateZ(0);
-    transform: translate(7.3em, 14.8em) scale(0.9) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     visibility: visible;
     cursor: default;
   }
@@ -9043,13 +9039,13 @@ ul {
 @keyframes flip-right-text-get-in-touch {
   0% {
     transform-origin: center center;
-    -webkit-transform: translate(9.1em, 28.5em) translateZ(0);
-    transform: translate(9.1em, 28.5em) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
   100% {
     transform-origin: center center;
-    -webkit-transform: translate(9.1em, 28.5em) translateZ(0);
-    transform: translate(9.1em, 28.5em) translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
     visibility: visible;
     cursor: default;
   }
