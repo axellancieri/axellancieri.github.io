@@ -24,18 +24,17 @@ const scrollsAll = [
     // scrolls once loaded will go here
 ];
 
-/*Site reload
+/*Site reload*/
 
 if (document.addEventListener) {
-  window.addEventListener('pageshow', function (event) {
-      if (event.persisted || performance.getEntriesByType("navigation")[0].type === 'back_forward') {
-          // location.reload();
-          
+  window.addEventListener('pageshow', (e) => {
+      if (e.persisted || performance.getEntriesByType("navigation")[0].type === 'back_forward') {
+          location.reload();  
       }
   },
   false);
 }
-*/
+
 /* NAV BAR */
 
 navButton.addEventListener('click', navDropDownClick); 
