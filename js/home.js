@@ -87,16 +87,15 @@ function bannerIn(callback, callback1) {
 
               element.classList.contains('pillar-scroll-get-in-touch') ? 
                   element.classList.add('pillar-scroll-get-in-touch-animation') : 
-
-              element.classList.contains('pillar-text') && element.innerHTML.includes('ABOUT') ? 
-               element.classList.add('pillar-text-about-me') : 
-
-              element.classList.contains('pillar-text') && element.innerHTML.includes('PROJECTS') ? 
-                element.classList.add('pillar-text-projects') : 
-
-              element.classList.contains('pillar-text') && element.innerHTML.includes('GET') ? 
-                element.classList.add('pillar-text-get-in-touch') : 
                   console.log(`${index} was not found`);
+
+              if (element.classList.contains('pillar-text-about-me')) {
+                element.style.setProperty('--text-about-me-in', 'text-about-me-in');
+              } else if (element.classList.contains('pillar-text-projects')) {
+                element.style.setProperty('--text-projects-in', 'text-projects-in');
+              } else if (element.classList.contains('pillar-text-get-in-touch')) {
+                element.style.setProperty('--text-get-in-touch-in', 'text-get-in-touch-in');
+              };                  
       });
       callback(callback1);
 };
