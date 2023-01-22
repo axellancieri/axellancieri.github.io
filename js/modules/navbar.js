@@ -9,13 +9,13 @@ export function navDropDownClick(e) {
     if (e.target.closest('button').getAttribute('aria-expanded') === 'true') {
         navButton.removeEventListener('click', navDropDownClick);
             Promise.all(
-                navBarDropdown .getAnimations()
+                navBarDropdown.getAnimations()
             .map((animation) => animation.finished))
             .then(() => {
-                navBarDropdown.addEventListener('click', navDropdownClose)})
+                document.addEventListener('click', navDropdownClose)})
             .catch(error => {
                 console.log(`problem with nav dropdown, ${error}`);
-                navBarDropdown.addEventListener('click', navDropdownClose);
+                document.addEventListener('click', navDropdownClose);
             });
         return (console.log('passing through'));
     } else if (e.target.closest('button').getAttribute('aria-expanded') === 'false') {
@@ -30,7 +30,7 @@ function navDropdownClose(e) {
         text.includes('Get in') ? navChangePage('navbar-home', 'navbar-pages', 'get-in-touch') :
         text.includes('Home') ? navChangePage('navbar-pages', 'bg-color-home', 'index') : console.log('goto closing');
     } else if (e.target.closest(":not(h5)")) {
-        navBarDropdown.removeEventListener('click', navDropdownClose);
+        document.removeEventListener('click', navDropdownClose);
         console.log('closing');
         navButton.click();
         navButton.addEventListener('click', navDropDownClick); 
@@ -48,7 +48,7 @@ function navChangePage(class1, class2, pageToGo) {
      navWindow.classList.replace(class1, class2) :
       console.log('no need for bg change animation');
     Promise.all(
-        navWindow.getAnimations()
+        navBarDropdown.getAnimations()
     .map((animation) => animation.finished))
     .then(() => {
         window.location.assign(`http://127.0.0.1:5500/${pageToGo}.html`);

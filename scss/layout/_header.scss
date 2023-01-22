@@ -94,12 +94,6 @@
             mix-blend-mode: color-dodge;
             transition: background-color .2s linear;
             margin-inline: 0em;
-            // @include media-breakpoint-up(sm) {
-            //     margin-inline: 0em;
-            // };
-            // @include media-breakpoint-up(md) {
-            //     margin-inline: 0em;
-            // };
             @include media-breakpoint-up(md) {
                 margin-block: 0.1em;
             };
