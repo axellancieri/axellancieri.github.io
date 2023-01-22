@@ -35,6 +35,10 @@
 
 //my changes to bs css variables
 
+.navbar-expand-md {
+    // flex-wrap: wrap;
+    display: block;
+}
 .list-group {
     --bs-list-group-bg: transparent;
     --bs-list-group-border-color: transparent;

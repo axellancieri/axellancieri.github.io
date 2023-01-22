@@ -2,8 +2,8 @@
 
 export const navBar = document.querySelector('nav');
 export const navButton = navBar.querySelector('button');
-const navBarDropdown = document.querySelector('.navbar-dropdown');
-const navWindow = navBar.nextElementSibling.querySelector('.navbar-content');
+const navBarDropdown = navBar.querySelector('.navbar-dropdown');
+const navWindow = navBar.querySelector('.navbar-content');
 
 export function navDropDownClick(e) {
     if (e.target.closest('button').getAttribute('aria-expanded') === 'true') {
