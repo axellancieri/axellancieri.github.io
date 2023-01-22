@@ -7270,6 +7270,13 @@ progress {
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2em rgba(255, 250, 245, 0.25);
 }
 
+.navbar a {
+  --bs-link-color: #FFFAF5;
+}
+.navbar a:hover {
+  --bs-link-hover-color: white;
+}
+
 .position {
   font-family: "Kadwa", serif;
   font-weight: bold;
@@ -7428,6 +7435,9 @@ h5 {
 }
 .navbar-content h5:hover {
   background-color: #594c3d;
+}
+.navbar-content a {
+  transition: color 0.7s linear;
 }
 
 .border-style {

@@ -6,21 +6,26 @@ const navBarDropdown = navBar.querySelector('.navbar-dropdown');
 const navWindow = navBar.querySelector('.navbar-content');
 
 export function navDropDownClick(e) {
-    if (e.target.closest('button').getAttribute('aria-expanded') === 'true') {
-        navButton.removeEventListener('click', navDropDownClick);
-            Promise.all(
-                navBarDropdown.getAnimations()
-            .map((animation) => animation.finished))
-            .then(() => {
-                document.addEventListener('click', navDropdownClose)})
-            .catch(error => {
-                console.log(`problem with nav dropdown, ${error}`);
-                document.addEventListener('click', navDropdownClose);
-            });
-        return (console.log('passing through'));
-    } else if (e.target.closest('button').getAttribute('aria-expanded') === 'false') {
-            console.log('closing dropdown');
-    };
+    try {
+        if (e.target.matches("h5") || e.target.matches("a") || e.target.closest('button').getAttribute('aria-expanded') === 'true') {
+            navBar.removeEventListener('click', navDropDownClick);
+                Promise.all(
+                    navBarDropdown.getAnimations()
+                .map((animation) => animation.finished))
+                .then(() => {
+                    document.addEventListener('click', navDropdownClose)})
+                .catch(error => {
+                    console.log(`problem with nav dropdown, ${error}`);
+                    document.addEventListener('click', navDropdownClose);
+                });
+            return (console.log('passing through'));
+        } else if (e.target.closest('button').getAttribute('aria-expanded') === 'false') {
+                console.log('closing dropdown');
+        };
+    }
+    catch {
+        console.log(e.target);
+    }
 };
 function navDropdownClose(e) {
     if (e.target.closest("h5")) {
@@ -33,15 +38,16 @@ function navDropdownClose(e) {
         document.removeEventListener('click', navDropdownClose);
         console.log('closing');
         navButton.click();
-        navButton.addEventListener('click', navDropDownClick); 
+        navBar.addEventListener('click', navDropDownClick); 
     };
 }; 
 
 function navChangePage(class1, class2, pageToGo) {
     document.removeEventListener('click', navDropdownClose);
     navWindow.querySelectorAll('h5').forEach(element => {
-        element.style.setProperty('border-color', 'transparent')
-        element.style.setProperty('background-color', 'transparent')
+        element.style.setProperty('border-color', 'transparent');
+        element.style.setProperty('background-color', 'transparent');
+        element.querySelector('a').style.setProperty('--bs-link-color', 'transparent');
     });
     navWindow.style.setProperty('color', 'transparent');
     navWindow.classList.contains(class1) ?
@@ -52,10 +58,10 @@ function navChangePage(class1, class2, pageToGo) {
     .map((animation) => animation.finished))
     .then(() => {
         window.location.assign(`http://127.0.0.1:5500/${pageToGo}.html`);
-        navButton.addEventListener('click', navDropDownClick);}) // https://axellancieri.github.io/
+        navBar.addEventListener('click', navDropDownClick);}) // https://axellancieri.github.io/
     .catch(() => {
         error => console.log(`problem taking you to about page, ${error}`)
-        navButton.addEventListener('click', navDropDownClick);
+        navBar.addEventListener('click', navDropDownClick);
     });
 };
 

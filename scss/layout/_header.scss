@@ -101,6 +101,9 @@
                 background-color: #594c3d;
             };
         };
+        a {
+            transition: color .7s linear;
+        }
     };
 };
 .border-style {
