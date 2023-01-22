@@ -83,8 +83,23 @@
         font-size: 0.9rem;
         mix-blend-mode: difference;
         color: dimgray;
-      };
+        overflow-y: scroll;
+        height: 8em;
+        scrollbar-color: dimgray black;
+        scrollbar-width: thin;
+        &::-webkit-scrollbar {
+            appearance: none;
+            width: 7px;
+        };
+        &::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: dimgray;
+            -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        };        
+        
+    };
 };
+
 .svg-img-projects {
         background-color: var(--bg-color-pages);
         background-blend-mode: luminosity;

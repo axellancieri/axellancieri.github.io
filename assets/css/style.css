@@ -7272,9 +7272,17 @@ progress {
 
 .navbar a {
   --bs-link-color: #FFFAF5;
+  text-decoration: none;
 }
 .navbar a:hover {
   --bs-link-hover-color: white;
+}
+
+@media (min-width: 768px) {
+  .mx-md-5 {
+    margin-right: 6em !important;
+    margin-left: 6em !important;
+  }
 }
 
 .position {
@@ -9652,6 +9660,19 @@ h5 {
   font-size: 0.9rem;
   mix-blend-mode: difference;
   color: dimgray;
+  overflow-y: scroll;
+  height: 8em;
+  scrollbar-color: dimgray black;
+  scrollbar-width: thin;
+}
+.card-text::-webkit-scrollbar {
+  appearance: none;
+  width: 7px;
+}
+.card-text::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: dimgray;
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .svg-img-projects {

@@ -71,7 +71,14 @@
 };
 .navbar a {
     --bs-link-color: #FFFAF5;
+    text-decoration: none;
     &:hover {
         --bs-link-hover-color: white;
-    }
-}
+    };
+};
+.mx-md-5 {
+    @include media-breakpoint-up(md) {
+    margin-right: 6em !important;
+    margin-left: 6em !important;
+        };
+};
