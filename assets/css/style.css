@@ -7762,14 +7762,17 @@ h5 {
 }
 @media (min-width: 768px) {
   .email {
-    bottom: 5.3em;
     left: 15.3846153846vw;
   }
 }
 @media (min-width: 992px) {
   .email {
-    bottom: 5.3em;
     left: 14.7058823529vw;
+  }
+}
+@media (min-width: 992px) {
+  .email {
+    left: 14em;
   }
 }
 .email:hover, .email:focus, .email:target, .email:active {
