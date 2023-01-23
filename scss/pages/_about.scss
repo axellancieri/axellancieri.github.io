@@ -24,6 +24,11 @@ $icon-html:(
         + .about-me-card {
             margin-block: 3em;
         };
+        div {
+            @include media-breakpoint-up(sm) {
+                flex-basis: 10%;
+                }
+        }
     };
     &-icon-svg {
         path,

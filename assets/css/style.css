@@ -7285,6 +7285,11 @@ progress {
   }
 }
 
+.mx-lg-8 {
+  margin-right: 10em !important;
+  margin-left: 10em !important;
+}
+
 .position {
   font-family: "Kadwa", serif;
   font-weight: bold;
@@ -9485,6 +9490,11 @@ h5 {
 
 .about-me-card + .about-me-card {
   margin-block: 3em;
+}
+@media (min-width: 576px) {
+  .about-me-card div {
+    flex-basis: 10%;
+  }
 }
 .about-me-icon-svg {
   fill: #D9D3A3;
