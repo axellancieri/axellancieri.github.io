@@ -83,12 +83,16 @@
     left: calc(100vw / 7);
     };
     @include media-breakpoint-up(md) {
-        bottom: 5.3em;
-        left: calc(100vw / 6.5);
+        
+    left: calc(100vw / 6.5);
     };
     @include media-breakpoint-up(lg) {
-        bottom: 5.3em;
-        left: calc(100vw / 6.8);
+        
+    left: calc(100vw / 6.8);
+    };
+    @include media-breakpoint-up(lg) {
+    
+    left: 14em;
     };
     &:hover,
     &:focus,
