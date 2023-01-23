@@ -83,8 +83,10 @@
         };
 };
 .mx-lg-8 {
-    margin-right: 10em !important;
-    margin-left: 10em !important;
+    @include media-breakpoint-up(lg) {
+        margin-right: 10em !important;
+        margin-left: 10em !important;
+        };
 }
 nav .row {
     --bs-gutter-x: 0;

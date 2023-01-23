@@ -7285,9 +7285,11 @@ progress {
   }
 }
 
-.mx-lg-8 {
-  margin-right: 10em !important;
-  margin-left: 10em !important;
+@media (min-width: 992px) {
+  .mx-lg-8 {
+    margin-right: 10em !important;
+    margin-left: 10em !important;
+  }
 }
 
 nav .row {
