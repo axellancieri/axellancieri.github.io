@@ -8,8 +8,11 @@
     padding-top: 1em;
     padding-bottom: 0;
     z-index: 110;
-    &-dropdown div {
-        border-radius: 1em;
+    @include media-breakpoint-up(md) {
+        padding-top: 0;
+        margin-top: 0;
+        margin-right: 0;
+        transform: scale(1);
     };
     &-home {
         background-color: var(--navBar-home);
@@ -21,13 +24,29 @@
         border: 1px solid #b7b0a9;
         transition: background-color 1s linear;
     };
+    &-toggler {
+        @include media-breakpoint-up(sm) {
+            transform: scale(1.5);
+            margin-top: .8em;
+            margin-right: 1.8em;
+        };
+    }
     &-dropdown {
         position: absolute;
         right: 0;
         top: 0;
-        // bottom: 0;
         left: 0;
         z-index: 300;
+        div {
+            border-radius: 1em;
+        };
+        @include media-breakpoint-up(md) {
+            position: relative;
+            right: unset;
+            top: unset;
+            left: unset;
+            z-index: 300;
+        };
     };
     &-content {
         color: white;
@@ -43,22 +62,48 @@
             font-size: 2.5em;
             content: "\f410";
             cursor: pointer;
-        }
+            @include media-breakpoint-up(sm) {
+                top: 0em;
+                right: 0.6em;
+                font-size: 3.5em;
+            };
+            @include media-breakpoint-up(md) {
+                display: none;
+            };
+        };
         h5:first-child {
-            margin-top: 3em; //15
+            margin-top: 3em;
+            @include media-breakpoint-up(sm) {
+                margin-top: 3em;
+            };
+            @include media-breakpoint-up(md) {
+                margin-top: 0;
+            };
         };
         h5 + h5 {
             margin-top: 4em;
+            @include media-breakpoint-up(sm) {
+                margin-top: 2em;
+            };
+            @include media-breakpoint-up(md) {
+                margin-top: 0;
+            };
         };
         h5 {
             background-color: transparent;
             mix-blend-mode: color-dodge;
             transition: background-color .2s linear;
-            margin-inline: 2em;
+            margin-inline: 0em;
+            @include media-breakpoint-up(md) {
+                margin-block: 0.1em;
+            };
             &:hover {
                 background-color: #594c3d;
             };
         };
+        a {
+            transition: color .7s linear;
+        }
     };
 };
 .border-style {

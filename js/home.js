@@ -1,10 +1,8 @@
-import {navButton, navBar, navDropDownClick} from '/js/modules/navbar.js';
+import {navBar, navDropDownClick} from '/js/modules/navbar.js';
 import {emailCopied} from '/js/modules/emailCopy.js';
 /* Variables */
 
 const bgColor = document.querySelector('.bg-color');
-const gotMain = document.querySelector('main');
-// const getAll = document.querySelectorAll('.tree');
 
 const treeSvg = document.querySelector('.tree');
 const textSvg = Array.from(treeSvg.querySelectorAll('.position'));
@@ -26,7 +24,7 @@ const scrollsAll = [
 
 /* NAV BAR */
 
-navButton.addEventListener('click', navDropDownClick); 
+navBar.addEventListener('click', navDropDownClick); 
 
 /* Tree Animation */
 
