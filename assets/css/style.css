@@ -7358,7 +7358,7 @@ h5 {
 }
 .navbar-pages {
   background-color: var(--navBar-pages);
-  border: 1px solid #b7b0a9;
+  border: 1px solid #FFFAF5;
   transition: background-color 1s linear;
 }
 @media (min-width: 576px) {
@@ -7377,6 +7377,11 @@ h5 {
 }
 .navbar-dropdown div {
   border-radius: 1em;
+}
+@media (min-width: 768px) {
+  .navbar-dropdown div {
+    border-radius: unset;
+  }
 }
 @media (min-width: 768px) {
   .navbar-dropdown {
@@ -7463,6 +7468,12 @@ h5 {
   border-bottom: 1px dashed white;
   border-top: 1px dashed white;
   transition: border-color 0.7s linear;
+}
+@media (min-width: 768px) {
+  .border-style {
+    border-bottom: unset;
+    border-top: unset;
+  }
 }
 
 :root {

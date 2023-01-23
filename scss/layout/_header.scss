@@ -21,7 +21,7 @@
     };
     &-pages {
         background-color: var(--navBar-pages);
-        border: 1px solid #b7b0a9;
+        border: 1px solid #FFFAF5;
         transition: background-color 1s linear;
     };
     &-toggler {
@@ -39,6 +39,9 @@
         z-index: 300;
         div {
             border-radius: 1em;
+            @include media-breakpoint-up(md) {
+                border-radius: unset;
+            };
         };
         @include media-breakpoint-up(md) {
             position: relative;
@@ -110,4 +113,8 @@
     border-bottom: 1px dashed white;
     border-top: 1px dashed white;
     transition: border-color .7s linear;
+    @include media-breakpoint-up(md) {
+        border-bottom: unset;
+        border-top: unset;
+    };
 };
