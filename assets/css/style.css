@@ -7290,6 +7290,10 @@ progress {
   margin-left: 10em !important;
 }
 
+nav .row {
+  --bs-gutter-x: 0;
+}
+
 .position {
   font-family: "Kadwa", serif;
   font-weight: bold;
