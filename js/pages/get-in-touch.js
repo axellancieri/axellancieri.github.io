@@ -15,7 +15,7 @@ navBar.addEventListener('click', navDropDownClick);
 
 main.addEventListener('click', (e) => {
     emailCopied(e, '.ff-mail-copy', myEmail, main);
-});
+})
 
 /* cv icon white color */
 
@@ -32,7 +32,7 @@ function loadSvg(e) {
     });
     cvText.addEventListener('mouseleave', () => {
         bringDocSvgPath.classList.remove('get-in-touch-cv-hovered');
-    })
-  };
+    });
+  }
 
   

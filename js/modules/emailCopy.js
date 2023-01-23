@@ -5,7 +5,6 @@ export function emailCopied(e, className, email, querySelect) {
       navigator.clipboard.writeText(email.textContent)
 
       .then(function() {
-              // runOnce();
               const successMsg = querySelect.querySelector(`${className}`);
               querySelect.removeEventListener('click', emailCopied);
               successMsg.style.setProperty('--email-success-icon-in', 'email-success-icon-in');
