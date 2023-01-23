@@ -12,8 +12,7 @@ export function navDropDownClick(e) {
                 Promise.all(
                     navBarDropdown.getAnimations()
                 .map((animation) => animation.finished))
-                .then(() => {
-                    document.addEventListener('click', navDropdownClose)})
+                .then(() => document.addEventListener('click', navDropdownClose))
                 .catch(error => {
                     console.log(`problem with nav dropdown, ${error}`);
                     document.addEventListener('click', navDropdownClose);
@@ -21,12 +20,12 @@ export function navDropDownClick(e) {
             return (console.log('passing through'));
         } else if (e.target.closest('button').getAttribute('aria-expanded') === 'false') {
                 console.log('closing dropdown');
-        };
+        }
     }
     catch {
         console.log(e.target);
     }
-};
+}   
 function navDropdownClose(e) {
     if (e.target.closest("h5")) {
         const text = e.target.innerHTML;
@@ -39,8 +38,8 @@ function navDropdownClose(e) {
         console.log('closing');
         navButton.click();
         navBar.addEventListener('click', navDropDownClick); 
-    };
-}; 
+    }
+}
 
 function navChangePage(class1, class2, pageToGo) {
     document.removeEventListener('click', navDropdownClose);
@@ -57,13 +56,13 @@ function navChangePage(class1, class2, pageToGo) {
         navBarDropdown.getAnimations()
     .map((animation) => animation.finished))
     .then(() => {
-        window.location.assign(`http://127.0.0.1:5500/${pageToGo}.html`);
-        navBar.addEventListener('click', navDropDownClick);}) // https://axellancieri.github.io/
+        window.location.assign(`https://axellancieri.github.io/${pageToGo}`);
+        navBar.addEventListener('click', navDropDownClick);})
     .catch(() => {
-        error => console.log(`problem taking you to about page, ${error}`)
+        error => console.log(`problem taking you to about page, ${error}`);
         navBar.addEventListener('click', navDropDownClick);
     });
-};
+}
 
 /*Site reload*/
 

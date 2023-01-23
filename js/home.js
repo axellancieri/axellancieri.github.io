@@ -37,13 +37,13 @@ function treeIn(callback) {
         });
     callback();
     });
-};
+}
 /* Pillar-banner animation */
 
 function pillarIn() {
   pillarRocks.classList.add('pillar-animation-in');
   footerSoil.classList.add('footer-soil-animation');
-};
+}
 
 function rocksAlign(callback, callback1, callback2) {
   pillarRocks.children[12].addEventListener('animationend', () => {
@@ -51,7 +51,7 @@ function rocksAlign(callback, callback1, callback2) {
       pillarRocks.classList.replace('pillar-animation-in', 'pillar-animation-align');
       callback(callback1, callback2);
   });
-};
+}
 
 function bannerIn(callback, callback1) {
           bannerAll.forEach((element, index) => {
@@ -85,7 +85,7 @@ function bannerIn(callback, callback1) {
               console.log(`${index} was not found`);          
       });
       callback(callback1);
-};
+}
 
 function pillarLeafsIn() {
   const scrollsLastAnimation = bannerAll.find(element => element.classList.contains('pillar-text-get-in-touch'));
@@ -95,10 +95,10 @@ function pillarLeafsIn() {
           element.getAttribute('class').includes('icon');
           if (element) {
               element.classList.add('icons-footer-in-animation');
-          };
+          }
       });
   });
-};
+}
 
 function onPageLoad() {
   treeIn(pillarIn),
@@ -124,7 +124,7 @@ function hoverStateListeners(callback) {
 
 function scrollsInteract(type) {
   pillar.addEventListener(type, addInteract);
-};
+}
 
 
 function addInteract(e) {
@@ -136,7 +136,7 @@ function addInteract(e) {
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-about-me, .pillar-scroll-about-me')) {
 
     scrollClickInteraction(scrollsAll.scrollAboutMe, '--about-me-back-in-animation', '--about-me-after-flip-grow', 'about-me');
-  };
+  }
   
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
 
@@ -145,7 +145,7 @@ function addInteract(e) {
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-projects, .pillar-scroll-projects')) {
 
     scrollClickInteraction(scrollsAll.scrollProjects, '--projects-back-in-animation', '--projects-after-flip-grow', 'projects');
-  };
+  }
   
   if (e.type === 'mouseover' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
 
@@ -154,8 +154,8 @@ function addInteract(e) {
   } else if (e.type === 'mousedown' && e.target.closest('.pillar-text-get-in-touch, .pillar-scroll-get-in-touch')) {
     
     scrollClickInteraction(scrollsAll.scrollGetInTouch, '--get-in-touch-back-in-animation', '--get-in-touch-after-flip-grow', 'get-in-touch');
-  };
-};
+  }
+}
 
 function scrollHoverInteraction(target, propertyName) {
   target.forEach(element => {
@@ -171,7 +171,7 @@ function scrollHoverInteraction(target, propertyName) {
         console.log('gotta wait for animataion to finish');         
     }
   });
-};
+}
 
 
 function scrollClickInteraction(scrollName, var1, var2, target) {
@@ -193,8 +193,7 @@ function scrollClickInteraction(scrollName, var1, var2, target) {
       Promise.all(
           bgColor.getAnimations()
       .map((animation) => animation.finished))
-      .then(() => {
-          window.location.assign(`https://axellancieri.github.io/${target}`)})
+      .then(() => window.location.assign(`https://axellancieri.github.io/${target}`))
       .catch(error => console.log(`problem taking you to about page, ${error}`)); 
 };
 
@@ -204,7 +203,7 @@ footerSoil.addEventListener('click', (e) => {
     emailCopied(e, '.ff-mail-copy', myEmail, footerSoil);
 });
 
-/* This used to run on emailCopied function to create a p element that I ended up using a pseudo element later on. Leaving it here just in case I need this sort of behaviour at a later stage
+/* This used to run on emailCopied function to create a p element that I ended up using a pseudo element later on. Leaving it here just in case I need this sort of behaviour at some point
 
 const runOnce = (function() {
   // grabbed from https://www.geeksforgeeks.org/function-that-can-be-called-only-once-in-javascript/
