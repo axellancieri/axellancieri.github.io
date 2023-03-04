@@ -9622,6 +9622,9 @@ h5 {
   color: var(--projects-text-color);
   margin-top: 13em;
 }
+.projects-p9-link {
+  color: #90440e;
+}
 .projects-p {
   background-repeat: no-repeat;
   background-position: center;
