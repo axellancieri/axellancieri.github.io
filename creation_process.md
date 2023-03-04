@@ -1,1 +1,21 @@
 Probably if you're here you read a little about project 9 and have seen it already. If not here's a direct link to my portfolio :) '<a href="https://axellancieri.github.io/index"> Link </a>
+
+I was anticipating a 2 week project for what it would end up being almost 3 months of hard work. Looking at the project requirements to submit, it was not difficult and neither were the goals, I mean it's just a portfolio right? If only I knew design was so time consuming when you're trying to create something great you can't even envision it, probably I would have taken a shortcut but there I was, staring at a blank screen.
+
+Had no clue where to begin, even tho I did watch and took notes of many design videos.. Like I knew I wanted to have some sort of motion towards what I wanted the visitor to look at, and maybe I'd use some sort of color strategy to highlight where I wanted to direct the user's attention and even have a different pattern of shapes aswell to do that. There were so many things I learned but none was going to tell me what I needed most and that's how my site will look like.
+
+After many days of dismissing and letting through my head ideas on how I wanted my site to look like I realized that I needed a plan, direction. Something to grab myself onto when I feel overwhelmed and go from there. That's where I started to write down everything that I wanted to have on my portfolio, the layout that I imagined and the things I like such as green color, nature, animations, not necessarily a logo but some sort of image you see when the site loads, etc.
+
+That was the first milestone of many others, a long road ahead but I finally had some place to start off.
+
+So well, I figured, I want green color and nature on my site.. Then probably I want to have a tree, and my gf suggested I should have some squirrels going up and down and I thought hell why not (big mistake that alone took me almost 2 weeks but it is what it is and now it looks great :D). No regrets there.
+
+Once I had a tree we liked and the squirrels were on it behaving as intended and having some other animation here and there to make the whole image look alive I decided it was time to move forward. So now what? I realized it was wrong to have a tree and not any soil or something it stands on, that alone was a long process of me staring into the abyss trying to figure out now how should I proceed, I had something, but it was not a portfolio yet it was just a tree with a couple animals on it.
+
+I wasn't clear on how the site would develop yet, however I realized I needed the tree to stand on something so I went ahead and looked into many options and I found one I liked a lot which was a big piece of soil, then I added a few bushed left and right and was starting to look like a finished product.
+
+So I was very happy with the tree, but now I had to link it to the portfolio projecet somehow and that's when I came up with using the soil, which was huge, to add the title. Alright things were in motion I was very happy with it so far, not so much with how much time it was taking me but hey it's compensating with how much I'm learning regarding animations and designing a site for the first time so it's still great.
+
+Alright so we're rolling, now we need to keep this creative motion and get some direction towards how I'm going to direct the user attention towards the 3 links 'about me', 'projects' and 'get in touch'. Unfortunately the rolling stone must have hit some sort of bump on the road because it was not easy, I had many ideas such as having the tree grow roots and make each one a section, or have like a wooden road board with options on a stick that would spin left and right depending on what option you pick. None of these ideas where easy to implement and by that I don't mean code wise I'm referring to the available SVG's that I was able to look up.
+
+While browsing for other SVGs I did find some ones I liked, like some scrolls with flowers or leafs and a pillar that was pretty and the soil maybe can go on top of that? For some reason I liked the idea and then once I had them together it started to get direction again and I realized the
