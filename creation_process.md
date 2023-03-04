@@ -1,4 +1,4 @@
-Probably if you're here you read a little about project 9 and/or have seen it already. If not here's a direct link to my portfolio :) '<a href="https://axellancieri.github.io/index"> Link </a>
+Probably if you're here you read a little about project 9 and/or have seen it already. If not here's a direct '<a href="https://axellancieri.github.io/index"> link </a>' to my portfolio :).
 
 Had no clue where to begin, even tho I did watch and took notes of some design courses.. Like I knew I wanted to have some sort of motion towards what I wanted the visitor to look at, and maybe I'd use some sort of color strategy to highlight where I wanted to direct the user's attention and even have a different pattern of shapes or textures aswell to do that. The most important thing tho was not about some general ideal but having a clear idea on where to start.
 
