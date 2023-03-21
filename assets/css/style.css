@@ -7292,6 +7292,13 @@ progress {
   }
 }
 
+@media (min-width: 1200px) {
+  .mx-lg-9 {
+    margin-right: 20em !important;
+    margin-left: 20em !important;
+  }
+}
+
 nav .row {
   --bs-gutter-x: 0;
 }

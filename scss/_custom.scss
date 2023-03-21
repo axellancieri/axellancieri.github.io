@@ -88,6 +88,12 @@
         margin-left: 10em !important;
         };
 }
+.mx-lg-9 {
+    @include media-breakpoint-up(xl) {
+        margin-right: 20em !important;
+        margin-left: 20em !important;
+        };
+}
 nav .row {
     --bs-gutter-x: 0;
 }
