@@ -1,8 +1,14 @@
-export function emailCopied(e, className, email, querySelect) {
+export function emailCopied(e, className, emailClass, querySelect) {
 
   if (e.target.closest(`${className}`)) {
+    const emailPickerElem = querySelect.querySelector(`${emailClass}`);
 
-      navigator.clipboard.writeText(email.textContent)
+    if (!emailPickerElem) {
+      console.log ('no email found!');
+      return
+    }
+
+      navigator.clipboard.writeText(emailPickerElem.textContent)
 
       .then(function() {
               const successMsg = querySelect.querySelector(`${className}`);

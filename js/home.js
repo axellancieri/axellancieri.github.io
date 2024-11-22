@@ -16,7 +16,6 @@ const pillarLeafs = pillar.querySelector('.pillar-leafs');
 
 const footerSoil = document.querySelector('.footer-soil');
 const footerObjects = Array.from(footerSoil.querySelectorAll('object'));
-const myEmail = footerSoil.querySelector('.email');
 
 const scrollsAll = [
     // scrolls once loaded will go here
@@ -200,7 +199,7 @@ function scrollClickInteraction(scrollName, var1, var2, target) {
 /* Footer */
 
 footerSoil.addEventListener('click', (e) => {
-    emailCopied(e, '.ff-mail-copy', myEmail, footerSoil);
+    emailCopied(e, '.ff-mail-copy', '.email-text', footerSoil);
 });
 
 /* This used to run on emailCopied function to create a p element that I ended up using a pseudo element later on. Leaving it here just in case I need this sort of behaviour at some point
